@@ -157,7 +157,7 @@
 <body>
   <header>
     <h1><a href="/blogahrah/">blogahrah</a></h1>
-    <nav>
+    <nav id="main-nav">
       <a href="/">home</a>
       <a href="/blogahrah/">blog</a>
     </nav>
@@ -224,6 +224,13 @@
         const authRes = await fetch('/api/auth.php');
         const authData = await authRes.json();
         isAuthenticated = authData.authenticated;
+        if (isAuthenticated) {
+          const nav = document.getElementById('main-nav');
+          const writeLink = document.createElement('a');
+          writeLink.href = '/write/';
+          writeLink.textContent = 'write';
+          nav.appendChild(writeLink);
+        }
       } catch (e) {}
 
       try {

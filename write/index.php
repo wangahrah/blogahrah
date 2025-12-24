@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Write - blogahrah</title>
-  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css">
   <style>
     * { box-sizing: border-box; }
     body {
@@ -101,25 +101,113 @@
     }
     .upload-zone input { display: none; }
 
-    /* EasyMDE dark theme overrides */
-    .EasyMDEContainer .CodeMirror {
-      background: #2a2a2a;
-      color: #e0e0e0;
+    /* Toast UI Editor dark theme overrides */
+    .toastui-editor-defaultUI {
       border-color: #444;
     }
-    .EasyMDEContainer .editor-toolbar {
+    .toastui-editor-defaultUI-toolbar {
       background: #2a2a2a;
       border-color: #444;
     }
-    .EasyMDEContainer .editor-toolbar button { color: #e0e0e0 !important; }
-    .EasyMDEContainer .editor-toolbar button:hover { background: #444; }
-    .EasyMDEContainer .editor-preview {
+    .toastui-editor-toolbar-icons {
+      background-position-y: -49px;
+      filter: invert(0.8);
+    }
+    .toastui-editor-defaultUI-toolbar button {
+      border-color: transparent;
+    }
+    .toastui-editor-defaultUI-toolbar button:hover {
+      background: #444;
+    }
+    .toastui-editor-mode-switch {
+      background: #2a2a2a;
+      border-color: #444;
+    }
+    .toastui-editor-mode-switch .tab-item {
+      background: #1a1a1a;
+      color: #888;
+      border-color: #444;
+    }
+    .toastui-editor-mode-switch .tab-item.active {
+      background: #2a2a2a;
+      color: #00ff00;
+      border-color: #444;
+    }
+    .toastui-editor-ww-container,
+    .toastui-editor-md-container {
+      background: #2a2a2a;
+    }
+    .toastui-editor-contents,
+    .toastui-editor-md-preview {
       background: #2a2a2a;
       color: #e0e0e0;
     }
-    .EasyMDEContainer .editor-preview pre { background: #1a1a1a; }
-    .EasyMDEContainer .cm-s-easymde .cm-header { color: #00ff00; }
-    .EasyMDEContainer .cm-s-easymde .cm-link { color: #66aaff; }
+    .toastui-editor-contents h1,
+    .toastui-editor-contents h2,
+    .toastui-editor-contents h3 {
+      color: #00ff00;
+      border-color: #444;
+    }
+    .toastui-editor-contents a {
+      color: #66aaff;
+    }
+    .toastui-editor-contents pre,
+    .toastui-editor-contents code {
+      background: #1a1a1a;
+      color: #e0e0e0;
+    }
+    .ProseMirror {
+      color: #e0e0e0 !important;
+    }
+    .ProseMirror p,
+    .ProseMirror li,
+    .ProseMirror td,
+    .ProseMirror th {
+      color: #e0e0e0 !important;
+    }
+    .toastui-editor-ww-container .toastui-editor-contents p,
+    .toastui-editor-ww-container .toastui-editor-contents {
+      color: #e0e0e0 !important;
+    }
+    .toastui-editor-contents p {
+      color: #e0e0e0 !important;
+    }
+    .toastui-editor-contents[contenteditable="true"] {
+      color: #e0e0e0 !important;
+    }
+    .toastui-editor-contents[contenteditable="true"] * {
+      color: inherit !important;
+    }
+    .toastui-editor-contents[contenteditable="true"] a {
+      color: #66aaff !important;
+    }
+    .toastui-editor-contents[contenteditable="true"] h1,
+    .toastui-editor-contents[contenteditable="true"] h2,
+    .toastui-editor-contents[contenteditable="true"] h3 {
+      color: #00ff00 !important;
+    }
+    .toastui-editor-md-splitter {
+      background: #444;
+    }
+    .toastui-editor-popup {
+      background: #2a2a2a;
+      border-color: #444;
+    }
+    .toastui-editor-popup-body label {
+      color: #e0e0e0;
+    }
+    .toastui-editor-popup-body input {
+      background: #1a1a1a;
+      border-color: #444;
+      color: #e0e0e0;
+    }
+    .toastui-editor-dropdown-toolbar {
+      background: #2a2a2a;
+      border-color: #444;
+    }
+    #editor-wrapper {
+      min-height: 400px;
+    }
 
     .status { margin-top: 15px; padding: 10px; border-radius: 4px; }
     .status.success { background: #1a3a1a; color: #00ff00; }
@@ -199,7 +287,7 @@
         <input type="file" id="file-input" accept="image/*,video/*" multiple>
       </div>
 
-      <textarea id="editor"></textarea>
+      <div id="editor-wrapper"></div>
 
       <div class="actions">
         <button class="btn btn-primary" id="save-btn" onclick="savePost()">Publish</button>
@@ -211,9 +299,9 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
   <script>
-    let easyMDE;
+    let editor;
     let csrfToken = null;
     let editingSlug = null;
     let allPosts = [];
@@ -228,7 +316,7 @@
       if (data.authenticated) {
         csrfToken = data.csrf_token;
         showEditor();
-        loadPostList();
+        await loadPostList();
         checkEditParam();
       }
 
@@ -287,8 +375,8 @@
       editingSlug = slug;
       document.getElementById('title').value = post.title;
       document.getElementById('date').value = post.date;
-      easyMDE.value(post.content);
-      localStorage.removeItem('smde_blogahrah-draft');
+      editor.setMarkdown(post.content);
+      localStorage.removeItem('toastui-draft');
 
       document.getElementById('editor-heading').textContent = 'Edit Post';
       document.getElementById('save-btn').textContent = 'Update';
@@ -336,17 +424,27 @@
       document.getElementById('login-form').style.display = 'none';
       document.getElementById('editor-container').style.display = 'block';
 
-      if (!easyMDE) {
-        easyMDE = new EasyMDE({
-          element: document.getElementById('editor'),
-          spellChecker: false,
-          autosave: {
-            enabled: true,
-            uniqueId: 'blogahrah-draft',
-            delay: 1000
-          },
-          toolbar: ['bold', 'italic', 'heading', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide']
+      if (!editor) {
+        editor = new toastui.Editor({
+          el: document.getElementById('editor-wrapper'),
+          height: '400px',
+          initialEditType: 'wysiwyg',
+          previewStyle: 'vertical',
+          usageStatistics: false,
+          autofocus: false,
+          events: {
+            change: () => {
+              // Autosave to localStorage
+              localStorage.setItem('toastui-draft', editor.getMarkdown());
+            }
+          }
         });
+
+        // Restore draft if exists
+        const draft = localStorage.getItem('toastui-draft');
+        if (draft) {
+          editor.setMarkdown(draft);
+        }
       }
 
       setupUpload();
@@ -394,11 +492,8 @@
           const data = await res.json();
 
           if (data.success) {
-            // Insert markdown at end of document
-            const doc = easyMDE.codemirror.getDoc();
-            const lastLine = doc.lastLine();
-            const lastLineLength = doc.getLine(lastLine).length;
-            doc.replaceRange('\n' + data.markdown + '\n', {line: lastLine, ch: lastLineLength});
+            // Insert markdown at cursor position
+            editor.insertText('\n' + data.markdown + '\n');
             showStatus('Uploaded: ' + data.filename, 'success');
           } else {
             showStatus('Upload failed: ' + data.error, 'error');
@@ -412,7 +507,7 @@
     async function savePost() {
       const title = document.getElementById('title').value.trim();
       const date = document.getElementById('date').value;
-      const content = easyMDE.value().trim();
+      const content = editor.getMarkdown().trim();
 
       if (!title) {
         showStatus('Please enter a title', 'error');
@@ -458,8 +553,8 @@
       editingSlug = null;
       document.getElementById('title').value = '';
       document.getElementById('date').value = new Date().toISOString().split('T')[0];
-      easyMDE.value('');
-      localStorage.removeItem('smde_blogahrah-draft');
+      editor.setMarkdown('');
+      localStorage.removeItem('toastui-draft');
       document.getElementById('editor-heading').textContent = 'New Post';
       document.getElementById('save-btn').textContent = 'Publish';
       history.replaceState({}, '', '/write/');
