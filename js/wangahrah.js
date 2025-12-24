@@ -86,8 +86,9 @@ class Terminal {
       'CLEAR': () => { this.terminal.innerHTML = this.prompt; },
 
       'RESUME': () => this.navigate('resume.php', 'SEARCHING FOR RESUME'),
-      'BLOG': () => this.navigate('blogahrah/', 'SEARCHING FOR BLOG'),
+      'BLOG': () => this.navigate('/blogahrah/', 'SEARCHING FOR BLOG'),
       'WIKI': () => this.navigate('lifewiki/', 'SEARCHING FOR WIKI'),
+      'LINKEDIN': () => this.navigate('https://www.linkedin.com/in/michaelanfang/', 'OPENING LINKEDIN'),
     };
 
     const action = commands[command];
@@ -101,7 +102,7 @@ class Terminal {
   showHelp() {
     this.print(
       'Type a direction to go in that direction, or look to see where you can go.<br>' +
-      'You can also navigate to my resume, blog, or wiki by typing the appropriate destination.'
+      'You can also navigate to my blog, linkedin, resume, or wiki by typing the destination.'
     );
   }
 
