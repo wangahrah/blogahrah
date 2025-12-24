@@ -18,6 +18,14 @@ if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
     exit;
 }
 
+// Validate CSRF token
+$csrfToken = getCsrfTokenFromRequest();
+if (!validateCsrfToken($csrfToken)) {
+    http_response_code(403);
+    echo json_encode(['error' => 'Invalid CSRF token']);
+    exit;
+}
+
 // Check if file uploaded
 if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
     http_response_code(400);
@@ -29,12 +37,27 @@ $file = $_FILES['file'];
 
 // Validate file type
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
+if ($finfo === false) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Server configuration error']);
+    exit;
+}
 $mimeType = finfo_file($finfo, $file['tmp_name']);
 finfo_close($finfo);
 
-if (!in_array($mimeType, ALLOWED_TYPES)) {
+if (!array_key_exists($mimeType, ALLOWED_TYPES)) {
     http_response_code(400);
-    echo json_encode(['error' => 'File type not allowed: ' . $mimeType]);
+    echo json_encode(['error' => 'File type not allowed']);
+    exit;
+}
+
+// Get and validate extension
+$ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+$allowedExts = ALLOWED_TYPES[$mimeType];
+
+if (!in_array($ext, $allowedExts)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'File extension does not match content type']);
     exit;
 }
 
@@ -50,9 +73,12 @@ if (!is_dir(MEDIA_DIR)) {
     mkdir(MEDIA_DIR, 0755, true);
 }
 
-// Generate unique filename
-$ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+// Generate unique filename with validated extension
 $safeName = preg_replace('/[^a-zA-Z0-9_-]/', '', pathinfo($file['name'], PATHINFO_FILENAME));
+$safeName = substr($safeName, 0, 50); // Limit filename length
+if (empty($safeName)) {
+    $safeName = 'upload';
+}
 $filename = date('Y-m-d') . '-' . $safeName . '-' . bin2hex(random_bytes(4)) . '.' . $ext;
 $filepath = MEDIA_DIR . '/' . $filename;
 

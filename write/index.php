@@ -127,6 +127,43 @@
 
     .back-link { color: #00ff00; text-decoration: none; }
     .back-link:hover { text-decoration: underline; }
+
+    /* Post list for editing */
+    .post-picker {
+      background: #2a2a2a;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .post-picker-header {
+      padding: 12px 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #444;
+    }
+    .post-picker-header:hover { background: #333; }
+    .post-picker-header span { color: #888; }
+    .post-picker-list {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .post-picker.open .post-picker-list {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .post-picker-item {
+      padding: 10px 15px;
+      cursor: pointer;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+    }
+    .post-picker-item:hover { background: #333; }
+    .post-picker-item:last-child { border-bottom: none; }
+    .post-picker-item .date { color: #666; font-size: 0.85em; }
   </style>
 </head>
 <body>
@@ -142,7 +179,15 @@
     <!-- Editor (hidden until logged in) -->
     <div id="editor-container">
       <p><a href="/" class="back-link">&larr; Back to site</a> | <a href="/blogahrah/" class="back-link">View blog</a></p>
-      <h1>New Post</h1>
+
+      <div class="post-picker" id="post-picker">
+        <div class="post-picker-header" onclick="togglePostPicker()">
+          Edit existing post <span id="picker-arrow">▼</span>
+        </div>
+        <div class="post-picker-list" id="post-picker-list"></div>
+      </div>
+
+      <h1 id="editor-heading">New Post</h1>
 
       <div class="form-row">
         <input type="text" id="title" placeholder="Post title">
@@ -157,8 +202,8 @@
       <textarea id="editor"></textarea>
 
       <div class="actions">
-        <button class="btn btn-primary" onclick="savePost()">Publish</button>
-        <button class="btn btn-secondary" onclick="clearEditor()">Clear</button>
+        <button class="btn btn-primary" id="save-btn" onclick="savePost()">Publish</button>
+        <button class="btn btn-secondary" onclick="newPost()">New Post</button>
         <button class="btn btn-secondary" onclick="logout()">Logout</button>
       </div>
 
@@ -169,6 +214,9 @@
   <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
   <script>
     let easyMDE;
+    let csrfToken = null;
+    let editingSlug = null;
+    let allPosts = [];
 
     // Check auth on load
     document.addEventListener('DOMContentLoaded', async () => {
@@ -178,7 +226,10 @@
       const data = await res.json();
 
       if (data.authenticated) {
+        csrfToken = data.csrf_token;
         showEditor();
+        loadPostList();
+        checkEditParam();
       }
 
       // Enter key to login
@@ -186,6 +237,75 @@
         if (e.key === 'Enter') login();
       });
     });
+
+    function checkEditParam() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('edit');
+      if (slug) {
+        loadPost(slug);
+      }
+    }
+
+    async function loadPostList() {
+      try {
+        const res = await fetch('/api/posts.php');
+        allPosts = await res.json();
+        renderPostPicker();
+      } catch (e) {
+        console.error('Failed to load posts', e);
+      }
+    }
+
+    function renderPostPicker() {
+      const list = document.getElementById('post-picker-list');
+      if (allPosts.length === 0) {
+        list.innerHTML = '<div class="post-picker-item" style="color:#666;">No posts yet</div>';
+        return;
+      }
+      list.innerHTML = allPosts.map(post => `
+        <div class="post-picker-item" onclick="loadPost('${post.slug}')">
+          <span>${escapeHtml(post.title)}</span>
+          <span class="date">${post.date}</span>
+        </div>
+      `).join('');
+    }
+
+    function togglePostPicker() {
+      const picker = document.getElementById('post-picker');
+      const arrow = document.getElementById('picker-arrow');
+      picker.classList.toggle('open');
+      arrow.textContent = picker.classList.contains('open') ? '▲' : '▼';
+    }
+
+    function loadPost(slug) {
+      const post = allPosts.find(p => p.slug === slug);
+      if (!post) {
+        showStatus('Post not found', 'error');
+        return;
+      }
+
+      editingSlug = slug;
+      document.getElementById('title').value = post.title;
+      document.getElementById('date').value = post.date;
+      easyMDE.value(post.content);
+      localStorage.removeItem('smde_blogahrah-draft');
+
+      document.getElementById('editor-heading').textContent = 'Edit Post';
+      document.getElementById('save-btn').textContent = 'Update';
+
+      // Update URL without reload
+      history.replaceState({}, '', '?edit=' + slug);
+
+      // Close picker
+      document.getElementById('post-picker').classList.remove('open');
+      document.getElementById('picker-arrow').textContent = '▼';
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
 
     async function login() {
       const password = document.getElementById('password').value;
@@ -199,6 +319,8 @@
         });
 
         if (res.ok) {
+          const data = await res.json();
+          csrfToken = data.csrf_token;
           showEditor();
         } else {
           errorEl.textContent = 'Invalid password';
@@ -265,15 +387,18 @@
         try {
           const res = await fetch('/api/upload.php', {
             method: 'POST',
+            headers: { 'X-CSRF-Token': csrfToken },
             body: formData
           });
 
           const data = await res.json();
 
           if (data.success) {
-            // Insert markdown at cursor
-            const pos = easyMDE.codemirror.getCursor();
-            easyMDE.codemirror.replaceRange(data.markdown + '\n', pos);
+            // Insert markdown at end of document
+            const doc = easyMDE.codemirror.getDoc();
+            const lastLine = doc.lastLine();
+            const lastLineLength = doc.getLine(lastLine).length;
+            doc.replaceRange('\n' + data.markdown + '\n', {line: lastLine, ch: lastLineLength});
             showStatus('Uploaded: ' + data.filename, 'success');
           } else {
             showStatus('Upload failed: ' + data.error, 'error');
@@ -299,18 +424,28 @@
       }
 
       try {
+        const isEditing = editingSlug !== null;
+        const payload = isEditing
+          ? { slug: editingSlug, title, date, content }
+          : { title, date, content };
+
         const res = await fetch('/api/posts.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title, date, content })
+          method: isEditing ? 'PUT' : 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrfToken
+          },
+          body: JSON.stringify(payload)
         });
 
         const data = await res.json();
 
         if (data.success) {
-          showStatus('Published: ' + data.filename, 'success');
-          clearEditor();
-          localStorage.removeItem('smde_blogahrah-draft');
+          showStatus(isEditing ? 'Updated!' : 'Published: ' + data.filename, 'success');
+          if (!isEditing) {
+            newPost();
+          }
+          loadPostList(); // Refresh the post list
         } else {
           showStatus('Error: ' + data.error, 'error');
         }
@@ -319,11 +454,15 @@
       }
     }
 
-    function clearEditor() {
+    function newPost() {
+      editingSlug = null;
       document.getElementById('title').value = '';
       document.getElementById('date').value = new Date().toISOString().split('T')[0];
       easyMDE.value('');
       localStorage.removeItem('smde_blogahrah-draft');
+      document.getElementById('editor-heading').textContent = 'New Post';
+      document.getElementById('save-btn').textContent = 'Publish';
+      history.replaceState({}, '', '/write/');
     }
 
     async function logout() {

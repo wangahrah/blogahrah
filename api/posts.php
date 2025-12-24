@@ -44,6 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Validate CSRF token
+    $csrfToken = getCsrfTokenFromRequest();
+    if (!validateCsrfToken($csrfToken)) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Invalid CSRF token']);
+        exit;
+    }
+
     $input = json_decode(file_get_contents('php://input'), true);
     $title = $input['title'] ?? '';
     $content = $input['content'] ?? '';
@@ -55,8 +63,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Validate date format strictly to prevent path traversal
+    if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid date format']);
+        exit;
+    }
+
+    // Validate title length
+    if (strlen($title) > 200) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Title too long (max 200 characters)']);
+        exit;
+    }
+
     // Create slug from title
     $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
+    $slug = preg_replace('/-+/', '-', $slug); // Collapse multiple dashes
     $filename = $date . '-' . $slug . '.md';
     $filepath = BLOGS_DIR . '/' . $filename;
 
@@ -67,9 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Create markdown with frontmatter
+    // Create markdown with frontmatter (escape special YAML characters)
+    $safeTitle = str_replace([':', '#', '>', '|', '\n'], ['：', '＃', '＞', '｜', ' '], $title);
     $markdown = "---\n";
-    $markdown .= "title: " . $title . "\n";
+    $markdown .= "title: \"" . addslashes($safeTitle) . "\"\n";
     $markdown .= "date: " . $date . "\n";
     $markdown .= "---\n\n";
     $markdown .= $content;
@@ -87,6 +111,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
+// PUT - Update existing post (authenticated only)
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+    if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+        http_response_code(401);
+        echo json_encode(['error' => 'Not authenticated']);
+        exit;
+    }
+
+    // Validate CSRF token
+    $csrfToken = getCsrfTokenFromRequest();
+    if (!validateCsrfToken($csrfToken)) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Invalid CSRF token']);
+        exit;
+    }
+
+    $input = json_decode(file_get_contents('php://input'), true);
+    $slug = $input['slug'] ?? '';
+    $title = $input['title'] ?? '';
+    $content = $input['content'] ?? '';
+    $date = $input['date'] ?? '';
+
+    if (empty($slug) || empty($title) || empty($content)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Slug, title and content required']);
+        exit;
+    }
+
+    // Validate date format
+    if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid date format']);
+        exit;
+    }
+
+    // Validate title length
+    if (strlen($title) > 200) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Title too long (max 200 characters)']);
+        exit;
+    }
+
+    // Find existing file by slug
+    $filepath = BLOGS_DIR . '/' . $slug . '.md';
+    if (!file_exists($filepath)) {
+        http_response_code(404);
+        echo json_encode(['error' => 'Post not found']);
+        exit;
+    }
+
+    // Create updated markdown with frontmatter
+    $safeTitle = str_replace([':', '#', '>', '|', '\n'], ['：', '＃', '＞', '｜', ' '], $title);
+    $markdown = "---\n";
+    $markdown .= "title: \"" . addslashes($safeTitle) . "\"\n";
+    $markdown .= "date: " . $date . "\n";
+    $markdown .= "---\n\n";
+    $markdown .= $content;
+
+    if (file_put_contents($filepath, $markdown)) {
+        echo json_encode(['success' => true, 'slug' => $slug]);
+    } else {
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to update post']);
+    }
+    exit;
+}
+
 http_response_code(405);
 echo json_encode(['error' => 'Method not allowed']);
 
@@ -99,7 +190,10 @@ function parseFromtmatter($content) {
         $result['content'] = trim($matches[2]);
 
         foreach (explode("\n", $frontmatter) as $line) {
-            if (preg_match('/^(\w+):\s*(.*)$/', $line, $m)) {
+            if (preg_match('/^(\w+):\s*"(.*)"\s*$/', $line, $m)) {
+                // Handle quoted values
+                $result[$m[1]] = stripslashes($m[2]);
+            } elseif (preg_match('/^(\w+):\s*(.*)$/', $line, $m)) {
                 $result[$m[1]] = $m[2];
             }
         }
