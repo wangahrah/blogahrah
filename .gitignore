@@ -1,0 +1,13 @@
+# Uploaded media (can get large)
+media/*
+!media/.gitkeep
+
+# Keep blogs in git (they're your content!)
+# blogs/
+
+# PHP sessions if stored locally
+.sessions/
+
+# OS files
+.DS_Store
+Thumbs.db
