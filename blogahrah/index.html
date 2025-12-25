@@ -14,6 +14,7 @@
       min-height: 300px;
       padding: 20px;
       font-family: monospace;
+      font-size: 125%;
       color: #00FF00;
       text-align: left;
       background-color: black;
@@ -381,7 +382,7 @@
 
       container.innerHTML = posts.map(post => {
         const thumb = getFirstImage(post.content);
-        const excerpt = post.content.substring(0, 200).replace(/[#*_`!\[\]()]/g, '').replace(/\/media\/\S+/g, '').trim() + '...';
+        const excerpt = post.content.substring(0, 2000).replace(/!\[.*?\]\([^)]*\)/g, '').replace(/<img[^>]*>/g, '').replace(/data:image\/[^\s)]+/g, '').replace(/[#*_`!\[\]()]/g, '').substring(0, 200).trim() + '...';
         const editLink = isAuthenticated ? `<a href="/write/?edit=${post.slug}" class="edit-link">[edit]</a>` : '';
         const privateIndicator = post.private ? ' <span class="private-indicator">[private]</span>' : '';
         return `
@@ -427,11 +428,11 @@
     }
 
     function getFirstImage(content) {
-      // Match markdown image: ![alt](url)
-      const mdMatch = content.match(/!\[.*?\]\((\/media\/[^)]+)\)/);
+      // Match markdown image: ![alt](url) - /media/ paths or data URLs
+      const mdMatch = content.match(/!\[.*?\]\(((?:\/media\/[^)]+|data:image\/[^)]+))\)/);
       if (mdMatch) return mdMatch[1];
       // Match HTML img: <img src="url"
-      const htmlMatch = content.match(/<img[^>]+src=["'](\/media\/[^"']+)["']/);
+      const htmlMatch = content.match(/<img[^>]+src=["']((?:\/media\/[^"']+|data:image\/[^"']+))["']/);
       if (htmlMatch) return htmlMatch[1];
       return null;
     }

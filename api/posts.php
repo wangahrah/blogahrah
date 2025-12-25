@@ -192,6 +192,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     exit;
 }
 
+// DELETE - Delete existing post (authenticated only)
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+        http_response_code(401);
+        echo json_encode(['error' => 'Not authenticated']);
+        exit;
+    }
+
+    // Validate CSRF token
+    $csrfToken = getCsrfTokenFromRequest();
+    if (!validateCsrfToken($csrfToken)) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Invalid CSRF token']);
+        exit;
+    }
+
+    $input = json_decode(file_get_contents('php://input'), true);
+    $slug = $input['slug'] ?? '';
+
+    if (empty($slug)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Slug required']);
+        exit;
+    }
+
+    // Validate slug format to prevent path traversal
+    if (!preg_match('/^[a-zA-Z0-9\-]+$/', $slug)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid slug format']);
+        exit;
+    }
+
+    // Find existing file by slug
+    $filepath = BLOGS_DIR . '/' . $slug . '.md';
+    if (!file_exists($filepath)) {
+        http_response_code(404);
+        echo json_encode(['error' => 'Post not found']);
+        exit;
+    }
+
+    if (unlink($filepath)) {
+        echo json_encode(['success' => true, 'slug' => $slug]);
+    } else {
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to delete post']);
+    }
+    exit;
+}
+
 http_response_code(405);
 echo json_encode(['error' => 'Method not allowed']);
 

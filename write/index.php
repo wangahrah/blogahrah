@@ -85,6 +85,8 @@
     .btn-primary:hover { background: #00cc00; }
     .btn-secondary { background: #444; color: #e0e0e0; }
     .btn-secondary:hover { background: #555; }
+    .btn-danger { background: #cc0000; color: #fff; }
+    .btn-danger:hover { background: #aa0000; }
 
     /* Toast UI Editor dark theme overrides */
     .toastui-editor-defaultUI {
@@ -373,6 +375,7 @@
       <div class="actions">
         <button class="btn btn-primary" id="save-btn" onclick="savePost()">Publish</button>
         <button class="btn btn-secondary" onclick="newPost()">New Post</button>
+        <button class="btn btn-danger" id="delete-btn" onclick="deletePost()" style="display:none;">Delete</button>
         <button class="btn btn-secondary" onclick="logout()">Logout</button>
       </div>
 
@@ -465,6 +468,7 @@
 
       document.getElementById('editor-heading').textContent = 'Edit Post';
       document.getElementById('save-btn').textContent = 'Update';
+      document.getElementById('delete-btn').style.display = 'inline-block';
 
       // Update URL without reload
       history.replaceState({}, '', '?edit=' + slug);
@@ -612,7 +616,43 @@
       localStorage.removeItem('toastui-draft');
       document.getElementById('editor-heading').textContent = 'New Post';
       document.getElementById('save-btn').textContent = 'Publish';
+      document.getElementById('delete-btn').style.display = 'none';
       history.replaceState({}, '', '/write/');
+    }
+
+    async function deletePost() {
+      if (!editingSlug) {
+        showStatus('No post selected to delete', 'error');
+        return;
+      }
+
+      const title = document.getElementById('title').value;
+      if (!confirm(`Are you sure you want to delete "${title}"?\n\nThis action cannot be undone.`)) {
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/posts.php', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrfToken
+          },
+          body: JSON.stringify({ slug: editingSlug })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          localStorage.removeItem('toastui-draft');
+          // Redirect to blog list
+          window.location.href = '/blogahrah/';
+        } else {
+          showStatus('Error: ' + data.error, 'error');
+        }
+      } catch (e) {
+        showStatus('Delete error: ' + e.message, 'error');
+      }
     }
 
     async function logout() {
