@@ -110,13 +110,17 @@
     }
     .toastui-editor-toolbar-icons {
       background-position-y: -49px;
-      filter: invert(0.8);
+      filter: brightness(1.8);
     }
     .toastui-editor-defaultUI-toolbar button {
       border-color: transparent;
+      opacity: 1;
     }
     .toastui-editor-defaultUI-toolbar button:hover {
       background: #333;
+    }
+    .toastui-editor-toolbar-group button {
+      filter: brightness(1.8);
     }
     .toastui-editor-mode-switch {
       background: #111;
@@ -140,6 +144,9 @@
     .toastui-editor-md-preview {
       background: black;
       color: #00FF00;
+      font-family: monospace;
+      font-size: 125%;
+      line-height: 1.8em;
     }
     .toastui-editor-contents h1,
     .toastui-editor-contents h2,
@@ -150,13 +157,35 @@
     .toastui-editor-contents a {
       color: #00ff00;
     }
-    .toastui-editor-contents pre,
+    .toastui-editor-contents pre {
+      background: #111;
+      color: #00FF00;
+      padding: 15px;
+      border-radius: 3px;
+      border: 1px solid #333;
+    }
     .toastui-editor-contents code {
       background: #111;
       color: #00FF00;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+    .toastui-editor-contents p code {
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    .toastui-editor-contents blockquote {
+      border-left: 3px solid #00ff00;
+      margin-left: 0;
+      padding-left: 20px;
+      color: #888;
+      font-style: italic;
     }
     .ProseMirror {
       color: #00FF00 !important;
+      font-family: monospace !important;
+      font-size: 125% !important;
+      line-height: 1.8em !important;
     }
     .ProseMirror p,
     .ProseMirror li,
