@@ -1,6 +1,6 @@
-# Uploaded media (can get large)
-media/*
-!media/.gitkeep
+# Uploaded media
+# media/*
+# !media/.gitkeep
 
 # Keep blogs in git (they're your content!)
 # blogs/
