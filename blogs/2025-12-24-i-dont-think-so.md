@@ -1,7 +1,6 @@
 ---
-title: "Hello World"
+title: "I dont think so"
 date: 2025-12-24
-private: true
 ---
 
 Welcome to blogahrah! This is a sample post to get you started.
@@ -14,6 +13,9 @@ This blog supports:
 * `code blocks` and syntax highlighting
 * Images and video embeds
 * Simple and clean design
+
+`This is`
+![staff1.jpeg](/media/2025-12-24-staff1-476ea14e.jpeg)
 
 ## Writing Posts
 
