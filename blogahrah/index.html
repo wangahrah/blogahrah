@@ -25,9 +25,13 @@
       margin-bottom: 20px;
       padding-bottom: 15px;
       border-bottom: 1px solid #333;
+      text-align: right;
     }
-    .blog-nav a {
-      margin-right: 20px;
+    .michael-only {
+      color: #666;
+    }
+    .michael-only:hover {
+      color: #00FF00;
     }
 
     /* Post list view */
@@ -38,6 +42,10 @@
       margin-bottom: 25px;
       padding-bottom: 25px;
       border-bottom: 1px solid #333;
+      cursor: pointer;
+    }
+    .post-item:hover {
+      background-color: #111;
     }
     .post-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .post-thumb {
@@ -55,14 +63,14 @@
       font-size: 1.3em;
       font-family: monospace;
     }
-    .post-item h2 a { text-decoration: none; }
+    .post-item h2 a { text-decoration: none; color: #00FF00; }
     .post-item .date {
       color: #666;
       font-size: 0.9em;
     }
     .post-item .excerpt {
       margin-top: 10px;
-      color: #888;
+      color: #00FF00;
     }
 
     /* Single post view */
@@ -255,8 +263,7 @@
   <div class="container">
     <div class="blog-content">
       <div class="blog-nav" id="main-nav">
-        <a href="/">&larr; home</a>
-        <a href="/blogahrah/">blogahrah</a>
+        <a href="/write/" class="michael-only">keep out michael only</a>
       </div>
 
       <div id="loading" class="loading">Loading posts...</div>
@@ -327,13 +334,6 @@
         const authRes = await fetch('/api/auth.php');
         const authData = await authRes.json();
         isAuthenticated = authData.authenticated;
-        if (isAuthenticated) {
-          const nav = document.getElementById('main-nav');
-          const writeLink = document.createElement('a');
-          writeLink.href = '/write/';
-          writeLink.textContent = 'write';
-          nav.appendChild(writeLink);
-        }
       } catch (e) {}
 
       try {
@@ -383,13 +383,13 @@
       container.innerHTML = posts.map(post => {
         const thumb = getFirstImage(post.content);
         const excerpt = post.content.substring(0, 2000).replace(/!\[.*?\]\([^)]*\)/g, '').replace(/<img[^>]*>/g, '').replace(/data:image\/[^\s)]+/g, '').replace(/[#*_`!\[\]()]/g, '').substring(0, 200).trim() + '...';
-        const editLink = isAuthenticated ? `<a href="/write/?edit=${post.slug}" class="edit-link">[edit]</a>` : '';
+        const editLink = isAuthenticated ? `<a href="/write/?edit=${post.slug}" class="edit-link" onclick="event.stopPropagation()">[edit]</a>` : '';
         const privateIndicator = post.private ? ' <span class="private-indicator">[private]</span>' : '';
         return `
-          <li class="post-item">
+          <li class="post-item" onclick="navigate('${post.slug}', event)">
             ${thumb ? `<img src="${escapeHtml(thumb)}" alt="" class="post-thumb">` : ''}
             <div class="post-info">
-              <h2><a href="?p=${post.slug}" onclick="navigate('${post.slug}', event)">${escapeHtml(post.title)}</a>${privateIndicator}${editLink}</h2>
+              <h2><a href="?p=${post.slug}">${escapeHtml(post.title)}</a>${privateIndicator}${editLink}</h2>
               <div class="date">${post.date}</div>
               <div class="excerpt">${escapeHtml(excerpt)}</div>
             </div>

@@ -4,37 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Write - blogahrah</title>
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/main.css">
   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css">
   <style>
     * { box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #1a1a1a;
-      color: #e0e0e0;
-      margin: 0;
+
+    .write-content {
+      min-height: 300px;
       padding: 20px;
-      min-height: 100vh;
+      font-family: monospace;
+      color: #00FF00;
+      text-align: left;
+      background-color: black;
     }
-    .container { max-width: 900px; margin: 0 auto; }
-    h1 { color: #00ff00; margin-bottom: 20px; }
+
+    h1 { color: #00ff00; margin-bottom: 20px; font-family: monospace; }
 
     /* Login form */
     #login-form {
       max-width: 300px;
-      margin: 100px auto;
+      margin: 50px auto;
       padding: 30px;
-      background: #2a2a2a;
-      border-radius: 8px;
+      background: black;
+      border: 1px solid #333;
     }
     #login-form input {
       width: 100%;
       padding: 12px;
       margin-bottom: 15px;
-      border: 1px solid #444;
-      border-radius: 4px;
-      background: #1a1a1a;
-      color: #e0e0e0;
+      border: 1px solid #333;
+      background: black;
+      color: #00FF00;
       font-size: 16px;
+      font-family: monospace;
+    }
+    #login-form input:focus {
+      outline: 1px solid #00FF00;
     }
     #login-form button {
       width: 100%;
@@ -42,13 +48,13 @@
       background: #00ff00;
       color: #000;
       border: none;
-      border-radius: 4px;
       font-size: 16px;
       cursor: pointer;
       font-weight: bold;
+      font-family: monospace;
     }
     #login-form button:hover { background: #00cc00; }
-    .error { color: #ff4444; margin-bottom: 15px; }
+    .error { color: #ff4444; margin-bottom: 15px; font-family: monospace; }
 
     /* Editor */
     #editor-container { display: none; }
@@ -60,13 +66,19 @@
     .form-row input {
       flex: 1;
       padding: 12px;
-      border: 1px solid #444;
-      border-radius: 4px;
-      background: #2a2a2a;
-      color: #e0e0e0;
+      border: 1px solid #333;
+      background: black;
+      color: #00FF00;
       font-size: 16px;
+      font-family: monospace;
+    }
+    .form-row input:focus {
+      outline: 1px solid #00FF00;
     }
     .form-row input[type="date"] { max-width: 200px; }
+    .form-row input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
 
     .actions {
       display: flex;
@@ -75,26 +87,26 @@
     }
     .btn {
       padding: 12px 24px;
-      border: none;
-      border-radius: 4px;
+      border: 1px solid #333;
       font-size: 16px;
       cursor: pointer;
       font-weight: bold;
+      font-family: monospace;
     }
-    .btn-primary { background: #00ff00; color: #000; }
+    .btn-primary { background: #00ff00; color: #000; border-color: #00ff00; }
     .btn-primary:hover { background: #00cc00; }
-    .btn-secondary { background: #444; color: #e0e0e0; }
-    .btn-secondary:hover { background: #555; }
-    .btn-danger { background: #cc0000; color: #fff; }
-    .btn-danger:hover { background: #aa0000; }
+    .btn-secondary { background: black; color: #00FF00; }
+    .btn-secondary:hover { background: #111; }
+    .btn-danger { background: black; color: #ff4444; border-color: #ff4444; }
+    .btn-danger:hover { background: #1a0000; }
 
     /* Toast UI Editor dark theme overrides */
     .toastui-editor-defaultUI {
-      border-color: #444;
+      border-color: #333;
     }
     .toastui-editor-defaultUI-toolbar {
-      background: #2a2a2a;
-      border-color: #444;
+      background: #111;
+      border-color: #333;
     }
     .toastui-editor-toolbar-icons {
       background-position-y: -49px;
@@ -104,69 +116,69 @@
       border-color: transparent;
     }
     .toastui-editor-defaultUI-toolbar button:hover {
-      background: #444;
+      background: #333;
     }
     .toastui-editor-mode-switch {
-      background: #2a2a2a;
-      border-color: #444;
+      background: #111;
+      border-color: #333;
     }
     .toastui-editor-mode-switch .tab-item {
-      background: #1a1a1a;
+      background: black;
       color: #888;
-      border-color: #444;
+      border-color: #333;
     }
     .toastui-editor-mode-switch .tab-item.active {
-      background: #2a2a2a;
+      background: #111;
       color: #00ff00;
-      border-color: #444;
+      border-color: #333;
     }
     .toastui-editor-ww-container,
     .toastui-editor-md-container {
-      background: #2a2a2a;
+      background: black;
     }
     .toastui-editor-contents,
     .toastui-editor-md-preview {
-      background: #2a2a2a;
-      color: #e0e0e0;
+      background: black;
+      color: #00FF00;
     }
     .toastui-editor-contents h1,
     .toastui-editor-contents h2,
     .toastui-editor-contents h3 {
       color: #00ff00;
-      border-color: #444;
+      border-color: #333;
     }
     .toastui-editor-contents a {
-      color: #66aaff;
+      color: #00ff00;
     }
     .toastui-editor-contents pre,
     .toastui-editor-contents code {
-      background: #1a1a1a;
-      color: #e0e0e0;
+      background: #111;
+      color: #00FF00;
     }
     .ProseMirror {
-      color: #e0e0e0 !important;
+      color: #00FF00 !important;
     }
     .ProseMirror p,
     .ProseMirror li,
     .ProseMirror td,
     .ProseMirror th {
-      color: #e0e0e0 !important;
+      color: #00FF00 !important;
     }
     .toastui-editor-ww-container .toastui-editor-contents p,
     .toastui-editor-ww-container .toastui-editor-contents {
-      color: #e0e0e0 !important;
+      color: #00FF00 !important;
     }
     .toastui-editor-contents p {
-      color: #e0e0e0 !important;
+      color: #00FF00 !important;
     }
     .toastui-editor-contents[contenteditable="true"] {
-      color: #e0e0e0 !important;
+      color: #00FF00 !important;
     }
     .toastui-editor-contents[contenteditable="true"] * {
       color: inherit !important;
     }
     .toastui-editor-contents[contenteditable="true"] a {
-      color: #66aaff !important;
+      color: #00ff00 !important;
     }
     .toastui-editor-contents[contenteditable="true"] h1,
     .toastui-editor-contents[contenteditable="true"] h2,
@@ -178,84 +190,41 @@
       display: block;
       max-width: 100%;
       height: auto;
-      border-radius: 5px;
+      border-radius: 3px;
       margin: 20px auto;
+      border: 1px solid #333;
     }
     .toastui-editor-md-splitter {
-      background: #444;
+      background: #333;
     }
     .toastui-editor-popup {
-      background: #2a2a2a;
-      border-color: #444;
+      background: black;
+      border-color: #333;
     }
     .toastui-editor-popup-body label {
-      color: #e0e0e0;
+      color: #00FF00;
     }
     .toastui-editor-popup-body input {
-      background: #1a1a1a;
-      border-color: #444;
-      color: #e0e0e0;
+      background: black;
+      border-color: #333;
+      color: #00FF00;
     }
     .toastui-editor-dropdown-toolbar {
-      background: #2a2a2a;
-      border-color: #444;
+      background: #111;
+      border-color: #333;
     }
     #editor-wrapper {
       min-height: 300px;
     }
 
-    .status { margin-top: 15px; padding: 10px; border-radius: 4px; }
-    .status.success { background: #1a3a1a; color: #00ff00; }
-    .status.error { background: #3a1a1a; color: #ff4444; }
-
-    .back-link { color: #00ff00; text-decoration: none; }
-    .back-link:hover { text-decoration: underline; }
-
-    /* Post list for editing */
-    .post-picker {
-      background: #2a2a2a;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-    .post-picker-header {
-      padding: 12px 15px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #444;
-    }
-    .post-picker-header:hover { background: #333; }
-    .post-picker-header span { color: #888; }
-    .post-picker-list {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    .post-picker.open .post-picker-list {
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    .post-picker-item {
-      padding: 10px 15px;
-      cursor: pointer;
-      border-bottom: 1px solid #333;
-      display: flex;
-      justify-content: space-between;
-    }
-    .post-picker-item:hover { background: #333; }
-    .post-picker-item:last-child { border-bottom: none; }
-    .post-picker-item .date { color: #666; font-size: 0.85em; }
+    .status { margin-top: 15px; padding: 10px; border: 1px solid #333; font-family: monospace; }
+    .status.success { background: black; color: #00ff00; border-color: #00ff00; }
+    .status.error { background: black; color: #ff4444; border-color: #ff4444; }
 
     /* Mobile responsive styles */
     @media screen and (max-width: 768px) {
-      body {
+      .write-content {
         padding: 15px;
-      }
-
-      .container {
-        max-width: 100%;
       }
 
       h1 {
@@ -288,16 +257,11 @@
       .toastui-editor-defaultUI {
         min-height: 300px;
       }
-
-      .post-picker-item {
-        flex-direction: column;
-        gap: 5px;
-      }
     }
 
     @media screen and (max-width: 480px) {
-      body {
-        padding: 10px;
+      .write-content {
+        padding: 12px;
       }
 
       h1 {
@@ -305,7 +269,7 @@
       }
 
       #login-form {
-        margin: 50px auto;
+        margin: 30px auto;
         padding: 20px;
       }
 
@@ -318,77 +282,76 @@
         padding: 10px 12px;
         font-size: 14px;
       }
-
-      .post-picker-header {
-        padding: 10px 12px;
-        font-size: 0.9em;
-      }
-
-      .post-picker-item {
-        padding: 8px 12px;
-        font-size: 0.9em;
-      }
-
-      .back-link {
-        font-size: 0.9em;
-      }
     }
   </style>
 </head>
 <body>
+  <div id="head">
+    <a href="/"><img id="logo" alt="logo" src="/img/logo.png"></a>
+    <ul id="navlist">
+      <li><a href="/blogahrah/">blogahrah</a></li>
+      <li><a href="https://www.linkedin.com/in/michaelanfang/" target="_blank">linkedin</a></li>
+      <li><a href="https://anarchyincubator.com/" target="_blank">anarchy incubator</a></li>
+      <li><a href="https://divinemetaphor.com/" target="_blank">divine metaphor</a></li>
+    </ul>
+  </div>
+
   <div class="container">
-    <!-- Login Form -->
-    <div id="login-form">
-      <h1>Login</h1>
-      <div id="login-error" class="error" style="display:none;"></div>
-      <input type="password" id="password" placeholder="Password" autofocus>
-      <button onclick="login()">Enter</button>
-    </div>
+    <div class="write-content">
+      <!-- Login Form -->
+      <div id="login-form">
+        <h1>speak friend and enter</h1>
+        <div id="login-error" class="error" style="display:none;"></div>
+        <input type="password" id="password" placeholder="Password" autofocus>
+        <button onclick="login()">Enter</button>
+      </div>
 
-    <!-- Editor (hidden until logged in) -->
-    <div id="editor-container">
-      <p><a href="/" class="back-link">&larr; Back to site</a> | <a href="/blogahrah/" class="back-link">View blog</a></p>
+      <!-- Editor (hidden until logged in) -->
+      <div id="editor-container">
+        <h1 id="editor-heading">New Post</h1>
 
-      <div class="post-picker" id="post-picker">
-        <div class="post-picker-header" onclick="togglePostPicker()">
-          Edit existing post <span id="picker-arrow">▼</span>
+        <div class="form-row">
+          <input type="text" id="title" placeholder="Post title">
+          <input type="date" id="date">
         </div>
-        <div class="post-picker-list" id="post-picker-list"></div>
+
+        <div class="form-row" style="justify-content: flex-start;">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-family: monospace;">
+            <input type="checkbox" id="private" style="width: auto; accent-color: #00ff00;">
+            <span>Make private (only visible when logged in)</span>
+          </label>
+        </div>
+
+        <div id="editor-wrapper"></div>
+
+        <div class="actions">
+          <button class="btn btn-primary" id="save-btn" onclick="savePost()">Publish</button>
+          <button class="btn btn-secondary" onclick="newPost()">New Post</button>
+          <button class="btn btn-danger" id="delete-btn" onclick="deletePost()" style="display:none;">Delete</button>
+          <button class="btn btn-secondary" onclick="logout()">Logout</button>
+        </div>
+
+        <div id="status" class="status" style="display:none;"></div>
       </div>
-
-      <h1 id="editor-heading">New Post</h1>
-
-      <div class="form-row">
-        <input type="text" id="title" placeholder="Post title">
-        <input type="date" id="date">
-      </div>
-
-      <div class="form-row" style="justify-content: flex-start;">
-        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-          <input type="checkbox" id="private" style="width: auto; accent-color: #00ff00;">
-          <span>Make private (only visible when logged in)</span>
-        </label>
-      </div>
-
-      <div id="editor-wrapper"></div>
-
-      <div class="actions">
-        <button class="btn btn-primary" id="save-btn" onclick="savePost()">Publish</button>
-        <button class="btn btn-secondary" onclick="newPost()">New Post</button>
-        <button class="btn btn-danger" id="delete-btn" onclick="deletePost()" style="display:none;">Delete</button>
-        <button class="btn btn-secondary" onclick="logout()">Logout</button>
-      </div>
-
-      <div id="status" class="status" style="display:none;"></div>
     </div>
   </div>
+
+  <footer class="footer">
+    <ul class="footlist">
+      <li>copyright 2025</li>
+      <li><a href="/blogahrah/">blogahrah</a></li>
+      <li><a href="https://www.linkedin.com/in/michaelanfang/" target="_blank">linkedin</a></li>
+      <li><a href="https://anarchyincubator.com/" target="_blank">anarchy incubator</a></li>
+      <li><a href="https://divinemetaphor.com/" target="_blank">divine metaphor</a></li>
+      <li><a href="/legal.html">legal</a></li>
+    </ul>
+  </footer>
 
   <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
   <script>
     let editor;
     let csrfToken = null;
     let editingSlug = null;
-    let allPosts = [];
 
     // Check auth on load
     document.addEventListener('DOMContentLoaded', async () => {
@@ -400,7 +363,6 @@
       if (data.authenticated) {
         csrfToken = data.csrf_token;
         showEditor();
-        await loadPostList();
         checkEditParam();
       }
 
@@ -418,70 +380,33 @@
       }
     }
 
-    async function loadPostList() {
+    async function loadPost(slug) {
       try {
         const res = await fetch('/api/posts.php');
-        allPosts = await res.json();
-        renderPostPicker();
+        const posts = await res.json();
+        const post = posts.find(p => p.slug === slug);
+
+        if (!post) {
+          showStatus('Post not found', 'error');
+          return;
+        }
+
+        editingSlug = slug;
+        document.getElementById('title').value = post.title;
+        document.getElementById('date').value = post.date;
+        document.getElementById('private').checked = post.private === true || post.private === 'true';
+        editor.setMarkdown(post.content);
+        localStorage.removeItem('toastui-draft');
+
+        document.getElementById('editor-heading').textContent = 'Edit Post';
+        document.getElementById('save-btn').textContent = 'Update';
+        document.getElementById('delete-btn').style.display = 'inline-block';
+
+        // Update URL without reload
+        history.replaceState({}, '', '?edit=' + slug);
       } catch (e) {
-        console.error('Failed to load posts', e);
+        showStatus('Failed to load post', 'error');
       }
-    }
-
-    function renderPostPicker() {
-      const list = document.getElementById('post-picker-list');
-      if (allPosts.length === 0) {
-        list.innerHTML = '<div class="post-picker-item" style="color:#666;">No posts yet</div>';
-        return;
-      }
-      list.innerHTML = allPosts.map(post => {
-        const privateIndicator = post.private ? ' <span style="color:#ff6600;">[private]</span>' : '';
-        return `
-          <div class="post-picker-item" onclick="loadPost('${post.slug}')">
-            <span>${escapeHtml(post.title)}${privateIndicator}</span>
-            <span class="date">${post.date}</span>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function togglePostPicker() {
-      const picker = document.getElementById('post-picker');
-      const arrow = document.getElementById('picker-arrow');
-      picker.classList.toggle('open');
-      arrow.textContent = picker.classList.contains('open') ? '▲' : '▼';
-    }
-
-    function loadPost(slug) {
-      const post = allPosts.find(p => p.slug === slug);
-      if (!post) {
-        showStatus('Post not found', 'error');
-        return;
-      }
-
-      editingSlug = slug;
-      document.getElementById('title').value = post.title;
-      document.getElementById('date').value = post.date;
-      document.getElementById('private').checked = post.private === true || post.private === 'true';
-      editor.setMarkdown(post.content);
-      localStorage.removeItem('toastui-draft');
-
-      document.getElementById('editor-heading').textContent = 'Edit Post';
-      document.getElementById('save-btn').textContent = 'Update';
-      document.getElementById('delete-btn').style.display = 'inline-block';
-
-      // Update URL without reload
-      history.replaceState({}, '', '?edit=' + slug);
-
-      // Close picker
-      document.getElementById('post-picker').classList.remove('open');
-      document.getElementById('picker-arrow').textContent = '▼';
-    }
-
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
     }
 
     async function login() {
