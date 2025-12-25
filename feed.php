@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__ . '/api/config.php';
+require_once __DIR__ . '/lib/Parsedown.php';
 
 header('Content-Type: application/rss+xml; charset=UTF-8');
+
+$parsedown = new Parsedown();
 
 // Build base URL from request
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
@@ -41,13 +44,19 @@ $posts = array_slice($posts, 0, 5);
 // Generate RSS
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
   <channel>
     <title>blogahrah</title>
     <link><?= htmlspecialchars($baseUrl) ?>/blogahrah/</link>
     <description>Michael's blog</description>
     <language>en-us</language>
     <atom:link href="<?= htmlspecialchars($baseUrl) ?>/feed.php" rel="self" type="application/rss+xml"/>
+    <image>
+      <url><?= htmlspecialchars($baseUrl) ?>/img/favicon.ico</url>
+      <title>blogahrah</title>
+      <link><?= htmlspecialchars($baseUrl) ?>/blogahrah/</link>
+    </image>
+    <webfeeds:icon><?= htmlspecialchars($baseUrl) ?>/img/favicon.ico</webfeeds:icon>
 <?php foreach ($posts as $post):
     // Convert date to RFC 822 format
     $pubDate = date('r', strtotime($post['date']));
@@ -59,6 +68,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     $excerpt = preg_replace('/[#*_`\[\]()]/', '', $excerpt); // Remove markdown chars
     $excerpt = trim(substr($excerpt, 0, 300));
     if (strlen($post['content']) > 300) $excerpt .= '...';
+
+    // Convert markdown to HTML and make URLs absolute
+    $htmlContent = $parsedown->text($post['content']);
+    $htmlContent = preg_replace('/(src|href)="\//', '$1="' . $baseUrl . '/', $htmlContent);
 ?>
     <item>
       <title><?= htmlspecialchars($post['title']) ?></title>
@@ -66,6 +79,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
       <guid isPermaLink="true"><?= htmlspecialchars($link) ?></guid>
       <pubDate><?= $pubDate ?></pubDate>
       <description><?= htmlspecialchars($excerpt) ?></description>
+      <content:encoded><![CDATA[<?= $htmlContent ?>]]></content:encoded>
     </item>
 <?php endforeach; ?>
   </channel>
