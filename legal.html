@@ -23,19 +23,53 @@
       color: #00FF00;
       border-bottom: 1px solid #333;
       padding-bottom: 10px;
+      font-size: 1.5em;
     }
     .legal-content h2 {
       color: #00FF00;
       margin-top: 30px;
+      font-size: 1.2em;
     }
     .legal-content p {
       margin: 15px 0;
     }
     .legal-content ul {
       margin-left: 20px;
+      padding-left: 0;
     }
     .legal-content li {
       margin: 8px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .legal-content {
+        padding: 15px;
+        font-size: 0.9em;
+        line-height: 1.6em;
+      }
+      .legal-content h1 {
+        font-size: 1.3em;
+      }
+      .legal-content h2 {
+        font-size: 1.1em;
+        margin-top: 20px;
+      }
+      .legal-content ul {
+        margin-left: 10px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .legal-content {
+        padding: 12px;
+        font-size: 0.85em;
+      }
+      .legal-content h1 {
+        font-size: 1.2em;
+      }
+      .legal-content h2 {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -43,10 +77,10 @@
   <div id="head">
     <a href="index.html"><img id="logo" alt="logo" src="img/logo.png"></a>
     <ul id="navlist">
-      <li><a href="https://divinemetaphor.com/" target="_blank">divine metaphor</a></li>
-      <li><a href="https://anarchyincubator.com/" target="_blank">anarchy incubator</a></li>
-      <li><a href="https://www.linkedin.com/in/michaelanfang/" target="_blank">linkedin</a></li>
       <li><a href="/blogahrah/">blog</a></li>
+      <li><a href="https://www.linkedin.com/in/michaelanfang/" target="_blank">linkedin</a></li>
+      <li><a href="https://anarchyincubator.com/" target="_blank">anarchy incubator</a></li>
+      <li><a href="https://divinemetaphor.com/" target="_blank">divine metaphor</a></li>
     </ul>
   </div>
 

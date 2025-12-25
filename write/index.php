@@ -245,6 +245,92 @@
     .post-picker-item:hover { background: #333; }
     .post-picker-item:last-child { border-bottom: none; }
     .post-picker-item .date { color: #666; font-size: 0.85em; }
+
+    /* Mobile responsive styles */
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .form-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .form-row input[type="date"] {
+        max-width: 100%;
+      }
+
+      .actions {
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px 15px;
+      }
+
+      #editor-wrapper {
+        min-height: 250px;
+      }
+
+      .toastui-editor-defaultUI {
+        min-height: 300px;
+      }
+
+      .post-picker-item {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 1.3em;
+      }
+
+      #login-form {
+        margin: 50px auto;
+        padding: 20px;
+      }
+
+      .form-row input {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .btn {
+        padding: 10px 12px;
+        font-size: 14px;
+      }
+
+      .post-picker-header {
+        padding: 10px 12px;
+        font-size: 0.9em;
+      }
+
+      .post-picker-item {
+        padding: 8px 12px;
+        font-size: 0.9em;
+      }
+
+      .back-link {
+        font-size: 0.9em;
+      }
+    }
   </style>
 </head>
 <body>
