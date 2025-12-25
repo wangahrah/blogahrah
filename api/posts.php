@@ -4,9 +4,10 @@ require_once __DIR__ . '/config.php';
 
 header('Content-Type: application/json');
 
-// GET - List all posts (public)
+// GET - List all posts (filter private posts for unauthenticated users)
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $posts = [];
+    $isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated'];
 
     if (!is_dir(BLOGS_DIR)) {
         echo json_encode([]);
@@ -20,12 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $meta = parseFromtmatter($content);
         $filename = basename($file);
 
+        // Check if post is private
+        $isPrivate = isset($meta['private']) && ($meta['private'] === 'true' || $meta['private'] === true);
+
+        // Skip private posts for unauthenticated users
+        if ($isPrivate && !$isAuthenticated) {
+            continue;
+        }
+
         $posts[] = [
             'filename' => $filename,
             'slug' => pathinfo($filename, PATHINFO_FILENAME),
             'title' => $meta['title'] ?? 'Untitled',
             'date' => $meta['date'] ?? substr($filename, 0, 10),
-            'content' => $meta['content']
+            'content' => $meta['content'],
+            'private' => $isPrivate
         ];
     }
 
@@ -56,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $input['title'] ?? '';
     $content = $input['content'] ?? '';
     $date = $input['date'] ?? date('Y-m-d');
+    $private = isset($input['private']) && $input['private'] === true;
 
     if (empty($title) || empty($content)) {
         http_response_code(400);
@@ -95,6 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $markdown = "---\n";
     $markdown .= "title: \"" . addslashes($safeTitle) . "\"\n";
     $markdown .= "date: " . $date . "\n";
+    $markdown .= "private: " . ($private ? 'true' : 'false') . "\n";
     $markdown .= "---\n\n";
     $markdown .= $content;
 
@@ -132,6 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $title = $input['title'] ?? '';
     $content = $input['content'] ?? '';
     $date = $input['date'] ?? '';
+    $private = isset($input['private']) && $input['private'] === true;
 
     if (empty($slug) || empty($title) || empty($content)) {
         http_response_code(400);
@@ -166,6 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $markdown = "---\n";
     $markdown .= "title: \"" . addslashes($safeTitle) . "\"\n";
     $markdown .= "date: " . $date . "\n";
+    $markdown .= "private: " . ($private ? 'true' : 'false') . "\n";
     $markdown .= "---\n\n";
     $markdown .= $content;
 

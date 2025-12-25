@@ -275,6 +275,13 @@
         <input type="date" id="date">
       </div>
 
+      <div class="form-row" style="justify-content: flex-start;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="private" style="width: auto; accent-color: #00ff00;">
+          <span>Make private (only visible when logged in)</span>
+        </label>
+      </div>
+
       <div id="editor-wrapper"></div>
 
       <div class="actions">
@@ -338,12 +345,15 @@
         list.innerHTML = '<div class="post-picker-item" style="color:#666;">No posts yet</div>';
         return;
       }
-      list.innerHTML = allPosts.map(post => `
-        <div class="post-picker-item" onclick="loadPost('${post.slug}')">
-          <span>${escapeHtml(post.title)}</span>
-          <span class="date">${post.date}</span>
-        </div>
-      `).join('');
+      list.innerHTML = allPosts.map(post => {
+        const privateIndicator = post.private ? ' <span style="color:#ff6600;">[private]</span>' : '';
+        return `
+          <div class="post-picker-item" onclick="loadPost('${post.slug}')">
+            <span>${escapeHtml(post.title)}${privateIndicator}</span>
+            <span class="date">${post.date}</span>
+          </div>
+        `;
+      }).join('');
     }
 
     function togglePostPicker() {
@@ -363,6 +373,7 @@
       editingSlug = slug;
       document.getElementById('title').value = post.title;
       document.getElementById('date').value = post.date;
+      document.getElementById('private').checked = post.private === true || post.private === 'true';
       editor.setMarkdown(post.content);
       localStorage.removeItem('toastui-draft');
 
@@ -465,6 +476,7 @@
       const title = document.getElementById('title').value.trim();
       const date = document.getElementById('date').value;
       const content = editor.getMarkdown().trim();
+      const isPrivate = document.getElementById('private').checked;
 
       if (!title) {
         showStatus('Please enter a title', 'error');
@@ -478,8 +490,8 @@
       try {
         const isEditing = editingSlug !== null;
         const payload = isEditing
-          ? { slug: editingSlug, title, date, content }
-          : { title, date, content };
+          ? { slug: editingSlug, title, date, content, private: isPrivate }
+          : { title, date, content, private: isPrivate };
 
         const res = await fetch('/api/posts.php', {
           method: isEditing ? 'PUT' : 'POST',
@@ -509,6 +521,7 @@
       editingSlug = null;
       document.getElementById('title').value = '';
       document.getElementById('date').value = new Date().toISOString().split('T')[0];
+      document.getElementById('private').checked = false;
       editor.setMarkdown('');
       localStorage.removeItem('toastui-draft');
       document.getElementById('editor-heading').textContent = 'New Post';
