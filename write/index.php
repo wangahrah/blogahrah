@@ -86,21 +86,6 @@
     .btn-secondary { background: #444; color: #e0e0e0; }
     .btn-secondary:hover { background: #555; }
 
-    /* Upload zone */
-    .upload-zone {
-      border: 2px dashed #444;
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      margin-bottom: 15px;
-      cursor: pointer;
-      transition: border-color 0.2s;
-    }
-    .upload-zone:hover, .upload-zone.dragover {
-      border-color: #00ff00;
-    }
-    .upload-zone input { display: none; }
-
     /* Toast UI Editor dark theme overrides */
     .toastui-editor-defaultUI {
       border-color: #444;
@@ -186,6 +171,14 @@
     .toastui-editor-contents[contenteditable="true"] h3 {
       color: #00ff00 !important;
     }
+    .toastui-editor-contents img,
+    .toastui-editor-contents video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin: 20px auto;
+    }
     .toastui-editor-md-splitter {
       background: #444;
     }
@@ -206,7 +199,7 @@
       border-color: #444;
     }
     #editor-wrapper {
-      min-height: 400px;
+      min-height: 300px;
     }
 
     .status { margin-top: 15px; padding: 10px; border-radius: 4px; }
@@ -280,11 +273,6 @@
       <div class="form-row">
         <input type="text" id="title" placeholder="Post title">
         <input type="date" id="date">
-      </div>
-
-      <div class="upload-zone" id="upload-zone">
-        <p>Drop images/videos here or click to upload</p>
-        <input type="file" id="file-input" accept="image/*,video/*" multiple>
       </div>
 
       <div id="editor-wrapper"></div>
@@ -427,7 +415,7 @@
       if (!editor) {
         editor = new toastui.Editor({
           el: document.getElementById('editor-wrapper'),
-          height: '400px',
+          height: '60vh',
           initialEditType: 'wysiwyg',
           previewStyle: 'vertical',
           usageStatistics: false,
@@ -437,6 +425,31 @@
               // Autosave to localStorage
               localStorage.setItem('toastui-draft', editor.getMarkdown());
             }
+          },
+          hooks: {
+            addImageBlobHook: async (blob, callback) => {
+              const formData = new FormData();
+              formData.append('file', blob);
+
+              try {
+                const res = await fetch('/api/upload.php', {
+                  method: 'POST',
+                  headers: { 'X-CSRF-Token': csrfToken },
+                  body: formData
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                  callback(data.url, blob.name);
+                  showStatus('Uploaded: ' + data.filename, 'success');
+                } else {
+                  showStatus('Upload failed: ' + data.error, 'error');
+                }
+              } catch (e) {
+                showStatus('Upload error: ' + e.message, 'error');
+              }
+            }
           }
         });
 
@@ -444,62 +457,6 @@
         const draft = localStorage.getItem('toastui-draft');
         if (draft) {
           editor.setMarkdown(draft);
-        }
-      }
-
-      setupUpload();
-    }
-
-    function setupUpload() {
-      const zone = document.getElementById('upload-zone');
-      const input = document.getElementById('file-input');
-
-      zone.addEventListener('click', () => input.click());
-
-      zone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        zone.classList.add('dragover');
-      });
-
-      zone.addEventListener('dragleave', () => {
-        zone.classList.remove('dragover');
-      });
-
-      zone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        zone.classList.remove('dragover');
-        handleFiles(e.dataTransfer.files);
-      });
-
-      input.addEventListener('change', () => {
-        handleFiles(input.files);
-        input.value = '';
-      });
-    }
-
-    async function handleFiles(files) {
-      for (const file of files) {
-        const formData = new FormData();
-        formData.append('file', file);
-
-        try {
-          const res = await fetch('/api/upload.php', {
-            method: 'POST',
-            headers: { 'X-CSRF-Token': csrfToken },
-            body: formData
-          });
-
-          const data = await res.json();
-
-          if (data.success) {
-            // Insert markdown at cursor position
-            editor.insertText('\n' + data.markdown + '\n');
-            showStatus('Uploaded: ' + data.filename, 'success');
-          } else {
-            showStatus('Upload failed: ' + data.error, 'error');
-          }
-        } catch (e) {
-          showStatus('Upload error: ' + e.message, 'error');
         }
       }
     }
@@ -536,11 +493,10 @@
         const data = await res.json();
 
         if (data.success) {
-          showStatus(isEditing ? 'Updated!' : 'Published: ' + data.filename, 'success');
-          if (!isEditing) {
-            newPost();
-          }
-          loadPostList(); // Refresh the post list
+          localStorage.removeItem('toastui-draft');
+          // Redirect to view the post
+          const slug = data.slug || editingSlug;
+          window.location.href = '/blogahrah/?p=' + slug;
         } else {
           showStatus('Error: ' + data.error, 'error');
         }
