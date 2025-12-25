@@ -13,7 +13,7 @@ define('ALLOWED_TYPES', [
     'video/mp4' => ['mp4'],
     'video/webm' => ['webm']
 ]);
-define('MAX_FILE_SIZE', 50 * 1024 * 1024); // 50MB
+define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
 
 // CSRF protection functions
 function generateCsrfToken() {
