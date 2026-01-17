@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Write - blogahrah</title>
+  <title>Photos - Admin</title>
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <link rel="apple-touch-icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="/main.css">
-  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css">
   <style>
     * { box-sizing: border-box; }
 
@@ -64,7 +63,7 @@
       gap: 15px;
       margin-bottom: 15px;
     }
-    .form-row input {
+    .form-row input, .form-row textarea {
       flex: 1;
       padding: 12px;
       border: 1px solid #333;
@@ -73,12 +72,46 @@
       font-size: 16px;
       font-family: monospace;
     }
-    .form-row input:focus {
+    .form-row input:focus, .form-row textarea:focus {
       outline: 1px solid #00FF00;
     }
     .form-row input[type="date"] { max-width: 200px; }
+    .form-row input[type="number"] { max-width: 100px; }
     .form-row input[type="date"]::-webkit-calendar-picker-indicator {
       filter: invert(1);
+    }
+
+    .form-row textarea {
+      min-height: 150px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    /* Image upload area */
+    .upload-area {
+      border: 2px dashed #333;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .upload-area:hover, .upload-area.dragover {
+      border-color: #00ff00;
+    }
+    .upload-area p {
+      margin: 0;
+      color: #666;
+    }
+    .upload-area.has-image {
+      padding: 10px;
+    }
+    .upload-area img {
+      max-width: 100%;
+      max-height: 400px;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #333;
     }
 
     .actions {
@@ -101,152 +134,6 @@
     .btn-danger { background: black; color: #ff4444; border-color: #ff4444; }
     .btn-danger:hover { background: #1a0000; }
 
-    /* Toast UI Editor dark theme overrides */
-    .toastui-editor-defaultUI {
-      border-color: #333;
-    }
-    .toastui-editor-defaultUI-toolbar {
-      background: #111;
-      border-color: #333;
-    }
-    .toastui-editor-toolbar-icons {
-      background-position-y: -49px;
-      filter: brightness(1.8);
-    }
-    .toastui-editor-defaultUI-toolbar button {
-      border-color: transparent;
-      opacity: 1;
-    }
-    .toastui-editor-defaultUI-toolbar button:hover {
-      background: #333;
-    }
-    .toastui-editor-toolbar-group button {
-      filter: brightness(1.8);
-    }
-    .toastui-editor-mode-switch {
-      background: #111;
-      border-color: #333;
-    }
-    .toastui-editor-mode-switch .tab-item {
-      background: black;
-      color: #888;
-      border-color: #333;
-    }
-    .toastui-editor-mode-switch .tab-item.active {
-      background: #111;
-      color: #00ff00;
-      border-color: #333;
-    }
-    .toastui-editor-ww-container,
-    .toastui-editor-md-container {
-      background: black;
-    }
-    .toastui-editor-contents,
-    .toastui-editor-md-preview {
-      background: black;
-      color: #00FF00;
-      font-family: monospace;
-      font-size: 125%;
-      line-height: 1.8em;
-    }
-    .toastui-editor-contents h1,
-    .toastui-editor-contents h2,
-    .toastui-editor-contents h3 {
-      color: #00ff00;
-      border-color: #333;
-    }
-    .toastui-editor-contents a {
-      color: #00ff00;
-    }
-    .toastui-editor-contents pre {
-      background: #111;
-      color: #00FF00;
-      padding: 15px;
-      border-radius: 3px;
-      border: 1px solid #333;
-    }
-    .toastui-editor-contents code {
-      background: #111;
-      color: #00FF00;
-      font-family: monospace;
-      font-size: 0.9em;
-    }
-    .toastui-editor-contents p code {
-      padding: 2px 6px;
-      border-radius: 3px;
-    }
-    .toastui-editor-contents blockquote {
-      border-left: 3px solid #00ff00;
-      margin-left: 0;
-      padding-left: 20px;
-      color: #888;
-      font-style: italic;
-    }
-    .ProseMirror {
-      color: #00FF00 !important;
-      font-family: monospace !important;
-      font-size: 125% !important;
-      line-height: 1.8em !important;
-    }
-    .ProseMirror p,
-    .ProseMirror li,
-    .ProseMirror td,
-    .ProseMirror th {
-      color: #00FF00 !important;
-    }
-    .toastui-editor-ww-container .toastui-editor-contents p,
-    .toastui-editor-ww-container .toastui-editor-contents {
-      color: #00FF00 !important;
-    }
-    .toastui-editor-contents p {
-      color: #00FF00 !important;
-    }
-    .toastui-editor-contents[contenteditable="true"] {
-      color: #00FF00 !important;
-    }
-    .toastui-editor-contents[contenteditable="true"] * {
-      color: inherit !important;
-    }
-    .toastui-editor-contents[contenteditable="true"] a {
-      color: #00ff00 !important;
-    }
-    .toastui-editor-contents[contenteditable="true"] h1,
-    .toastui-editor-contents[contenteditable="true"] h2,
-    .toastui-editor-contents[contenteditable="true"] h3 {
-      color: #00ff00 !important;
-    }
-    .toastui-editor-contents img,
-    .toastui-editor-contents video {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      border-radius: 3px;
-      margin: 20px auto;
-      border: 1px solid #333;
-    }
-    .toastui-editor-md-splitter {
-      background: #333;
-    }
-    .toastui-editor-popup {
-      background: black;
-      border-color: #333;
-    }
-    .toastui-editor-popup-body label {
-      color: #00FF00;
-    }
-    .toastui-editor-popup-body input {
-      background: black;
-      border-color: #333;
-      color: #00FF00;
-    }
-    .toastui-editor-dropdown-toolbar {
-      background: #111;
-      border-color: #333;
-    }
-    #editor-wrapper {
-      min-height: 300px;
-    }
-
     .status { margin-top: 15px; padding: 10px; border: 1px solid #333; font-family: monospace; }
     .status.success { background: black; color: #00ff00; border-color: #00ff00; }
     .status.error { background: black; color: #ff4444; border-color: #ff4444; }
@@ -266,7 +153,8 @@
         gap: 10px;
       }
 
-      .form-row input[type="date"] {
+      .form-row input[type="date"],
+      .form-row input[type="number"] {
         max-width: 100%;
       }
 
@@ -280,12 +168,8 @@
         padding: 10px 15px;
       }
 
-      #editor-wrapper {
-        min-height: 250px;
-      }
-
-      .toastui-editor-defaultUI {
-        min-height: 300px;
+      .upload-area {
+        padding: 30px 15px;
       }
     }
 
@@ -303,7 +187,7 @@
         padding: 20px;
       }
 
-      .form-row input {
+      .form-row input, .form-row textarea {
         padding: 10px;
         font-size: 14px;
       }
@@ -339,11 +223,25 @@
 
       <!-- Editor (hidden until logged in) -->
       <div id="editor-container">
-        <h1 id="editor-heading">New Post</h1>
+        <h1 id="editor-heading">New Photo</h1>
+
+        <!-- Image upload -->
+        <div id="upload-area" class="upload-area" onclick="document.getElementById('file-input').click()">
+          <p>Click or drag image here to upload</p>
+        </div>
+        <input type="file" id="file-input" accept="image/*" style="display:none;" onchange="handleFileSelect(event)">
 
         <div class="form-row">
-          <input type="text" id="title" placeholder="Post title">
+          <input type="text" id="title" placeholder="Photo title (optional)">
+        </div>
+
+        <div class="form-row">
+          <textarea id="description" placeholder="Description / blurb (optional)"></textarea>
+        </div>
+
+        <div class="form-row">
           <input type="date" id="date">
+          <input type="number" id="order" placeholder="Order" min="0" value="0">
         </div>
 
         <div class="form-row" style="justify-content: flex-start;">
@@ -353,12 +251,10 @@
           </label>
         </div>
 
-        <div id="editor-wrapper"></div>
-
         <div class="actions">
-          <button class="btn btn-primary" id="save-btn" onclick="savePost()">Publish</button>
-          <button class="btn btn-secondary" onclick="newPost()">New Post</button>
-          <button class="btn btn-danger" id="delete-btn" onclick="deletePost()" style="display:none;">Delete</button>
+          <button class="btn btn-primary" id="save-btn" onclick="savePhoto()">Publish</button>
+          <button class="btn btn-secondary" onclick="newPhoto()">New Photo</button>
+          <button class="btn btn-danger" id="delete-btn" onclick="deletePhoto()" style="display:none;">Delete</button>
           <button class="btn btn-secondary" onclick="logout()">Logout</button>
         </div>
 
@@ -379,11 +275,10 @@
     </ul>
   </footer>
 
-  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
   <script>
-    let editor;
     let csrfToken = null;
-    let editingSlug = null;
+    let editingId = null;
+    let currentImage = null;
 
     // Check auth on load
     document.addEventListener('DOMContentLoaded', async () => {
@@ -402,42 +297,66 @@
       document.getElementById('password').addEventListener('keypress', (e) => {
         if (e.key === 'Enter') login();
       });
+
+      // Drag and drop
+      const uploadArea = document.getElementById('upload-area');
+      uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+      });
+      uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
+      });
+      uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+          uploadFile(file);
+        }
+      });
     });
 
     function checkEditParam() {
       const params = new URLSearchParams(window.location.search);
-      const slug = params.get('edit');
-      if (slug) {
-        loadPost(slug);
+      const id = params.get('edit');
+      if (id) {
+        loadPhoto(id);
       }
     }
 
-    async function loadPost(slug) {
+    async function loadPhoto(id) {
       try {
-        const res = await fetch('/api/posts.php');
-        const posts = await res.json();
-        const post = posts.find(p => p.slug === slug);
+        const res = await fetch('/api/photos.php');
+        const photos = await res.json();
+        const photo = photos.find(p => p.id === id);
 
-        if (!post) {
-          showStatus('Post not found', 'error');
+        if (!photo) {
+          showStatus('Photo not found', 'error');
           return;
         }
 
-        editingSlug = slug;
-        document.getElementById('title').value = post.title;
-        document.getElementById('date').value = post.date;
-        document.getElementById('private').checked = post.private === true || post.private === 'true';
-        editor.setMarkdown(post.content);
-        localStorage.removeItem('toastui-draft');
+        editingId = id;
+        currentImage = photo.image;
+        document.getElementById('title').value = photo.title || '';
+        document.getElementById('description').value = photo.description || '';
+        document.getElementById('date').value = photo.date || '';
+        document.getElementById('order').value = photo.order || 0;
+        document.getElementById('private').checked = photo.private === true;
 
-        document.getElementById('editor-heading').textContent = 'Edit Post';
+        // Show image preview
+        const uploadArea = document.getElementById('upload-area');
+        uploadArea.innerHTML = `<img src="${photo.image}" alt="Preview">`;
+        uploadArea.classList.add('has-image');
+
+        document.getElementById('editor-heading').textContent = 'Edit Photo';
         document.getElementById('save-btn').textContent = 'Update';
         document.getElementById('delete-btn').style.display = 'inline-block';
 
         // Update URL without reload
-        history.replaceState({}, '', '?edit=' + slug);
+        history.replaceState({}, '', '?edit=' + id);
       } catch (e) {
-        showStatus('Failed to load post', 'error');
+        showStatus('Failed to load photo', 'error');
       }
     }
 
@@ -469,78 +388,62 @@
     function showEditor() {
       document.getElementById('login-form').style.display = 'none';
       document.getElementById('editor-container').style.display = 'block';
+    }
 
-      if (!editor) {
-        editor = new toastui.Editor({
-          el: document.getElementById('editor-wrapper'),
-          height: '60vh',
-          initialEditType: 'wysiwyg',
-          previewStyle: 'vertical',
-          usageStatistics: false,
-          autofocus: false,
-          events: {
-            change: () => {
-              // Autosave to localStorage
-              localStorage.setItem('toastui-draft', editor.getMarkdown());
-            }
-          },
-          hooks: {
-            addImageBlobHook: async (blob, callback) => {
-              const formData = new FormData();
-              formData.append('file', blob);
-
-              try {
-                const res = await fetch('/api/upload.php', {
-                  method: 'POST',
-                  headers: { 'X-CSRF-Token': csrfToken },
-                  body: formData
-                });
-
-                const data = await res.json();
-
-                if (data.success) {
-                  callback(data.url, blob.name);
-                  showStatus('Uploaded: ' + data.filename, 'success');
-                } else {
-                  showStatus('Upload failed: ' + data.error, 'error');
-                }
-              } catch (e) {
-                showStatus('Upload error: ' + e.message, 'error');
-              }
-            }
-          }
-        });
-
-        // Restore draft if exists
-        const draft = localStorage.getItem('toastui-draft');
-        if (draft) {
-          editor.setMarkdown(draft);
-        }
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+      if (file) {
+        uploadFile(file);
       }
     }
 
-    async function savePost() {
+    async function uploadFile(file) {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        showStatus('Uploading...', 'success');
+        const res = await fetch('/api/upload.php', {
+          method: 'POST',
+          headers: { 'X-CSRF-Token': csrfToken },
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          currentImage = data.url;
+          const uploadArea = document.getElementById('upload-area');
+          uploadArea.innerHTML = `<img src="${data.url}" alt="Preview">`;
+          uploadArea.classList.add('has-image');
+          showStatus('Uploaded: ' + data.filename, 'success');
+        } else {
+          showStatus('Upload failed: ' + data.error, 'error');
+        }
+      } catch (e) {
+        showStatus('Upload error: ' + e.message, 'error');
+      }
+    }
+
+    async function savePhoto() {
       const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
       const date = document.getElementById('date').value;
-      const content = editor.getMarkdown().trim();
+      const order = parseInt(document.getElementById('order').value) || 0;
       const isPrivate = document.getElementById('private').checked;
 
-      if (!title) {
-        showStatus('Please enter a title', 'error');
-        return;
-      }
-      if (!content) {
-        showStatus('Please write some content', 'error');
+      if (!currentImage) {
+        showStatus('Please upload an image', 'error');
         return;
       }
 
       try {
-        const isEditing = editingSlug !== null;
+        const isEditing = editingId !== null;
         const payload = isEditing
-          ? { slug: editingSlug, title, date, content, private: isPrivate }
-          : { title, date, content, private: isPrivate };
+          ? { id: editingId, image: currentImage, title, description, date, order, private: isPrivate }
+          : { image: currentImage, title, description, date, order, private: isPrivate };
 
-        const res = await fetch('/api/posts.php', {
+        const res = await fetch('/api/photos.php', {
           method: isEditing ? 'PUT' : 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -552,10 +455,9 @@
         const data = await res.json();
 
         if (data.success) {
-          localStorage.removeItem('toastui-draft');
-          // Redirect to view the post
-          const slug = data.slug || editingSlug;
-          window.location.href = '/blogahrah/?p=' + slug;
+          // Redirect to view the photo
+          const id = data.id || editingId;
+          window.location.href = '/photos/?id=' + id;
         } else {
           showStatus('Error: ' + data.error, 'error');
         }
@@ -564,46 +466,51 @@
       }
     }
 
-    function newPost() {
-      editingSlug = null;
+    function newPhoto() {
+      editingId = null;
+      currentImage = null;
       document.getElementById('title').value = '';
+      document.getElementById('description').value = '';
       document.getElementById('date').value = new Date().toISOString().split('T')[0];
+      document.getElementById('order').value = '0';
       document.getElementById('private').checked = false;
-      editor.setMarkdown('');
-      localStorage.removeItem('toastui-draft');
-      document.getElementById('editor-heading').textContent = 'New Post';
+
+      const uploadArea = document.getElementById('upload-area');
+      uploadArea.innerHTML = '<p>Click or drag image here to upload</p>';
+      uploadArea.classList.remove('has-image');
+
+      document.getElementById('editor-heading').textContent = 'New Photo';
       document.getElementById('save-btn').textContent = 'Publish';
       document.getElementById('delete-btn').style.display = 'none';
-      history.replaceState({}, '', '/write/');
+      history.replaceState({}, '', '/write/photos.php');
     }
 
-    async function deletePost() {
-      if (!editingSlug) {
-        showStatus('No post selected to delete', 'error');
+    async function deletePhoto() {
+      if (!editingId) {
+        showStatus('No photo selected to delete', 'error');
         return;
       }
 
-      const title = document.getElementById('title').value;
+      const title = document.getElementById('title').value || 'this photo';
       if (!confirm(`Are you sure you want to delete "${title}"?\n\nThis action cannot be undone.`)) {
         return;
       }
 
       try {
-        const res = await fetch('/api/posts.php', {
+        const res = await fetch('/api/photos.php', {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
             'X-CSRF-Token': csrfToken
           },
-          body: JSON.stringify({ slug: editingSlug })
+          body: JSON.stringify({ id: editingId })
         });
 
         const data = await res.json();
 
         if (data.success) {
-          localStorage.removeItem('toastui-draft');
-          // Redirect to blog list
-          window.location.href = '/blogahrah/';
+          // Redirect to photos list
+          window.location.href = '/photos/';
         } else {
           showStatus('Error: ' + data.error, 'error');
         }

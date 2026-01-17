@@ -257,6 +257,7 @@
     <a href="/"><img id="logo" alt="logo" src="/img/logo.png"></a>
     <ul id="navlist">
       <li><a href="/blogahrah/">blogahrah</a></li>
+      <li><a href="/photos/">photos</a></li>
       <li><a href="https://www.linkedin.com/in/michaelanfang/" target="_blank">linkedin</a></li>
       <li><a href="https://anarchyincubator.com/" target="_blank">anarchy incubator</a></li>
       <li><a href="https://divinemetaphor.com/" target="_blank">divine metaphor</a></li>
@@ -297,6 +298,7 @@
     <ul class="footlist">
       <li>copyright 2025</li>
       <li><a href="/blogahrah/">blogahrah</a></li>
+      <li><a href="/photos/">photos</a></li>
       <li><a href="https://www.linkedin.com/in/michaelanfang/" target="_blank">linkedin</a></li>
       <li><a href="https://anarchyincubator.com/" target="_blank">anarchy incubator</a></li>
       <li><a href="https://divinemetaphor.com/" target="_blank">divine metaphor</a></li>
@@ -404,10 +406,10 @@
         const thumb = getFirstImage(post.content);
         const excerpt = post.content.substring(0, 2000).replace(/!\[.*?\]\([^)]*\)/g, '').replace(/<img[^>]*>/g, '').replace(/data:image\/[^\s)]+/g, '').replace(/[#*_`!\[\]()]/g, '').substring(0, 200).trim() + '...';
         const editLink = isAuthenticated ? `<a href="/write/?edit=${post.slug}" class="edit-link" onclick="event.stopPropagation()">[edit]</a>` : '';
-        const deleteLink = isAuthenticated ? `<a href="#" class="delete-link" onclick="event.stopPropagation(); deletePost('${post.slug}', '${escapeHtml(post.title)}')">[delete]</a>` : '';
+        const deleteLink = isAuthenticated ? `<a href="#" class="delete-link" onclick="event.preventDefault(); event.stopPropagation(); deletePost('${post.slug}', '${escapeHtml(post.title)}')">[delete]</a>` : '';
         const privateIndicator = post.private ? ' <span class="private-indicator">[private]</span>' : '';
         return `
-          <li class="post-item" onclick="navigate('${post.slug}', event)">
+          <li class="post-item" data-slug="${post.slug}" onclick="navigate('${post.slug}', event)">
             ${thumb ? `<img src="${escapeHtml(thumb)}" alt="" class="post-thumb">` : ''}
             <div class="post-info">
               <h2><a href="?p=${post.slug}">${escapeHtml(post.title)}</a>${privateIndicator}${editLink}${deleteLink}</h2>
@@ -479,7 +481,13 @@
 
         if (res.ok) {
           posts = posts.filter(p => p.slug !== slug);
-          showList();
+          // Remove from DOM in-place (no scroll reset)
+          const item = document.querySelector(`[data-slug="${slug}"]`);
+          if (item) item.remove();
+          // Show empty message if no posts left
+          if (posts.length === 0 || posts.filter(p => showPrivate || !p.private).length === 0) {
+            document.getElementById('empty').style.display = 'block';
+          }
         } else {
           const data = await res.json();
           alert('Delete failed: ' + (data.error || 'Unknown error'));

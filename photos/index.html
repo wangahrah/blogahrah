@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>photos</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/main.css">
+  <style>
+    * { box-sizing: border-box; }
+
+    .photos-content {
+      min-height: 300px;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 125%;
+      color: #00FF00;
+      text-align: left;
+      background-color: black;
+      line-height: 1.8em;
+    }
+
+    .photos-nav {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #333;
+      text-align: right;
+    }
+    .michael-only {
+      color: #666;
+    }
+    .michael-only:hover {
+      color: #00FF00;
+    }
+
+    /* Photo list view */
+    .photo-list { list-style: none; padding: 0; margin: 0; }
+    .photo-item {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #333;
+    }
+    .photo-item:hover {
+      background-color: #111;
+    }
+    .photo-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .photo-thumb {
+      flex-shrink: 0;
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 3px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+    .photo-info { flex: 1; min-width: 0; }
+    .photo-item h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.3em;
+      font-family: monospace;
+    }
+    .photo-item h2 a { text-decoration: none; color: #00FF00; }
+    .photo-item .date {
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+    .photo-item .description {
+      color: #00FF00;
+      line-height: 1.6;
+    }
+
+    /* Single photo view */
+    .photo-single { display: none; }
+    .photo-single.active { display: block; }
+    .photo-header { margin-bottom: 25px; }
+    .photo-header h1 {
+      margin: 0 0 10px 0;
+      color: #00ff00;
+      font-family: monospace;
+      font-size: 1.8em;
+    }
+    .photo-header .date {
+      color: #666;
+    }
+    .photo-full {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 3px;
+      margin: 20px 0;
+      border: 1px solid #333;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 95%;
+      max-height: 95%;
+      object-fit: contain;
+      border: 1px solid #333;
+      border-radius: 3px;
+    }
+    .photo-description {
+      font-size: 1em;
+      color: #00FF00;
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .loading, .empty {
+      text-align: center;
+      color: #666;
+      padding: 40px;
+    }
+
+    .edit-link, .delete-link {
+      font-size: 0.8em;
+      color: #666;
+      margin-left: 10px;
+    }
+    .edit-link:hover { color: #00ff00; }
+    .delete-link:hover { color: #ff4444; }
+
+    .private-indicator {
+      font-size: 0.8em;
+      color: #ff6600;
+      margin-left: 10px;
+    }
+
+    /* Mobile responsive styles */
+    @media screen and (max-width: 768px) {
+      .photos-content {
+        padding: 15px;
+        font-size: 0.95em;
+      }
+
+      .photos-nav a {
+        margin-right: 15px;
+      }
+
+      .photo-item {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .photo-thumb {
+        width: 100%;
+        height: 250px;
+      }
+
+      .photo-item h2 {
+        font-size: 1.1em;
+      }
+
+      .photo-header h1 {
+        font-size: 1.4em;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .photos-content {
+        padding: 12px;
+        font-size: 0.9em;
+        line-height: 1.6em;
+      }
+
+      .photos-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .photos-nav a {
+        margin-right: 0;
+      }
+
+      .photo-thumb {
+        height: 200px;
+      }
+
+      .photo-item h2 {
+        font-size: 1em;
+      }
+
+      .photo-header h1 {
+        font-size: 1.2em;
+      }
+
+      .edit-link, .delete-link, .private-indicator {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="head">
+    <a href="/"><img id="logo" alt="logo" src="/img/logo.png"></a>
+    <ul id="navlist">
+      <li><a href="/blogahrah/">blogahrah</a></li>
+      <li><a href="/photos/">photos</a></li>
+      <li><a href="https://www.linkedin.com/in/michaelanfang/" target="_blank">linkedin</a></li>
+      <li><a href="https://anarchyincubator.com/" target="_blank">anarchy incubator</a></li>
+      <li><a href="https://divinemetaphor.com/" target="_blank">divine metaphor</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="photos-content">
+      <div class="photos-nav" id="main-nav">
+        <a href="/write/photos.php" class="michael-only" style="margin-right: 15px;">keep out michael only</a>
+        <a href="#" id="filter-toggle" class="michael-only" style="display:none;" onclick="event.preventDefault(); togglePrivateFilter();">[hide privates]</a>
+      </div>
+
+      <div id="loading" class="loading">Loading photos...</div>
+
+      <!-- Photo list -->
+      <div id="photo-list" style="display:none;">
+        <ul class="photo-list" id="photos"></ul>
+        <div id="empty" class="empty" style="display:none;">No photos yet.</div>
+      </div>
+
+      <!-- Single photo -->
+      <div id="photo-single" class="photo-single">
+        <a href="/photos/" class="back-link" onclick="event.preventDefault(); history.back();">&larr; All photos</a>
+        <article>
+          <div class="photo-header">
+            <h1 id="photo-title"></h1>
+            <div class="date" id="photo-date"></div>
+          </div>
+          <img id="photo-full" class="photo-full" src="" alt="">
+          <div class="photo-description" id="photo-description"></div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <footer class="footer">
+    <ul class="footlist">
+      <li>copyright 2025</li>
+      <li><a href="/blogahrah/">blogahrah</a></li>
+      <li><a href="/photos/">photos</a></li>
+      <li><a href="https://www.linkedin.com/in/michaelanfang/" target="_blank">linkedin</a></li>
+      <li><a href="https://anarchyincubator.com/" target="_blank">anarchy incubator</a></li>
+      <li><a href="https://divinemetaphor.com/" target="_blank">divine metaphor</a></li>
+      <li><a href="/legal.html">legal</a></li>
+    </ul>
+  </footer>
+
+  <script src="https://unpkg.com/dompurify@3.0.6/dist/purify.min.js"></script>
+  <script>
+    let photos = [];
+    let isAuthenticated = false;
+    let csrfToken = null;
+    let showPrivate = true;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Check auth status
+      try {
+        const authRes = await fetch('/api/auth.php');
+        const authData = await authRes.json();
+        isAuthenticated = authData.authenticated;
+        if (authData.csrf_token) csrfToken = authData.csrf_token;
+        if (isAuthenticated) {
+          document.getElementById('filter-toggle').style.display = 'inline';
+        }
+      } catch (e) {}
+
+      try {
+        const res = await fetch('/api/photos.php');
+        photos = await res.json();
+        document.getElementById('loading').style.display = 'none';
+
+        // Check URL for specific photo
+        const id = getIdFromUrl();
+        if (id) {
+          showPhoto(id);
+        } else {
+          showList();
+        }
+      } catch (e) {
+        document.getElementById('loading').textContent = 'Error loading photos';
+      }
+
+      // Handle back/forward navigation
+      window.addEventListener('popstate', () => {
+        const id = getIdFromUrl();
+        if (id) {
+          showPhoto(id);
+        } else {
+          showList();
+        }
+      });
+    });
+
+    function getIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
+    }
+
+    function showList() {
+      document.getElementById('photo-list').style.display = 'block';
+      document.getElementById('photo-single').classList.remove('active');
+
+      const container = document.getElementById('photos');
+      const empty = document.getElementById('empty');
+
+      if (photos.length === 0) {
+        empty.style.display = 'block';
+        return;
+      }
+
+      const filteredPhotos = photos.filter(p => showPrivate || !p.private);
+
+      if (filteredPhotos.length === 0) {
+        empty.style.display = 'block';
+        container.innerHTML = '';
+        return;
+      }
+      empty.style.display = 'none';
+
+      container.innerHTML = filteredPhotos.map(photo => {
+        const editLink = isAuthenticated ? `<a href="/write/photos.php?edit=${photo.id}" class="edit-link">[edit]</a>` : '';
+        const deleteLink = isAuthenticated ? `<a href="#" class="delete-link" onclick="event.preventDefault(); deletePhoto('${photo.id}', '${escapeHtml(photo.title || 'Untitled')}')">[delete]</a>` : '';
+        const privateIndicator = photo.private ? ' <span class="private-indicator">[private]</span>' : '';
+        const description = photo.description ? photo.description.substring(0, 300) + (photo.description.length > 300 ? '...' : '') : '';
+        return `
+          <li class="photo-item" data-id="${photo.id}">
+            <img src="${escapeHtml(photo.image)}" alt="${escapeHtml(photo.title || '')}" class="photo-thumb" onclick="openLightbox('${escapeHtml(photo.image)}', '${escapeHtml(photo.title || '')}')">
+            <div class="photo-info">
+              <h2>${escapeHtml(photo.title || 'Untitled')}${privateIndicator}${editLink}${deleteLink}</h2>
+              <div class="date">${photo.date || ''}</div>
+              <div class="description">${escapeHtml(description)}</div>
+            </div>
+          </li>
+        `;
+      }).join('');
+    }
+
+    function showPhoto(id) {
+      const photo = photos.find(p => p.id === id);
+      if (!photo) {
+        showList();
+        return;
+      }
+
+      document.getElementById('photo-list').style.display = 'none';
+      document.getElementById('photo-single').classList.add('active');
+
+      document.getElementById('photo-title').textContent = photo.title || 'Untitled';
+      document.getElementById('photo-date').innerHTML = (photo.date || '') +
+        (isAuthenticated ? ` <a href="/write/photos.php?edit=${photo.id}" class="edit-link">[edit]</a>` : '');
+      document.getElementById('photo-full').src = photo.image;
+      document.getElementById('photo-full').alt = photo.title || '';
+      document.getElementById('photo-description').textContent = photo.description || '';
+
+      // Update page title
+      document.title = (photo.title || 'Photo') + ' - photos';
+    }
+
+    function navigate(id, event) {
+      event.preventDefault();
+      history.pushState({}, '', '?id=' + id);
+      showPhoto(id);
+      window.scrollTo(0, 0);
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    async function deletePhoto(id, title) {
+      if (!confirm(`Delete "${title}"?`)) return;
+
+      try {
+        const res = await fetch('/api/photos.php', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrfToken
+          },
+          body: JSON.stringify({ id })
+        });
+
+        if (res.ok) {
+          photos = photos.filter(p => p.id !== id);
+          // Remove from DOM in-place (no scroll reset)
+          const item = document.querySelector(`[data-id="${id}"]`);
+          if (item) item.remove();
+          // Show empty message if no photos left
+          if (photos.length === 0 || photos.filter(p => showPrivate || !p.private).length === 0) {
+            document.getElementById('empty').style.display = 'block';
+          }
+        } else {
+          const data = await res.json();
+          alert('Delete failed: ' + (data.error || 'Unknown error'));
+        }
+      } catch (e) {
+        alert('Delete failed: ' + e.message);
+      }
+    }
+
+    function togglePrivateFilter() {
+      showPrivate = !showPrivate;
+      document.getElementById('filter-toggle').textContent = showPrivate ? '[hide privates]' : '[show privates]';
+      showList();
+    }
+
+    // Lightbox functions
+    function openLightbox(src, alt) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      img.alt = alt || '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close lightbox on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -87,6 +87,7 @@ class Terminal {
 
       'RESUME': () => this.navigate('resume.php', 'SEARCHING FOR RESUME'),
       'BLOG': () => this.navigate('/blogahrah/', 'SEARCHING FOR BLOG'),
+      'PHOTOS': () => this.navigate('/photos/', 'SEARCHING FOR PHOTOS'),
       'WIKI': () => this.navigate('lifewiki/', 'SEARCHING FOR WIKI'),
       'LINKEDIN': () => this.navigate('https://www.linkedin.com/in/michaelanfang/', 'OPENING LINKEDIN'),
     };
@@ -102,7 +103,7 @@ class Terminal {
   showHelp() {
     this.print(
       'Type a direction to go in that direction, or look to see where you can go.<br>' +
-      'You can also navigate to my blog, linkedin, resume, or wiki by typing the destination.'
+      'You can also navigate to my blog, photos, linkedin, resume, or wiki by typing the destination.'
     );
   }
 
