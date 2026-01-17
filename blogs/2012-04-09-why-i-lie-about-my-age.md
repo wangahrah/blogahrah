@@ -1,7 +1,7 @@
 ---
 title: "Why I lie about my age"
 date: 2012-04-09
-private: false
+private: true
 ---
 
 Or, why people think I do.  Many other people do as well, probably because they intuit what I overthink.

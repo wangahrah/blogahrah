@@ -1,0 +1,37 @@
+---
+title: "It’s Not Just The Economy, Stupid"
+date: 2024-07-26
+private: true
+---
+
+I feel like this is going to be a doozy before I even start. My deepest apologies for this dry and dull analysis, but alas, perhaps the foundation we build on must be boring and flat in order for us to build a whimsical faery structure.
+
+I want to provide an analysis on the state of the economy in a more holistic way than typically represented. In order to do so, I’m going to use a framework for…well, everything, but in this case, we’ll use it for analysis. The framework was developed by Ken Wilber. A brief primer to introduce a potentially new terms: a **holon**. A holon is, well, anything. Me, you, a religion, a cell, a feeling we have, capitalism, a song, each note in that song — everything can be represented as a holon. The main thrust is that it’s holons all the way down (and all the way up) — quark holons build into atom holons, atom holons build into molecules, cells, organs, humans — and humans make up a society, which makes up a country, which makes up the world (which is part of the solar system, galaxy, et al). There is a natural hierarchy of transcendent holons, with the higher holons transcending their base holons to be more and different than the sum of its parts, as a huma-holon n is more than just the sum of its cell-holons.
+
+While there’s a great discussion to be had already, and we’ve barely scratched the surface of this concept, it’s important to note that higher-level holons are dependent on lower level holons (and to a degree, vice versa), but what I’m trying to get at here is that if a molecule, made up of atoms, has the atoms that make it up dissolve into quarks, the molecule would cease to exist as well. If the cells in our body dissolve, we would cease to exist as humans and we’d watch a higher-level hierarchy holon dissipate back down into lower-level holons.
+
+Holons are able to be examined, and this examination can be divided into four quadrants with two axis — internal/external, and individual/collective. The top left quadrant is internal/individual, the top right is external/individual, the bottom left is collective/internal, and the bottom right is collective/external.
+
+A holon that we call a human has, in the top left (TL) quadrant, internal/individual, emotional experiences that they feel, not always quantifiable. The only way to examine this is through some form of communication — it’s not directly available for external examination.
+
+The top right (TR) quadrant, individual/external, is something more of a medical study. This human holon is constructed with bones and muscles and organs. When they are feeling their feelings, we can observe electrical and chemical activity in the brain and body of the organism (though we can’t “feel” the sad by observing it in the TR quadrant — that’s the domain of the internal TL quadrant).
+
+On the bottom left (BL) quadrant, that human holon isn’t just an individual — they exist with some sort of community with the world around them. They have pets they love, family and society, cultural norms and morals they follow, and other holons they interact with, spurring feelings and occasionally bringing in the drama best reserved for reality TV shows.
+
+On the bottom right (BR) quadrant, they participate in the structures of society — work, organized religion, politics, etc, which can be observed and listed, but you can’t gain real insight into that holons lived experiences with those things without jumping into BR quadrant. Makes perfect sense, right? Let’s move on to seeing how this can apply to an economic analysis.
+
+Viewed from this framework, GDP isn’t an incorrect way to assess “the economy” — rather, it’s incomplete. It can do an excellent job of assessing the right side / external factors of an economy, but falls flat on its face assessing the left side factor. It also fails to synthesize that the holon labelled *economy* is made up of other holons (businesses, governments, regulatory agencies, etc, each with their own factors), and if you drop down relatively few holon levels, you’ll find one of the main contributing holons is the one we label *human*. Yes, groundbreaking analysis — the economy is made up of, significantly, human activity.
+
+External factors can quantify the economy, but these humans experience “the economy” as something in their left (internal) quadrant as well. This economy-holon in the human-holons right quadrant has significant impact. A human’s economic security plays a large role on their day to day stress levels, influencing happiness, depression, etc. It also plays a strong cultural role, demonstrated in community activity in wealthy vs impoverished communities. To cut more quickly to the chase — if the left quadrants of human-holon is in bad shape (via individual or cultural depression), humans begin struggling, and if the humans making up the transcendent holon of **the economy** fail, the economy itself will fail.
+
+This really breaks into what the purpose of an economy is, and a realization that the economy is a human-constructed holon that we can tend to and shape. We created this garden, and now we choose how to tend it.
+
+If we see an economy’s primary purpose as to *build wealth*, in a tangible and/or financial sense, only observing the external indicators, perhaps we’re doing a wonderful job. Overall, the amount of “money” (incidentally, also a human-constructed holon) is increasing, clearly indicated by the GDP, so we can pat ourselves on the back and say job-well-done. Even if this were the case, it overlooks an important aspect — the left quadrants, concerned with the internal aspects of the economy are not so hot. Too many people feel financially constrained, hurt, and abused. Continuing the path of pure wealth generation may appear to succeed for a time, but it leaves out how it looks and feels internally. GDP doesn’t account for the TL quadrant concerns — things like unpaid labors, including childcare and housekeeping, etc. Nor does it account for the BL quadrant — environmental damage done in service to GDP, devastating the earth and leaving economic activities forced to relocate to (and destroy) new areas, such as mining activities or burning the rainforest for farmland.
+
+This imbalance will eventually lead to the dissolution of the economy-as-it-is, rendering the concept of GDP as useless. In pursuit of the axis of external indicators, it’s ignored the internals. It’s on a path that harms the holons that make it up — in this case, humans and the environment.
+
+To a degree, of course the economy will be concerned with wealth. That is what it’s for. However, we need to turn to a more holistic understanding of the full-holon of the economy in order to tend to a system that is more self aware — an economy that is fully aware that it is made up of humans, and make it a core value of supporting all the human-holons of which it is composed.
+
+This has been a longwinded and unnecessary exploration which leads me to a potential key to pruning and training our economy to be what it needs to avoid dissolution — workers rights and environmental regulation. Amazing how a long winded boring analysis drives to a simple point that many people are simply intuitively aware of.
+
+Thanks for coming to my TED talk.
