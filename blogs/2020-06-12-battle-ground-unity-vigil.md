@@ -4,13 +4,13 @@ date: 2020-06-12
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*qALt6i2gSVhcUIMXGAihvw.jpeg)
+![](/media/2020-06-12-medium-9194fdc5.jpeg)
 
 On Wednesday, June 3rd, while Black Lives Matter and allies marched in cities, protesting for an end to systemic racism amid cries to defund the police, Patriot Prayer gathered on on the corner of Main Street and 503 in Battle Ground, WA, as they have many times before.
 
 They waved their flags, proudly showed off their handguns and assault rifles and wore their Patriot Prayer apparel. They flew America flags and a Thin Blue Line flag (the first I’d heard of it — read more about it [here](https://www.politico.com/news/magazine/2020/06/09/the-short-fraught-history-of-the-thin-blue-line-american-flag-309767))
 
-![](https://cdn-images-1.medium.com/max/800/1*JcmhqhPTgX0kIECC5wSuWg.jpeg)
+![](/media/2020-06-12-medium-c22a213b.jpeg)
 
 Cars drove by, mostly honking and waving. This time, though, there were an increased number of cars rolling down their window to scream “Fuck you!”. Why the change?
 

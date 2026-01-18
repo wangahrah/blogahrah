@@ -8,7 +8,7 @@ private: false
 
 Agiesm is rampant. Medium itself is engaged in a horrific form of this discrimination. I am disgusted, aghast, and horrified. Likely a few other terrible words. How a progressive-seeming organization could engage in something so — tribal, discriminatory, and wrong — is beyond me. It’s the worst kind of discrimination — discrimination against me.
 
-![](https://cdn-images-1.medium.com/max/800/0*dJV9tFCBp_pzeKFL)
+![](/media/2019-07-07-medium-7ed55ce0.jpg)
 *Photo by Charles 🇵🇭 on Unsplash*
 
 Medium does not allow me to put two spaces after a period. In fact, I hit the space bar ***three times**** *after the previous period in anger, yet still only one space shows. You’ll never know how many spaces I truly want. What if want to mark myself as old, outdated, and obsolete? I’m saved the trouble of even having to think about if I want one space or two. Why can’t I demand respect and set myself apart for my wisdom in knowing that two spacing is the **true way**. Why can’t I *dare to be different*? Not only does it prevent me from displaying my two-space badge of honor — I say by denying me the motion of the cursor after a second space, it’s actively working ***to indoctrinate*** ***me*** into a new way of doing things, against my will. This is deceptive, manipulative, and wrong.

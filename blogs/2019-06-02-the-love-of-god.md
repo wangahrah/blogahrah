@@ -4,7 +4,7 @@ date: 2019-06-02
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/0*mYMzoCqYbKrJx1Kc)
+![](/media/2019-06-02-medium-a367d741.jpg)
 *Photo by Artem Sapegin on Unsplash*
 
 God accepts you for who you are. That does not mean you are who you need to be.

@@ -64,7 +64,7 @@ My engineer brain needed more information. All the information. Was my incubator
 
 My wife’s brain needed less data, but had more empathy. We’ve had many discussions about hatching eggs, and how the incubation process differed from a hen sitting on eggs. She’s a natural birth advocate (and birthed both our daughters outside on our deck in a hot tub), and that carried through to advocating for natural births for chickens. She wondered if perhaps a reason way-too-many chicks seemed to fully develop and then never hatch could be because they lacked motivation to break out of the egg — under a hen, chicks hear the hen clucking and talking to them, and each other as they grow closer to hatching. Incubators have the loud whir of a fan. Should we be incubating differently? Should we be playing hen sounds for hatching eggs? Could the environment in which they’re incubated impact the hatch too?
 
-![](https://cdn-images-1.medium.com/max/800/1*j_ja3cp8Q1sAwEbl8qgrNg.jpeg)
+![](/media/2019-01-02-medium-9ab3ca73.jpeg)
 *Pavlovskaya Hen*
 
 I probably needed to be able to track conditions under a hen, too.
@@ -75,7 +75,7 @@ I started putting together a device from off the shelf parts to track and record
 
 I’ll just wire up a breadboard, run some power cables out, do what work I can do, and talk to some of my more software-inclined friends about how to build out the firmware and web backend to make it happen. I like to stay connected to people who had fun ideas and liked to build this kind of stuff.
 
-![](https://cdn-images-1.medium.com/max/800/1*TyN7Sb3fxC7cMJwXsBMtnw.jpeg)
+![](/media/2019-01-02-medium-c06c7748.jpeg)
 *First generation custom hardware*
 
 I’d talk a lot more about the technical side of things, but one of the lessons I’ve learned is how few people care about that. Suffice it to say that it’s a real advantage to be able to do a lot of the actual *making* of your product.
@@ -88,7 +88,7 @@ It turned out Marans eggs were a great choice. They lay chocolate eggs — t
 
 Candling — shining a light through the egg to see the developing embryo — is pretty difficult with eggs that dark. I viewed it as a challenge, and bought a little thermal camera to attach to my smartphone. I thought that a viable egg would retain heat better than one that quits (dies early), and that heat would show up on a thermal camera. Turns out, that was true — but that’s for some future tech I’ll work on, and not yet part of this story.
 
-![](https://cdn-images-1.medium.com/max/800/1*69kQsO0vC6Qpx0yYKFNv9Q.jpeg)
+![](/media/2019-01-02-medium-e335fb9a.jpeg)
 
 I started sharing what I was working on with some chicken folks, and they *loved* it. People were volunteering to test it and telling me they would buy one for every incubator they had. Maybe this would be my career, freelance incubation research. I could finish developing and sell this, settling into a nice early retirement while focusing on aspects of life and making the world a better place that were really important to me.
 
@@ -102,7 +102,7 @@ I hired my first employee. I needed someone to work on the firmware/software sid
 
 I was staring up at the stars on a clear night when the idea of making it a battery powered, egg shaped device came to me. Perfect.
 
-![](https://cdn-images-1.medium.com/max/800/1*K8aTgFIwV6E8pLRrARdPPw.jpeg)
+![](/media/2019-01-02-medium-3f152105.jpeg)
 *First gen prototype on the far right*
 
 ---
@@ -123,7 +123,7 @@ The product wasn’t done, but I was trying to get a jump start on figuring out 
 
 I started a Facebook page and started running some ads. I was pretty glad that my newfound love for photography helped out — who wouldn’t love to see pictures of my beautiful chickens? It’s the chicken equivalent of pulling those pictures out of your purse and shoving them in the face of the person working the register, cause your kids are **that cute**.
 
-![](https://cdn-images-1.medium.com/max/800/1*qbIcaYqaDUGBvWWSd3i7xQ.jpeg)
+![](/media/2019-01-02-medium-012bfe34.jpeg)
 
 It was really, really easy (and pretty cheap!) to start building a social media following. I just pointed to people who followed a few other chicken groups, and they flocked to Hatchtrack’s page. There was an *incredible* response — people loved this! The Futurama **Shut up and take my money!** meme was posted. I didn’t really need to explain what this thing did to poultry people — they understood right away. People from all over the world were talking about how helpful this was, how it would help them get on track with hatching eggs, and started talking about how this would help with all if their other poultry — ostrich, emu, ducks, quail, geese. There conservationists, breeders, homesteaders — so many people thinking this was amazing. It felt great. I made videos, did informational posts, and pretty quickly a few thousand people were there. This is all there is to marketing? What’s everyone complaining about?
 
@@ -154,7 +154,7 @@ I spent the next months in a funk. I’d never been so depressed. I had complete
 
 I had fights with my wife and fights my family. I felt like a total loser, both about Hatchtrack failing and my inability to seem to get anything done or be productive at all. I spent a lot more time with my camera, and photography brought me the most peace and happiness of anything at that time. I considered ditching it all and just doing photography (which I still consider, and may eventually do). I had the opportunity to participate and shoot some amazing events, and doing that work felt peaceful and fulfilling.
 
-![](https://cdn-images-1.medium.com/max/800/1*nSM9Gzw5cLFsw499IrHb5g.jpeg)
+![](/media/2019-01-02-medium-13c7e30b.jpeg)
 *A mounted archery event that I had the honor of photographing*
 
 My wife was close to a saint during this time. I was not. She played a key role in grounding me and helping me to work through my depression and emotions. The partners of founders are often unsung heroes. I would have never started nor continued Hatchtrack if it was not for the support of my wife.
@@ -169,7 +169,7 @@ I suppose there’s one thing that’s true and helpful in the **Top Ten Startup
 
 I turned a corner. As I was coming out of depression, I felt a new drive in me. I was going to ask for help. I was going to seek mentorship. Maybe I had a brilliant idea, and maybe I could build a perfect product, but there was plenty I had to learn to make this a success. If this product was good, and the community was there, I’d be stupid to quit. Besides. This was fun.
 
-![](https://cdn-images-1.medium.com/max/800/1*CcFZsVbBhzPcI3fEyLQQLQ.jpeg)
+![](/media/2019-01-02-medium-e35149c7.jpeg)
 
 ---
 
@@ -177,7 +177,7 @@ I reached out to the local **STARTUP COMMUNITY**. I went to meetups, sent emails
 
 I initially felt like I found people who were honestly desiring to help me succeed. In the end, my local startup world seemed to be filled with vultures. I’m certain there are legitimate folks who really can help, but how do you find them? Everyone claims to be offering valuable services, but I have had a surprisingly difficult time finding real value. Everyone knows unfunded pre-revenue startups don’t have money. If you make the choice to try and extract cash from these founders, you deserve a special place in startup hell (like having to be the founder of a pre-revenue company for the rest of your life). It didn’t help that I live in place that is known to have a poor to nonexistent *startup culture*. Maybe it’s better if you live in Silicon Valley, but I don’t. I live rural, and need to go to the nearest major town to find any sort of startup community at all, much less local small business organizations.
 
-![](https://cdn-images-1.medium.com/max/800/1*wisU_PP9JM_0oANrhMA25Q.jpeg)
+![](/media/2019-01-02-medium-1d6b49a7.jpeg)
 *Even vultures and scavengers serve a purpose. I don’t mean to knock them.*
 
 Not a single connection from these meetups or startup-oriented functions panned out. There were almost a dozen people who *seemed* extremely promising or *qualified* to be able to offer advice or connections that would be useful. Some of them just seemed to work at a glacial pace. If you take two weeks to respond to simple questions — you’re not going to be able to keep pace with a driven founder. By the time you get back with your answer, I’ve already found it myself and iterated on it twice. If you offer criticism after criticism, negativity, and can’t seem to provide anything of value, what are you doing in this world? If you offer me only *contact* after *contact*, after claiming *you* are the one who can give me advice, what is it you are offering? I’ve never had success with any of those second-tier contacts either.
@@ -188,7 +188,7 @@ I got lucky, or, the Global Consciousness is real and was helping me out. Many m
 
 Now, I have product well into development (though still not finished — but I hear that these things are never *really* finished). I have a team of amazing people, many working for free (just for now! i promise guys!) because they believe in it, and I’m so grateful for their help. I’ve met amazing people, and learned a ton about chickens in the process — and that’s what it’s really about for me. I have plans to scale the business slowly and organically, and a roadmap for what things look like if we receive funding.
 
-![](https://cdn-images-1.medium.com/max/800/1*LWgzscb6O3q20KiwibOhlg.jpeg)
+![](/media/2019-01-02-medium-ef60afde.jpeg)
 *Meghan and the baby demoing Hatchtrack at a poultry show*
 
 I look back at what happened, and instead of failure and pain, I see a different story. It’s a story that lines up with how a lot of other cool products and companies developed — from passion, and from pain. You start in a garage, not in a a high rise. I learned that I was able to do most of the things I thought I’d need to depend on consultants for, and that I learn a lot more when I figure out how to do something myself instead of paying someone else to do it. That I am more than my past job descriptions — and so are you.
@@ -197,13 +197,13 @@ The most important thing was for me to keep moving forward, learning, and allowi
 
 The journey so far has changed me. I know as the journey continues, I’ll keep changing. I embrace this change along with my failures. I’m excited to be forging forward into the unknown.
 
-![](https://cdn-images-1.medium.com/max/800/1*ss8lBl92sAM5E4vAGDANeg.jpeg)
+![](/media/2019-01-02-medium-1e7acb97.jpeg)
 *Step in to the light, or don’t?*
 
-![](https://cdn-images-1.medium.com/max/800/1*YqDjlKFwScoQYQ62DWEdig.png)
+![](/media/2019-01-02-medium-93c13b7e.png)
 
 ### This story is published in [The Startup](https://medium.com/swlh), Medium’s largest entrepreneurship publication followed by +405,714 people.
 
 ### Subscribe to receive [our top stories here](http://growthsupply.com/the-startup-newsletter/).
 
-![](https://cdn-images-1.medium.com/max/800/1*ouK9XR4xuNWtCes-TIUNAw.png)
+![](/media/2019-01-02-medium-704dbb00.png)

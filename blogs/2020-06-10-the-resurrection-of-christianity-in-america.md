@@ -6,7 +6,7 @@ private: false
 
 Few people reject the teachings of Jesus Christ. It’s just those *Christians* acting like the worst people that muck it all, right? That’s just what we call human nature, and it turns out, you don’t need to be a Christian to be that way.
 
-![](https://cdn-images-1.medium.com/max/1200/1*9_YIsCHNOWArIozUlyOM5g.jpeg)
+![](/media/2020-06-10-medium-17744bec.jpeg)
 *A picture from one of my darkest times*
 
 ---

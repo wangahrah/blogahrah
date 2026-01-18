@@ -4,7 +4,7 @@ date: 2020-03-20
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*zieeO09xuZXxpW2A3Apjlw.jpeg)
+![](/media/2020-03-20-medium-4a4670a5.jpeg)
 *Photo by Michael Anfang on Unsplash*
 
 ### Modern Work

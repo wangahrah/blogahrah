@@ -16,8 +16,13 @@ $files = glob($blogsDir . '/*.md');
 $totalDownloaded = 0;
 $totalUpdated = 0;
 $errors = [];
+$consecutiveFailures = 0;
+$maxConsecutiveFailures = 2; // Stop after 2 consecutive failures (rate limited)
+$rateLimited = false;
 
 foreach ($files as $file) {
+    if ($rateLimited) break;
+
     $content = file_get_contents($file);
     $filename = basename($file);
     $updated = false;
@@ -74,10 +79,27 @@ foreach ($files as $file) {
                     }
 
                     if ($imageData === false) {
+                        $consecutiveFailures++;
                         $errors[] = "Failed to download: $url in $filename";
                         echo "  ERROR: Failed to download\n";
+
+                        if ($consecutiveFailures >= $maxConsecutiveFailures) {
+                            echo "\n*** Rate limited! Stopping after $consecutiveFailures consecutive failures. ***\n";
+                            echo "*** Run again later to continue downloading. ***\n\n";
+                            $rateLimited = true;
+                            // Save current file if it was updated before stopping
+                            if ($updated) {
+                                file_put_contents($file, $content);
+                                $totalUpdated++;
+                                echo "Updated: $filename\n\n";
+                            }
+                            break 2; // Break out of both foreach loops
+                        }
                         continue;
                     }
+
+                    // Success - reset failure counter
+                    $consecutiveFailures = 0;
 
                     file_put_contents($localPath, $imageData);
                     $totalDownloaded++;
@@ -124,8 +146,10 @@ echo "\n=== Summary ===\n";
 echo "Images downloaded: $totalDownloaded\n";
 echo "Posts updated: $totalUpdated\n";
 
-if (!empty($errors)) {
-    echo "\nErrors:\n";
+if ($rateLimited) {
+    echo "\nStopped early due to rate limiting. Run again later to continue.\n";
+} elseif (!empty($errors)) {
+    echo "\nFailed downloads (" . count($errors) . "):\n";
     foreach ($errors as $error) {
         echo "  - $error\n";
     }

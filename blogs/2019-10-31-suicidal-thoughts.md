@@ -6,7 +6,7 @@ private: false
 
 I am not in a time of crisis — this is not a cry for help. Please be conscious of those who are in need.
 
-![](https://cdn-images-1.medium.com/max/2560/1*dS6SD_an3HSNOYmJfEOWQA.jpeg)
+![](/media/2019-10-31-medium-ded77d48.jpeg)
 
 ---
 

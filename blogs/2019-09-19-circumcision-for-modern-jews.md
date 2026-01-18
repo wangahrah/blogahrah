@@ -4,7 +4,7 @@ date: 2019-09-19
 private: true
 ---
 
-![](https://cdn-images-1.medium.com/max/2560/1*9kHK_riwyUhO-XVl-KkT0Q.jpeg)
+![](/media/2019-09-19-medium-d142e8a1.jpeg)
 *Uriel, his first moments resting on his mother’s chest*
 
 ## Grappling with Culture
@@ -21,7 +21,7 @@ My goal is not to claim that I am right in my decisions, or that you or anyone s
 
 In our case, I, the Jew, was the primary driving force behind our (*spoiler alert*) decision to **not** circumcise. I approached this question with as open of a mind as I could — so much so that I called out to God, without a terrible amount of understanding about who that is, to provide me with a sign regarding my son’s circumcision. If I received a sign, I would circumcise — if not, I would choose to not make a permanent mark on someone else. In the absence of a sign, I would make the best decision I felt I could. Perhaps a giant circumcised penis painted in the stars was in my future, pointing my way to the removal of foreskin.
 
-![](https://cdn-images-1.medium.com/max/1200/1*EKW4NCLzAOz91JfCoffpyA.jpeg)
+![](/media/2019-09-19-medium-633c5a4a.jpeg)
 *Mount St. Helens, standing guard over Uriel’s birth*
 
 ***
@@ -48,7 +48,7 @@ If God does not exist, or if this is a man-made mechanism, the spiritual and rel
 
 But still — why circumcision as that symbol?
 
-![](https://cdn-images-1.medium.com/max/1200/1*ye1YtPWI6rvSS8QCU7cPag.jpeg)
+![](/media/2019-09-19-medium-03e4459f.jpeg)
 *Fire and the loving hands of midwives guided Uriel into this world*
 
 ***
@@ -59,7 +59,7 @@ The first — what is the meaning of the penalty for violating the covenant�
 
 The second — this covenant of circumcision is directly tied to the ownership of Jews to the land of Canaan. I have never before considered the link to the land of Israel and its connection to circumcision. It seems that inextricably connecting these two things is relevant to current events, though this is not the time to explore them.
 
-![](https://cdn-images-1.medium.com/max/1200/1*UxSlAXINlvcz6LnroQgScg.jpeg)
+![](/media/2019-09-19-medium-06ace31b.jpeg)
 
 ***
 
@@ -101,4 +101,4 @@ It’s been several weeks since I started writing this. I began the day after he
 
 It’s been difficult to write this, and as I expected, things did not go well with my family. I can’t say I was blameless and kept my cool, rationally explaining my arguments — but it certainly established that this is a tough subject. I do not regret my decision, and I encourage others, both Jews and otherwise, to examine cultural traditions that may not have a place in the world we live in now and the world which is to come.
 
-![](https://cdn-images-1.medium.com/max/2560/1*9kHK_riwyUhO-XVl-KkT0Q.jpeg)
+![](/media/2019-09-19-medium-d142e8a1.jpeg)

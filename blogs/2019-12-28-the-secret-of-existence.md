@@ -4,7 +4,7 @@ date: 2019-12-28
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/2560/0*SCGPEiZLEuJ9yKu5)
+![](/media/2019-12-28-medium-8fe4911d.jpg)
 *Photo by Greg Rakozy on Unsplash*
 
 One basic truth. Simple, yet elusive. You may spend your entire life pursuing it, but the more it’s pursued, the faster it slips away.

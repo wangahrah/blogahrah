@@ -12,7 +12,7 @@ I froze. At least, my mind froze.
 
 How forward of her. We just met. I know my mouth kept making small talk about chickens (yeah, it’s a skill I’ve picked up — they were borrowing some of my equipment to hatch eggs, after all), but I was stuck on the date request. Jesus, it’s the first time we’ve met, and you’re trying to move to the next level? Then again, you **are** supposed to be meeting people who share your interests. Maybe I should be less of a stick in the mud.
 
-![](https://cdn-images-1.medium.com/max/800/1*fXNiV6xg8xMSr-NYz40dmQ.jpeg)
+![](/media/2019-10-02-medium-92430e43.jpeg)
 
 *Hold on there, killer*— she didn’t say she wants to hang out with \*you, \*either. Are you so egotistical that you think this is about you? You both have three year old daughters that love chickens — that’s some next level friendship potential at that age. Well, also at my age — I’ve made plenty of friends within the secretive, underground world of backyard chicken keeping.
 
@@ -24,4 +24,4 @@ Am I a terrible parent if I cut my kid off from having friends just cause I don�
 
 OK, I’ll go respond to that message that has been sitting there for three days as I deal with my parent-playdate-anxiety, because it’s also gross to ghost people in the child play-date world. Maybe we’ll have some great conversations about chickens while our kids chase them around.
 
-![](https://cdn-images-1.medium.com/max/2560/1*uNNZSg4ZXAVFWUI0FDAQJA.jpeg)
+![](/media/2019-10-02-medium-a649d466.jpeg)

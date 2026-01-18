@@ -4,7 +4,7 @@ date: 2020-02-14
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/0*m1yka9x4bpJuakHV)
+![](/media/2020-02-14-medium-b9e2fb8f.jpg)
 *Photo by Michael Anfang on Unsplash. My startup is for chickens, so pictures are relevant, I swear!*
 
 ## Too Many Problems, Too Many Feelings
@@ -15,7 +15,7 @@ My [startup](https://medium.com/swlh/a-startup-for-chickens-24d4affe245d) was pr
 
 Every day was painful. How could I keep working with my brain full of mush? I had stopped taking outside work and money was drying up. I’d tapped my savings and retirement. Nothing I tried felt like it was working. I didn’t know how to go about seeking help, but I was desperate for a mental and emotional crutch. Any requests thrown out to the universe, the internet, or groups supposedly interested in helping with startup mental health went ignored. Folks seemed very interested in talking **about** mental health. Actually finding useful help was difficult. *Why isn’t anyone proactively helping me?*, the victim inside me screamed. *The world should be catering to me, because I’m trying to do something ambitious.* That’s how this should work, right?
 
-![](https://cdn-images-1.medium.com/max/800/0*rP5X2z_sNL-RSdYo)
+![](/media/2020-02-14-medium-192d3021.jpg)
 *Photo by Michael Anfang. At least my chickens helped keep me sane.*
 
 ---
@@ -40,7 +40,7 @@ For lack of a better term, in a **spiritual **sense, we were highly compatible. 
 
 During therapy, I realized I didn’t need to learn how to be a better entrepreneur. I needed to learn how to be a better me.
 
-![](https://cdn-images-1.medium.com/max/800/0*hy4spdK0D6L5bJEJ)
+![](/media/2020-02-14-medium-fe351222.jpg)
 *Photo by Michael Anfang on Unsplash*
 
 ---
@@ -63,7 +63,7 @@ Explore the feelings freely. Trace your anger and sadness and frustrations, and 
 
 To experience emotions freely and genuinely is a transformational experience. For some, this will come quickly. For others, it will take time. I encourage you to be emotional about your work and your life — this will give you experience and perspective necessary to learn how to harness those feelings. How can you expect to lead as an emotionally mature leader if you don’t experience the emotions and learn the skills of working with them? This exploration of emotions does not need to come with a goal — feeling the feelings and exploring what that means is, in and of itself, all you need to give yourself and your therapist at this moment.
 
-![](https://cdn-images-1.medium.com/max/800/1*QyMU3uJrr1m36-9SistSng.jpeg)
+![](/media/2020-02-14-medium-2a98ad7f.jpeg)
 *Photo by Michael Anfang on Unsplash*
 
 ---
@@ -76,7 +76,7 @@ Are you not sure of what your hangups are? Too bogged down to think about it? Th
 
 I’m doing much better mentally and emotionally now. I’m taken responsibility for my part in hurting my marriage. I’m regaining the ability to think clearly and find my own path in life…becoming the version of me I need to be is infinitely more important for my life and my family than my work. But, since I’m getting my ducks all in a row, it’s time to start thinking about chickens again…
 
-![](https://cdn-images-1.medium.com/max/800/1*i55arB122leRgEBF3KTaMA.jpeg)
+![](/media/2020-02-14-medium-864466c3.jpeg)
 *Photo by Michael Anfang on Unsplash*
 
 ### If you are struggling with mental health, specifically as a founder, please feel free to reach out. You are not alone.
