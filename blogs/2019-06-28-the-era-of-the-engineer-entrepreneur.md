@@ -4,7 +4,7 @@ date: 2019-06-28
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/2560/1*FvAh3J_uQoDLIrXOR0E05Q.jpeg)
+![](/media/2019-06-28-medium-4b3386eb.jpeg)
 *My desk on any given day*
 
 T**his is for the engineer, the maker, the tinkerer** — though there are many who are capable of pursuing an entrepreneurial path, this is for you. Today, we will all be called engineers, working to implement solutions to real problems and pain points that everyday people face in their everyday lives, communities, and hobbies. There are an infinite number of technical problems to solve, and you are the ones who will be called upon to engineer.
@@ -17,7 +17,7 @@ Traditionally, we know that though we’re building *the thing*, ultimately, oth
 
 I've spent enough time on the Dark Side, with *non-engineers* (I’m just teasing, not all of you are so bad), to understand something of the necessity of those roles — but if you allow me a brief moment of prophecy, I see the times, they are a-changing. We are increasingly able to skip, for a time, the **business** part of things, and just build the thing we need to build. If you don’t want to live in the dirty world of money and business, you won’t need to. You’ll have the joy of creating something wonderful for yourself and the community that you are involved in, and if it’s truly good and worthwhile, attracting more business and scaling will be orders of magnitudes easier. Good things have a tendency to have a far wider range of applications than originally intended. That rapid growth curve may happen a bit later, but it seems to be much more sustainable.
 
-![](https://cdn-images-1.medium.com/max/800/1*ZPd5975ctZLxgGTUXcPePw.jpeg)
+![](/media/2019-06-28-medium-81597fab.jpeg)
 *I cleaned up most of the cans for this picture. I can stop whenever I want.*
 
 ---
@@ -32,7 +32,7 @@ I bet you don’t care about what I do — egg incubation and backyard poult
 
 I’m actively encouraging you to not worry about building the next tech giant or Uber-sized disruptor. Ignore the 1%. Don’t be a unicorn. You don’t need to sacrifice your life. (Alternatively, if you do want to be a unicorn, grab that unicorn by its corn and have it! It can be a different sort of excitement.) You may find success (someone’s got to), but the chances are more similar to winning a lottery or being struck by lightening. It’s a long road, populated with smoke and mirrors, and a big sign saying **Here be Theranos**.
 
-![](https://cdn-images-1.medium.com/max/800/1*5Zwr_5ekA5obaQXmD3BUkw.jpeg)
+![](/media/2019-06-28-medium-c094bc0a.jpeg)
 *3D Print your Thing*
 
 ---
@@ -47,5 +47,5 @@ You are an engineer. You can build things yourself. You don’t need money up fr
 
 If **you’re a maker, a product-first approach is the best way to entrepreneur**. If you solve a problem within your communities, doing the things you enjoy, there’s no bad outcomes. The worst case scenario is you’ll end up with an awesome thing you built to use while doing something you love. What’s the harm in that?
 
-![](https://cdn-images-1.medium.com/max/2560/1*9NV57MMS-Xmgya6rAgD9iw.jpeg)
+![](/media/2019-06-28-medium-b51472c5.jpeg)
 *All I really want to do is take pictures of chickens*

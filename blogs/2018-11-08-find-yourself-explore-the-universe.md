@@ -4,7 +4,7 @@ date: 2018-11-08
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*3cslJkQig9uSabRZfiSHWw.jpeg)
+![](/media/2018-11-08-medium-fe4c071c.jpeg)
 
 My name is Michael. I am 33 years old. I live in rural southwestern Washington state. I have a wife and two daughters. I grew up as a genuine Christian, in a nurturing, nuclear family. I have a degree in electrical engineering. I run a tiny engineering firm, and am working on funding a chicken startup. I have about 70 chickens right now. I drink too much Mountain Dew. I sit on my deck and stare up at the stars and think about the universe too much. I might start a cult someday. Like, a cool fun one. The best kool-aid ever. My wife once described going to bed with me as **being at a slumber party with the dumbest kid in school**.
 

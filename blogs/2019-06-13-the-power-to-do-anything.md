@@ -10,7 +10,7 @@ private: false
 
 I**t’s not what you think and hope it to be**. It’s not about being able to do or be anything at all. It’s about being able to do what matters to you within your circumstances. Living a life of being driven yet content, happy yet accepting of despair, alive without fearing death. Most of life seems to exist to mask that reality and trap you somewhere else.
 
-![](https://cdn-images-1.medium.com/max/800/1*Me9MM7x5VgDiNiTw9CuTEQ.jpeg)
+![](/media/2019-06-13-medium-86045288.jpeg)
 
 T**he prisons are all around us.** We don’t even see the chains. We can be enslaved socially, sexually, physically, financially — with eight billion people fast approaching, many (most?) chose to enslave and exploit when given the chance, or will spend their own life being enslaved and exploited. Ultimately, perhaps we all will be — can you choose your prison? Can you transcend it?
 
@@ -28,6 +28,6 @@ Is it true that if you achieve that thing you were striving for, your lofty goal
 
 If you recognize and accept your need for fulfillment, does chasing down feeling not-empty, attempting to be fulfilled, allow you to reach that fulfillment? If chasing *happiness* is not something that will make you happy., will chasing meaning create *meaningfulness*?
 
-![](https://cdn-images-1.medium.com/max/800/1*Rqu1R1QrpqtJkDbqZRslNQ.jpeg)
+![](/media/2019-06-13-medium-e65fbb3b.jpeg)
 
 This power is a god shaped hole in our hearts. What happens when filling it with god leaves us empty?

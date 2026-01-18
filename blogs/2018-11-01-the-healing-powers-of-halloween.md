@@ -4,7 +4,7 @@ date: 2018-11-01
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*yeYslj2khxc-BAElk6eksQ.jpeg)
+![](/media/2018-11-01-medium-803afdc5.jpeg)
 *someone was really excited to be a unicorn*
 
 I went trick or treating with my two and a half year old daughter, six month old daughter, and wife, who was acting like a giddy two year old herself.

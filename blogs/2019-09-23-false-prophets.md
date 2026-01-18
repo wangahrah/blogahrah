@@ -4,7 +4,7 @@ date: 2019-09-23
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*6_TBJ9Z0j-miO5l3q6as8Q.jpeg)
+![](/media/2019-09-23-medium-dd04ca73.jpeg)
 
 There are always true priests, wizards, pastors, wise men, monks. They know the path of their God, and work with honest hearts to connect people to how God can speak to them. They give to mankind from themselves, and seek nothing in return. They are true believers and disciples. Some are kings. Some are peasants. Some live alone in cities, villages, or wander the land. You will never know for sure who they are. If they insist they are wise, they probably are not. Unless, of course, they are.
 
@@ -18,4 +18,4 @@ The false prophets will increase in number until destruction is assured, and des
 
 At the end, when those who have eyes can no longer see, the foolish man will be indistinguishable from the wise.
 
-![](https://cdn-images-1.medium.com/max/2560/1*uAdULMF--fYRXZg0Qo4r6w.jpeg)
+![](/media/2019-09-23-medium-2497bcd7.jpeg)

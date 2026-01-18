@@ -27,4 +27,4 @@ Don’t try to solve any problems. Don’t even worry about your problems. Don�
 
 Outside. Just do it.
 
-![](https://cdn-images-1.medium.com/max/800/1*yqDmPSnY8Qk6zEzVfz3LJA.jpeg)
+![](/media/2018-10-13-medium-99241b94.jpeg)

@@ -4,7 +4,7 @@ date: 2019-10-12
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*hE6hiZF15Cc_TKqttFWvsg.jpeg)
+![](/media/2019-10-12-medium-f09e57b1.jpeg)
 
 ### How can I be both true to myself and live with community?
 
@@ -32,4 +32,4 @@ Your community framework should be derived from both your personal flow and from
 
 If you are unable to create a healthy synthesis with your personal morality and your community morality, perhaps it is time to find another community. Change is difficult, but ultimately, favor choices that goes with the flow of the way things are.
 
-![](https://cdn-images-1.medium.com/max/1200/1*4QRUhQCLI_isSuLY6js55Q.jpeg)
+![](/media/2019-10-12-medium-a50d326f.jpeg)

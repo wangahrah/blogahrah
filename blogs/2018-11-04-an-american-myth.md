@@ -8,11 +8,11 @@ The left and right are at war. They are each consuming the other. At the same ti
 
 The Ouroboros is an important symbol for these times — the snake eating its own tail.
 
-![](https://cdn-images-1.medium.com/max/800/1*3fQFn_E36iYghoN7ltikxg.jpeg)
+![](/media/2018-11-04-medium-37c16812.jpeg)
 
 The Auryn is a variation of this — a double snake, one dark, one light, each consuming the other.
 
-![](https://cdn-images-1.medium.com/max/800/1*mou1AETwLE4mqd_176CjDA.jpeg)
+![](/media/2018-11-04-medium-25b7547e.jpeg)
 
 The left and the right are the dark and the light. It doesn’t matter which is which, as it constantly changes and your labels will soon become meaningless. They stand in opposition to each other, yet even as they devour the other, they begin to become the substance of what they devour. Is it inevitable — to become the monster we consume in attempt to end it? Is what we are devouring truly monstrous, or does it just seem that way from our perspective?
 

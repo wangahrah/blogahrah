@@ -6,7 +6,7 @@ private: false
 
 ## From Street Brawling to Town Takeovers, Part 1
 
-![](https://cdn-images-1.medium.com/max/1200/1*IrUnFRicQ9ohtpW_cFMEEw.jpeg)
+![](/media/2020-05-30-medium-7c8165d1.jpeg)
 
 In 2018, I started following the movements of some local alt-right movements, Patriot Prayer and the Proud Boys. It was easy, since where I lived in the Pacific Northwest seemed to be one of the focal points of the alt-right and Patriot movements. I live in a small, rural town of 1500 people, which, later on, turned out to play a surprising role. These groups have gained attention on a national (and international stage). This is the story of someone who lives here, living and observing the heart of it.
 
@@ -41,7 +41,7 @@ I was not alone in my assessment. I overheard two older gentlemen behind me, who
 
 “No, no, no. This isn’t going to accomplish anything. These young kids just sound angry and are going to stir up more trouble. This isn’t going to fix anything. It’s just going to make things worse”.
 
-![](https://cdn-images-1.medium.com/max/800/1*rfJCL9XdkIpEF8fpCgux2w.jpeg)
+![](/media/2020-05-30-medium-573760c0.jpeg)
 *Not all 2A supporters appreciated Patriot Prayer’s tone*
 
 There were a few left-wing counter protestors who, afterwards, spent some time getting into yelling matches with protestors. There was no violence, just a lot of yelling, derisive laughing, name calling, and cameras. Many, many cameras — and I can’t say that I wasn’t part of that problem. I learned how easy it was to tell a misleading story with the pictures — to make events seem much angrier and crowded than they really were.
