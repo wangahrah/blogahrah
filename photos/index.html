@@ -352,12 +352,12 @@
 
       container.innerHTML = filteredPhotos.map(photo => {
         const editLink = isAuthenticated ? `<a href="/write/photos.php?edit=${photo.id}" class="edit-link">[edit]</a>` : '';
-        const deleteLink = isAuthenticated ? `<a href="#" class="delete-link" onclick="event.preventDefault(); deletePhoto('${photo.id}', '${escapeHtml(photo.title || 'Untitled')}')">[delete]</a>` : '';
+        const deleteLink = isAuthenticated ? `<a href="#" class="delete-link" data-delete-id="${photo.id}" data-delete-title="${escapeHtml(photo.title || 'Untitled')}">[delete]</a>` : '';
         const privateIndicator = photo.private ? ' <span class="private-indicator">[private]</span>' : '';
         const description = photo.description ? photo.description.substring(0, 300) + (photo.description.length > 300 ? '...' : '') : '';
         return `
           <li class="photo-item" data-id="${photo.id}">
-            <img src="${escapeHtml(photo.image)}" alt="${escapeHtml(photo.title || '')}" class="photo-thumb" onclick="openLightbox('${escapeHtml(photo.image)}', '${escapeHtml(photo.title || '')}')">
+            <img src="${escapeHtml(photo.image)}" alt="${escapeHtml(photo.title || '')}" class="photo-thumb" data-lightbox-src="${escapeHtml(photo.image)}" data-lightbox-alt="${escapeHtml(photo.title || '')}">
             <div class="photo-info">
               <h2>${escapeHtml(photo.title || 'Untitled')}${privateIndicator}${editLink}${deleteLink}</h2>
               <div class="date">${photo.date || ''}</div>
@@ -366,6 +366,21 @@
           </li>
         `;
       }).join('');
+
+      // Attach event listeners for lightbox
+      container.querySelectorAll('.photo-thumb').forEach(img => {
+        img.addEventListener('click', () => {
+          openLightbox(img.dataset.lightboxSrc, img.dataset.lightboxAlt);
+        });
+      });
+
+      // Attach event listeners for delete
+      container.querySelectorAll('.delete-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          deletePhoto(link.dataset.deleteId, link.dataset.deleteTitle);
+        });
+      });
     }
 
     function showPhoto(id) {

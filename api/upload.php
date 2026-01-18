@@ -61,10 +61,12 @@ if (!in_array($ext, $allowedExts)) {
     exit;
 }
 
-// Validate file size
-if ($file['size'] > MAX_FILE_SIZE) {
+// Validate file size - allow up to 50MB for images (will be resized), 5MB for videos
+$isImage = str_starts_with($mimeType, 'image/');
+$uploadLimit = $isImage ? 50 * 1024 * 1024 : MAX_FILE_SIZE;
+if ($file['size'] > $uploadLimit) {
     http_response_code(400);
-    echo json_encode(['error' => 'File too large (max 50MB)']);
+    echo json_encode(['error' => 'File too large (max ' . ($isImage ? '50MB' : '5MB') . ')']);
     exit;
 }
 
@@ -84,6 +86,17 @@ $filepath = MEDIA_DIR . '/' . $filename;
 
 // Move uploaded file
 if (move_uploaded_file($file['tmp_name'], $filepath)) {
+    // Auto-resize images if over 2MB to ensure under 5MB final size
+    if (str_starts_with($mimeType, 'image/') && filesize($filepath) > 2 * 1024 * 1024) {
+        $resized = resizeImageToFitSize($filepath, $mimeType, MAX_FILE_SIZE);
+        if (!$resized) {
+            unlink($filepath);
+            http_response_code(500);
+            echo json_encode(['error' => 'Failed to resize image']);
+            exit;
+        }
+    }
+
     $url = '/media/' . $filename;
 
     // Return markdown-appropriate embed
@@ -103,4 +116,88 @@ if (move_uploaded_file($file['tmp_name'], $filepath)) {
 } else {
     http_response_code(500);
     echo json_encode(['error' => 'Failed to save file']);
+}
+
+/**
+ * Resize image to fit under max file size
+ */
+function resizeImageToFitSize($filepath, $mimeType, $maxSize) {
+    // Load image based on type
+    switch ($mimeType) {
+        case 'image/jpeg':
+            $img = imagecreatefromjpeg($filepath);
+            break;
+        case 'image/png':
+            $img = imagecreatefrompng($filepath);
+            break;
+        case 'image/gif':
+            $img = imagecreatefromgif($filepath);
+            break;
+        case 'image/webp':
+            $img = imagecreatefromwebp($filepath);
+            break;
+        default:
+            return false;
+    }
+
+    if (!$img) return false;
+
+    $width = imagesx($img);
+    $height = imagesy($img);
+    $quality = 85;
+
+    // Try progressively smaller sizes until under limit
+    for ($scale = 1.0; $scale >= 0.2; $scale -= 0.1) {
+        $newWidth = (int)($width * $scale);
+        $newHeight = (int)($height * $scale);
+
+        $resized = imagecreatetruecolor($newWidth, $newHeight);
+
+        // Preserve transparency for PNG/GIF/WebP
+        if ($mimeType === 'image/png' || $mimeType === 'image/gif' || $mimeType === 'image/webp') {
+            imagealphablending($resized, false);
+            imagesavealpha($resized, true);
+            $transparent = imagecolorallocatealpha($resized, 0, 0, 0, 127);
+            imagefill($resized, 0, 0, $transparent);
+        }
+
+        imagecopyresampled($resized, $img, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+
+        // Save to temp file to check size
+        $tempFile = $filepath . '.tmp';
+
+        switch ($mimeType) {
+            case 'image/jpeg':
+                imagejpeg($resized, $tempFile, $quality);
+                break;
+            case 'image/png':
+                imagepng($resized, $tempFile, 6);
+                break;
+            case 'image/gif':
+                imagegif($resized, $tempFile);
+                break;
+            case 'image/webp':
+                imagewebp($resized, $tempFile, $quality);
+                break;
+        }
+
+        imagedestroy($resized);
+
+        if (filesize($tempFile) <= $maxSize) {
+            rename($tempFile, $filepath);
+            imagedestroy($img);
+            return true;
+        }
+
+        unlink($tempFile);
+
+        // For JPEG/WebP, also try reducing quality
+        if (($mimeType === 'image/jpeg' || $mimeType === 'image/webp') && $quality > 50) {
+            $quality -= 10;
+            $scale += 0.1; // Retry same scale with lower quality
+        }
+    }
+
+    imagedestroy($img);
+    return false;
 }
