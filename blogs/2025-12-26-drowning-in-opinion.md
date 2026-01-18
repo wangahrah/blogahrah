@@ -1,6 +1,6 @@
 ---
 title: "Drowning in Opinion"
-date: 2025-12-26
+date: 2021-09-24
 private: false
 ---
 

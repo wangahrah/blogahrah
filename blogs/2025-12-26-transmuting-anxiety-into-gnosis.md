@@ -1,6 +1,6 @@
 ---
 title: "Transmuting Anxiety into Gnosis"
-date: 2025-12-26
+date: 2023-01-11
 private: false
 ---
 
