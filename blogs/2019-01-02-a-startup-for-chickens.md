@@ -4,7 +4,7 @@ date: 2019-01-02
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*1XKVBS1ngVKNhV4IoKs1KA.jpeg)
+![](/media/2019-01-02-medium-4812bab6.jpeg)
 *Pavlovskaya Rooster*
 
 *(trigger warning — picture of deceased chick in egg that failed to hatch)*
@@ -23,7 +23,7 @@ It was a hard to choose. I’d been searching for weeks. There were hundreds of 
 
 Then I saw them.
 
-![](https://cdn-images-1.medium.com/max/800/1*Y__a2ujr0YolkK8hWB8vng.jpeg)
+![](/media/2019-01-02-medium-b57726ba.jpeg)
 
 I had just found my chicken breed — Pavloskaya. They were black and gold, crested, and beautiful. There were very few of them in the USA. They were from Russia, and had only recently been imported. Perfect. I’d been building up a varied flock for awhile, and it was time to figure out what *my* breed was and start hatching.
 
@@ -43,7 +43,7 @@ I wasn’t sure where my *career* was going, or what a career was even worth to 
 
 I figured I’d cruise through on contracts, save money, build up a small engineering firm, work with people I liked on things we enjoyed, and that’d be that. Ditch the 9–5 and have plenty of time for farm life — emphasis is on **life** for me in this work/life balance. What was important to me was developing this newfound freedom to live life, be myself, and grow with my family — which now included horses, alpacas, miniature donkeys, sheep, dogs, a chinchilla, ducks, and of course, chickens.
 
-![](https://cdn-images-1.medium.com/max/800/1*2TwEQXsKkf9tKVtAx3eROg.jpeg)
+![](/media/2019-01-02-medium-0f03c565.jpeg)
 *My daughter and Izzy, the miniature donkey*
 
 ---
@@ -52,10 +52,10 @@ Hatching those eggs shipped across the country didn’t go great. I put eighteen
 
 Long story a little bit shorter — from those eighteen eggs, I have five adult chickens. Four Pavlovskayas (though only a single hen — a raccoon got the other one) and one Isbar hen. Many of the chicks did not hatch, some started to hatch and failed, and some were fully formed, but did not even seem to try. Hatching can come with mixed feelings, as demonstrated by the next two pictures — warning, one is of chick that died while trying to hatch.
 
-![](https://cdn-images-1.medium.com/max/800/1*DTrgiLpx_0SSs90mFyljvg.jpeg)
+![](/media/2019-01-02-medium-572c6396.jpeg)
 *Hatching is often insanely cute and happy*
 
-![](https://cdn-images-1.medium.com/max/800/1*anwcc2VncoHwQwUSfYXQ1A.jpeg)
+![](/media/2019-01-02-medium-c08bdd8f.jpeg)
 *Eggtopsies can sometimes help understand what went wrong*
 
 Did I do something wrong? Was it bad luck from shipping? I’d read that some people get smashed eggs or had no chicks hatch. It was still a better deal than paying $99 per chick.
@@ -133,7 +133,7 @@ I did some quick math in my head (that’s not true — I grabbed a calculat
 
 Beyond markets, money, and business, the more eggs that are hatched, the more data we get, and the better know how to hatch all kinds of different difficult species. I learned how difficult waterfowl and exotics could be to hatch, and how this same device could be used to help endangered raptors (birds for now, but it will also work for dinosaurs).
 
-![](https://cdn-images-1.medium.com/max/800/1*Psa2-ouFWFdei0rwHkYvFQ.jpeg)
+![](/media/2019-01-02-medium-f6b10c4b.jpeg)
 *One of my dinosaurs*
 
 Some time in here I met my co-founder, Jeff. I posted to Reddit about my project, and he messaged me and told me about his project that shared a surprising number of similarities. We agreed to work for each other for free — he would work on the mechanical design of my project, and I would work on the electrical/software side of his. Over time, it turned into a natural transition to becoming co-founders, and it gives us a great pathway to our next shared venture.

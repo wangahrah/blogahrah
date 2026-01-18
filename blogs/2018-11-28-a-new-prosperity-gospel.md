@@ -4,7 +4,7 @@ date: 2018-11-28
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*j6XaperTW6GjgmajA6BJZw.jpeg)
+![](/media/2018-11-28-medium-5da9ab2c.jpeg)
 
 Give me your money. Give from your lack of money — this will be multiplied and returned to you. Your faith to give the money you do not have will prove yourself worthy of reward. The more impoverished you are, the greater the return.
 
@@ -14,7 +14,7 @@ Give me your attention. Your phone notifications, your job, your family, your so
 
 *selah*
 
-![](https://cdn-images-1.medium.com/max/800/1*RptoHPPV4gSLuvvfcEHCUQ.jpeg)
+![](/media/2018-11-28-medium-6e6bfe8f.jpeg)
 
 Do not trust your resources to the preacher. God does not seek your money, nor is God concerned with your finances. You will learn to use resources wisely.
 
@@ -24,7 +24,7 @@ Do not place your trust in attention to social media, your cell phone, your work
 
 *selah*
 
-![](https://cdn-images-1.medium.com/max/800/1*Izz8ZKL54iYf-TEvXP6aHA.jpeg)
+![](/media/2018-11-28-medium-ed6d4608.jpeg)
 
 Trust yourself, but only when you have proven yourself to be trustworthy. You must find yourself to know when you can be trusted, and when to seek external guidance. That external guidance will become part of you, and allow you to increase trust in yourself.
 
@@ -34,5 +34,5 @@ Trust yourself with your time, but only when you have learned to spend it wisely
 
 The world outside will always vie for your attention. Learn to hear your inner voice, and allow the universe to speak to you. It will teach you what matters.
 
-![](https://cdn-images-1.medium.com/max/800/1*fRPMXpTuUsrjLLRvapUzXA.jpeg)
+![](/media/2018-11-28-medium-bd75ff14.jpeg)
 *time spent wisely*

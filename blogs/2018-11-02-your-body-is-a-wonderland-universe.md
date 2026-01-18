@@ -4,7 +4,7 @@ date: 2018-11-02
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*UxousoGurFZbKX7bWs_7zQ.jpeg)
+![](/media/2018-11-02-medium-1c77147d.jpeg)
 *the entire universe lives within the eye of this baby*
 
 During a time of meditation today (cue pretension), I was struck by a thought new to me. That is, I had no new knowledge, but had a different perspective on existing knowledge. Perhaps that’s where wisdom comes in to play, but intelligence vs wisdom is a discussion for another day, and we’ll need more Dungeons and Dragons fanatics to really have a proper discussion about which stat is the best.

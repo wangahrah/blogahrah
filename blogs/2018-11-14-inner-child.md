@@ -6,7 +6,7 @@ private: false
 
 A meditation for myself, as I often lose my way
 
-![](https://cdn-images-1.medium.com/max/800/1*ElxNKDrbsUP2yWgnSnD4SQ.jpeg)
+![](/media/2018-11-14-medium-1f1433c6.jpeg)
 
 ---
 
