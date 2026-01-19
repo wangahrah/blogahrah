@@ -4,7 +4,7 @@ date: 2025-06-21
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*1LJnvZ7gWdndHBR-8i-c9w.png)
+![](/media/2025-06-21-medium-48da01aa.png)
 
 Generative AI represents a commodification of knowledge — not a commodification of skill. Skilled developers can use AI to rapidly develop new code (even fully tested code — it doesn’t have to be slop!).
 

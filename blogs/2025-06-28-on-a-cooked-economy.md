@@ -14,7 +14,7 @@ That’s not really what the economy is supposed to do. It’s supposed to suppo
 
 This is my pixel-perfect rendering of our economy. It’s not the only economy, but it’s ours.
 
-![](https://cdn-images-1.medium.com/max/800/1*dLHxnlDeaQXhMukVgPkkeg.png)
+![](/media/2025-06-28-medium-13607115.png)
 *You understand, right?*
 
 In short — the triangle is the Population. It’s bigger at the bottom because there’s more people there at low income levels, and smaller at the top, smaller and smaller, until we reach Jeff Bezos.
@@ -29,7 +29,7 @@ An easy observation that this is the same distribution of people and wealth that
 
 We’ve got people at the top, and people at the bottom. Since we’ve started forming these messy civilizations, shortly after learning how to farm, we’ve seen an increased stratification of society. I’ve created a short, inconclusive, and mostly unhelpful list of some professions held, very roughly, from the bottom of human/financial pyramid up to the top.
 
-![](https://cdn-images-1.medium.com/max/800/1*3akp1ZqwnvhqOFfB_IRPLA.png)
+![](/media/2025-06-28-medium-efa0f5fb.png)
 
 At the bottom, we see as expected those who make the least and whose jobs seem to hold the least real respect in modern society — the laborers and service workers. We move up to more skilled trades and blue collar work, up through white collar workers and engineers.
 
@@ -45,7 +45,7 @@ What gives?
 
 Here’s what gives.
 
-![](https://cdn-images-1.medium.com/max/800/1*tbAilxL9A2H4TIZ062_cOA.png)
+![](/media/2025-06-28-medium-b38a14a3.png)
 *Even easier to understand*
 
 Our economy is basically a scam, and functions as a legal pyramid scheme. One of our economy’s biggest positive indicators, so we’re told, is the GDP — basically, how much money is flowing through it. Whether that money is “real” or not is open for debate.
@@ -72,7 +72,7 @@ Oh, you’re suffering? We’ll be happy to give you a stimulus check if you nee
 
 I’ve realized now that my initial graphic was wrong. The brown shape of population density vs wealth is wrong — let’s look at the blue line.
 
-![](https://cdn-images-1.medium.com/max/800/1*uJxEbpJmvlyL9HbQ0P5lPg.png)
+![](/media/2025-06-28-medium-ca5bf6f6.png)
 
 It’s not even a pyramid — the vase majority of people are way towards the bottom, and the vast majority of wealth is way near the top. Even cooler. Worse than we could imagine.
 
@@ -88,7 +88,7 @@ I think I’m done on the economy we have now. It’s not doing the job an econo
 
 Luckily for you all, I do know what it should look like.
 
-![](https://cdn-images-1.medium.com/max/800/1*oiCSqsv7zOiHZr1N6b91tw.png)
+![](/media/2025-06-28-medium-6b6b8ddc.png)
 
 We’ve proven we can create fabulous wealth out of nothing. We can use that fabulous wealth to keep everyone at a healthy standard of living — a standard where they have food, housing, clothing, education, healthcare.
 

@@ -4,7 +4,7 @@ date: 2021-02-11
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/0*aEqDBBFWCLfej29s)
+![](/media/2021-02-11-medium-5ff9419a.jpg)
 *Photo by Bryan Goff on Unsplash*
 
 We learn by doing. We do things, almost at random, until we find something interesting. When we find something interesting, we increase our focus on it until it seems chaotic. When the chaos reveals order within itself, we move to the next level. We learn more. Our skills improve. It’s natural and intuitive. A child has no purpose in their experimentation — it’s for the sheer joy and excitement of learning.

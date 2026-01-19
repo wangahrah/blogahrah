@@ -6,7 +6,7 @@ private: false
 
 She was wearing a hoodie that said “We Are All Human”. He was an evangelical Christian.
 
-![](https://cdn-images-1.medium.com/max/800/1*t_tkKdb4UaOXtrkap1vJrA.jpeg)
+![](/media/2024-01-18-medium-690897eb.jpeg)
 
 ---
 

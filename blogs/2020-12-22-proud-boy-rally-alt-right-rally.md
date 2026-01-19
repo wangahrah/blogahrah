@@ -4,7 +4,7 @@ date: 2020-12-22
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*6nA6gfZLK2DKADC_Yvyyhg.jpeg)
+![](/media/2020-12-22-medium-7439416e.jpeg)
 
 “Do you want to grab lunch?” I asked him. “Can I help you out with some food?”
 
@@ -26,13 +26,13 @@ I’d noticed a middle aged man standing on the outskirts of the political rally
 
 I was at one of the dueling political rallies in Portland, OR, on August 17th, 2019. This was a gathering of diverse right-wing protesters — organized by the Proud Boys, with a presence by the 3%’s, Patriots Prayer, and plenty of other groups. Present were paramilitary organizations and others classified as hate groups. I’d overheard two girls talking — they were from the east coast and had flown in for this rally. They weren’t associated with any specific group as far as I could tell, but were right leaning conservatives tired of being lumped in with hate. **We Don’t Hate** read their sign. A lot of folks attending seemed to not be affiliated with any group, but supported religious freedom, the Second Amendment and *traditional American values*, as they defined them.
 
-![](https://cdn-images-1.medium.com/max/800/1*nmAH3-1RJo1CSandpQhw7A.jpeg)
+![](/media/2020-12-22-medium-4bc34e92.jpeg)
 
 The group was very racially diverse. Members of specific organizations proudly wore their colors and symbols. Many folks were dressed in riot-style gear, ready to rumble with Antifa, as they had many times before in Portland. Many more had no gear at all except the most important at a rally like this — their cell phone.
 
 The police presence was strong and extremely visible. They’d barricaded the left wing protesters under the bridge while the right wing protesters marched to their gathering place. The right wing all took a knee for a prayer and singing the National Anthem. They talked about religious freedom and the right of American’s to bear arms. Government overreach was a common theme.
 
-![](https://cdn-images-1.medium.com/max/1200/1*jfGqOwfYy-lI7onYyrtiIQ.jpeg)
+![](/media/2020-12-22-medium-178bb87a.jpeg)
 
 In the middle of the rally, the Right was playing some techno-electronica-remix station, getting pumped up. People were jumping, singing, and dancing. Some feel-good song that was a little more *emotional* came on — I think it was Total Eclipse of the Heart. They quickly jumped to the next song. The energy in the group was **strong** — they felt ready, and united. No time for fluff. They were standing for what they believed in — gun rights, religious freedom, and standing against socialism and government overreach. Classic American themes. There were not overt words of hatred.
 
@@ -40,7 +40,7 @@ Several of the Left found their way through the police line and stood on the out
 
 I was taken aback by the number of selfie sticks and people livestreaming. At times, it felt more like a giant, right wing social media gathering than a protest. The police maintained their line, a silent reminder to everyone to be civil.
 
-![](https://cdn-images-1.medium.com/max/1200/1*8GlyineC9SxIu5N9P3Z_eg.jpeg)
+![](/media/2020-12-22-medium-1903ca16.jpeg)
 
 ---
 
@@ -48,7 +48,7 @@ The other side of the protest was a diverse group of people and organizations, g
 
 There was what felt like chaos behind their barricade. Music. Drums. Chanting. Dancing and writhing. Probably some great drugs. The common theme was that they believe the Right supported racism, hate and were facists, while this group stood for **inclusion** and **love. **Mostly, they wanted these people out of their city, and they weren’t afraid to say it in a loud, fuck-you-facist sort of way.
 
-![](https://cdn-images-1.medium.com/max/800/1*Gj2_wg5pubwGpiXoZqLZoA.jpeg)
+![](/media/2020-12-22-medium-cc0c02b4.jpeg)
 
 ---
 
@@ -64,4 +64,4 @@ Mixed in to his is a host of bad actors — actual facists. Actual communist
 
 Is there any true enemy to be found?
 
-![](https://cdn-images-1.medium.com/max/1200/1*n3bc_Is6CwcaTOIV2LAQpw.jpeg)
+![](/media/2020-12-22-medium-eb0ec1c0.jpeg)

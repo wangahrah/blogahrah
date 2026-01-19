@@ -4,7 +4,7 @@ date: 2025-07-25
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/2560/1*OfMt8lf61eC62fNU15Oxxg.jpeg)
+![](/media/2025-07-25-medium-e6819e31.jpeg)
 
 I hear the voice in my head — “Do not worry”. I know it is a message from the Divine, from Above. I read it as a child in my book of wisdom, the Bible — do not worry. Trust God.
 

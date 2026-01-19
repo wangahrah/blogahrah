@@ -4,7 +4,7 @@ date: 2022-01-21
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*OkJOJWhnbNiz7_sf2D62CA.jpeg)
+![](/media/2022-01-21-medium-67f8da2f.jpeg)
 
 True believers take things so seriously. So seriously it hurts.
 

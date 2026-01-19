@@ -4,7 +4,7 @@ date: 2021-07-20
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/800/0*7bGS2POdsT6oYL5X)
+![](/media/2021-07-20-medium-775dab93.jpg)
 *Photo by Ivana Cajina on Unsplash*
 
 How shall we solve this problem, this eternal conflict? The self vs the other. The group like us and the group not-like us.

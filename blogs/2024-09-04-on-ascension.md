@@ -4,7 +4,7 @@ date: 2024-09-04
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/2560/1*0vVoghzgTG9UpYMnL6n-QQ.jpeg)
+![](/media/2024-09-04-medium-034125d8.jpeg)
 
 Ascension is the marker, but not the goal. Striving for ascension is a recipe for failure to ascend.
 

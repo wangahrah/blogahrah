@@ -4,7 +4,7 @@ date: 2022-08-28
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*7UEs3VhZRHLxwvEgtEkaWA.jpeg)
+![](/media/2022-08-28-medium-259939fc.jpeg)
 
 > My God, my God, why have you forsaken me?
 

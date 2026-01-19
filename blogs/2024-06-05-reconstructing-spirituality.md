@@ -4,7 +4,7 @@ date: 2024-06-05
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*mq5i0SFNfcQnae2roGi3qA.jpeg)
+![](/media/2024-06-05-medium-233a007e.jpeg)
 
 T**here and Back Again** seemed like the only fitting title for this, but elaborating on **There**, the journey through the deconstruction half, has proven to be much harder than exploring **Back Again**, exploring spiritual reconstruction. So we’ll swap Part 1 and Part 2. Lucky for us, time, like spiritual journeys, seems to be non-linear, so we’ll get there eventually.
 
@@ -50,4 +50,4 @@ Jesus presents an archetype that can be compatible with this, as does Buddah, as
 
 From the primordial ooze of spirituality and human-ness grew religion. The progressive new growths from this ooze evolved into a variety of religions, but based on shared spiritual practices. When you deconstruct to this, and realize at the same time you are a living being connected to all things, you can reconstruct, rebuild, and have the freedom of a spiritual practice that can change and evolve, just as you change and evolve, dear friend.
 
-![](https://cdn-images-1.medium.com/max/800/1*eUlfwNnM6pZvG2zfX7Kwzg.jpeg)
+![](/media/2024-06-05-medium-fe0f5c05.jpeg)

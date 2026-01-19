@@ -6,7 +6,7 @@ private: false
 
 **a cord of three strands is not easily broken**
 
-![](https://cdn-images-1.medium.com/max/800/1*OuS_NKRtWReRnDCnI5fCGQ.jpeg)
+![](/media/2022-08-14-medium-0ab1caa2.jpeg)
 
 I hope my kids find god
 

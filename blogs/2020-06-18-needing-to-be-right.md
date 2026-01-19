@@ -14,4 +14,4 @@ We don’t have to, if we adopt a stance where we don’t need to be right. We c
 
 We are free to change.
 
-![](https://cdn-images-1.medium.com/max/1200/1*OD8RNXHsCnVTHYiJtAgxSg.jpeg)
+![](/media/2020-06-18-medium-5017127b.jpeg)

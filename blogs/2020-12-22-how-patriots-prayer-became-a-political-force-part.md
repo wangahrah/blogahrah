@@ -28,7 +28,7 @@ The town discussion forum (again, of course, on Facebook), erupted — quite
 
 Joey Gibson and Patriot’s Prayer spoke loudly about this matter, and showed up at a council meeting. The rules at that meeting were enforced — no one from outside of town limits could talk. Joey didn’t have his in-person platform. They attempted to have a flag-waving rally before the meeting, but people live in and move to Yacolt to get away from these things, not to participate. Almost no one showed up besides a me and reporters from two local papers. However, since Joey didn’t speak, it turned into a non-story.
 
-![](https://cdn-images-1.medium.com/max/1200/1*P_1YDRvC9G7TYvBJtGLugA.jpeg)
+![](/media/2020-12-22-medium-4ad5947f.jpeg)
 
 Name recognition is one of the most powerful aspects of running for political office. Michelle Dawson now had that, along with the support of Patriot’s Prayer, the NCSDL, and all the right-leaning folks that reside in a small, rural town. The power of Patriot’s Prayer wasn’t really needed — this town was ready to vote for a second amendment supporter, and as she was the only name on the ballot for her seat, it was almost certain she would win. The narrative is distracting — I don’t think *anyone* running for a council seat was against the second amendment, or particularly left leaning.
 

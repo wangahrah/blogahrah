@@ -15,7 +15,7 @@ In a similar fashion, **Christian fundamentalists** often spend very little time
 
 I hate dictionary definitions, but in this instance, I’m going to grab one.
 
-![](https://cdn-images-1.medium.com/max/800/1*-os_rCyobcoBKecchTm4ng.png)
+![](/media/2020-10-16-medium-e07b7aa4.png)
 
 Really? A strict, literal interpretation is very far from what the **fundamentals** of the Christian faith should be. I grew up a Christian, and considered myself a fundamentalist — with the fundamentals being the teachings of Jesus and an understanding of God as the artist and architect behind the universe. Concepts like *blessed are the meek…turn the other cheek…the last will be first and the first shall be last* rang in my heart and soul, and I tried to do my best to allow them to shape my being and guide my interactions with others.
 

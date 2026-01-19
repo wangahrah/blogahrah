@@ -4,7 +4,7 @@ date: 2024-12-28
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/1*lTkBj0zruAhBonRJD_SYFA.jpeg)
+![](/media/2024-12-28-medium-bc328a92.jpeg)
 
 ## Therapy is pretty simple.
 

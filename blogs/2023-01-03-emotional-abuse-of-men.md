@@ -4,13 +4,13 @@ date: 2023-01-03
 private: true
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*uBJ05VSUHWfEwX2MR7s90Q.jpeg)
+![](/media/2023-01-03-medium-46a406a0.jpeg)
 
 As she rages and walks away, and tells me just how much she’s changed, and the awful things that I have done to her, and that this isn’t the right time, and if I just wouldn’t say anything, things would be fine, and that she feels like a pebble in my shoe and everything she does is wrong, and she’s tried to change so much, and I have made her feel so small and so awful and it’s always been about me and for me, and my 3 year old son tugs my hand and asks for a snack as she tells me about me and my demands and how terrible and small I’ve made her feel, but that now she knows she’s OK, she says with energy, anger, and hostility (or perhaps my emotional radar is so off, and she’s feeling \*\*none \*\*of those things), because she’s looked inside herself, and knows she is beautiful and worthwhile, and everyone else thinks she is wonderful and it’s just me, and I am just controlling her and manipulating her, and my son tugs my hand, and I remember the times I have yelled at her with tiny ears around and know I am not without sin, and I do now try and keep my mouth shut so this can end and I can get my son a snack, and internally I bleed, as I suspect she is bleeding.
 
 I know I have yelled at her, and hurt her, and there is no getting around the pain I have caused her, and if she finds it to be abuse, I understand, and I have, I think, more often than not addressed what she said head-on, and dealt with my anger (I rarely “lose it” anymore”), or my “aggressive” postures (I keep my distance), or my “violent” tones (I purposeful err on the side of keeping my voice quiet). A combination of therapy to help me understand **the feelings** and introspection and personal spiritual practice help me to realize the darkness in me and how to be able to better and more healthfully interact with people. But, I’ve been an asshole before. Am I now? She tells me she has changed so much, done so much, and it’s never good enough for me. I tell her I am only asking her for one thing — when I tell her “You hurt me”, to feel like a human, and not have it suddenly become a giant clusterfuck of anger and emotions where I am awful — all because I say, hey, you did this, said this, and it hurt me. She has said “What kind of man are you?”, and scoffed at my sensitivity. I don’t know what kind of man I am, and I certainly can be sensitive. I hurt and I resent from a decade of having to be, as it relates to our relationship, A \*\*Man \*\*who cannot be hurt or have feelings about our relationship, while still shouldering the responsibility of her feelings.
 
-![](https://cdn-images-1.medium.com/max/800/1*SM-BzRQ16nISDeS64Z_leA.jpeg)
+![](/media/2023-01-03-medium-6afaac93.jpeg)
 
 I go to my room and I shake, and I’ve learned to let my body shake to release the tension like animals do. My brain is mush, I am hurting, I feel thrashed and dismissed again, unheard when I feel pain. I believe she feels the same way. I am concerned that no one has awareness of what they are doing. I am more concerned if she does have awareness.
 
@@ -50,4 +50,4 @@ just
 
 people
 
-![](https://cdn-images-1.medium.com/max/800/1*s922fuBuWwZtvOlZbnz30w.jpeg)
+![](/media/2023-01-03-medium-bd9da949.jpeg)

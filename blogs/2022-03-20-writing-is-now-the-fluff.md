@@ -4,7 +4,7 @@ date: 2022-03-20
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*q3lt2uD7bP7yzZbdvGEEDw.jpeg)
+![](/media/2022-03-20-medium-61aafee4.jpeg)
 *credit: author*
 
 Forgive the drama. You can all say suck it up, it’s what everyone does, and there’s plenty of good reasons for it — and you’d be right.
