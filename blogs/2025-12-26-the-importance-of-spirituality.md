@@ -1,6 +1,6 @@
 ---
 title: "The Importance of Spirituality"
-date: 2025-12-26
+date: 2025-05-13
 private: false
 ---
 

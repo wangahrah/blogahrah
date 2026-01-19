@@ -1,6 +1,6 @@
 ---
 title: "Living Belief"
-date: 2025-12-26
+date: 2018-12-20
 private: false
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "We’ve Really Done it to Ourselves This Time"
-date: 2025-12-26
+date: 2025-04-26
 private: false
 ---
 
@@ -55,7 +55,7 @@ People need to have their basic needs met — everything after that is icing
 
 Now, of course, dear reader, you question me — the agriculture revolution allowed for the explosive and sustainable growth of the human population. Why on earth would we want to feed people?
 
-Well, the end of the story is that the more successful, happy, and taken care of a population is, the lower the birth rate is — and it tends to fall to levels that will gradual decrease the population of humans, which is something that we truly need. Historically, wars and plague and famine self-correct overpopulations, but human ingenuity has begun to stymie this — but the system still appears to self-correct, as high developed societies simply have fewer babies. So feed the people — all of them.
+Well, the end of the story is that the more successful, happy, and taken care of a population is, the lower the birth rate is — and it tends to fall to levels that will gradual decrease the population of humans, which is something that we truly need. Historically, wars and plague and famine self-correct overpopulations, but human ingenuity has begun to stymie this — but the system still appeahars to self-correct, as high developed societies simply have fewer babies. So feed the people — all of them.
 
 With a network of self-feeding communities, empowered by the technology given to us by knowledge, we will have each other, rely on each other, and begin to be free from the shackles of the governments we have (ostensibly) chosen for ourselves, but still seem to try and enslave us. When you create food with other humans in a community, there’s a spark that’s created. I think it’s a spark from those 2 million years of evolution that proto-humans came from, where we, together, had to find a way to make food happen. It’s primal. Food together grows community together.
 

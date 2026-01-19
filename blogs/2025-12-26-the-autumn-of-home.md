@@ -1,6 +1,6 @@
 ---
 title: "The Autumn of Home"
-date: 2025-12-26
+date: 2021-09-26
 private: false
 ---
 
