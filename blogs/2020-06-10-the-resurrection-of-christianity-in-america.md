@@ -17,7 +17,7 @@ The process is intertwined and interdependent, fundamentally connected — t
 
 This is a core tenet of Christianity. Jesus died (in a manner filled with suffering), and then, after the requisite time passed, rose again. Not only did he rise — his resurrection brought about the healing all of mankind. From death and destruction, painful and raw, came resurrection and salvation.
 
-![](https://cdn-images-1.medium.com/max/800/1*iajPboOz82RpgQeXRl-WJQ.jpeg)
+![](/media/2020-06-10-medium-bcca89ec.jpeg)
 
 ---
 

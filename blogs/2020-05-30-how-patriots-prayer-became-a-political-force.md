@@ -22,13 +22,13 @@ This story assumes some familiarity with the subject matter in terms of what is 
 
 My first event was the Patriot Prayer rally at Washington State University in Vancouver, WA on October 22nd, 2018. This was, ostensibly, to protest I-1639, a gun control initiative which would be passed by a popular vote of the people in November 6, 2018. I’d never heard of this initiative before, but it would become the narrative that drive a political wedge into our region over the coming year. The rally was not particularly well attended (most likely due to Washing State University shutting down the campus the day of the rally), and I noted a strong police presence ready to spring into action if necessary.
 
-![](https://cdn-images-1.medium.com/max/800/1*ft4eQSX0XA4aUt8kpmreJQ.jpeg)
+![](/media/2020-05-30-medium-f8d7f897.jpeg)
 
 I was not aware a the time, but now I give kudos to WSU for recognizing how this groups works — their primary method is to create conflict to raise awareness of what they’re up to, and provoking the other side into violence is their best case scenario. This is not my opinion — it’s been stated directly by members of these groups, and seems fairly obvious if you observe their tactics. They are trolls — both online, and in real life. Their best work can only be done when there is an opposing force to fight against — the louder their opponents, the better.
 
 I came on to the scene and listened to what the leaders of the rally had to say. I was taken aback at the angry, inciteful tone. I was not aware of who these folks were at the time, but would later find out it was Tusitala “Tiny” Toese and Joey Gibson, both of Patriot Prayer (though that would soon change, after Tiny’s felony assault charges).
 
-![](https://cdn-images-1.medium.com/max/800/1*t-NSTC4ovZF_IGU1Rlaxag.jpeg)
+![](/media/2020-05-30-medium-f342ef05.jpeg)
 *My first time seeing Tiny and Joey*
 
 There was little focus on I-1639 itself, and they seemed to mostly discuss how the government was corrupt, not of the people, and the importance of gun ownership for all the usual reasons, with a whole lot of God and Jesus thrown in for reasons I wasn’t quite sure of. There were complaints about billionaires funding the initiative, and how mental health checks were a violation of our rights to privacy under HIPAA.
@@ -48,11 +48,11 @@ There were a few left-wing counter protestors who, afterwards, spent some time g
 
 One of my favorite protesters, who I would run into again a long time later was there, dancing as her form of peaceful protest to overcome the hate.
 
-![](https://cdn-images-1.medium.com/max/800/1*LaY1zNM73zfPjv8PEfjihg.jpeg)
+![](/media/2020-05-30-medium-443ebf1d.jpeg)
 
 After the rally, I walked around campus. Right next to the rally was a pole with writing in many languages, stating “May Peace Prevail on Earth”. A carved totem had the following inscription — poignant, considering what had just happened, and what would continue.
 
-![](https://cdn-images-1.medium.com/max/800/1*wj_RSTsc23dh2nxWOMxWnA.jpeg)
+![](/media/2020-05-30-medium-612bb02b.jpeg)
 
 ---
 

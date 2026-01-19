@@ -6,7 +6,7 @@ private: false
 
 *Note: This article has been long delayed. There have been many developments, including increased violent rhetoric from alt-right groups, who have targeted journalists and freelancers, occasionally with explicit death threat and more often violent rhetoric. I chose to stop writing for awhile for the safety of my family. I did not expect this going in, nor do I view myself as a threat to anyone — the alt-right movement has become increasingly irrational in who they label as a threat.*
 
-![](https://cdn-images-1.medium.com/max/1200/1*ZC6GrGNor-O1Otp3BHhfGA.jpeg)
+![](/media/2020-12-22-medium-37cc0ce7.jpeg)
 
 ---
 
@@ -48,4 +48,4 @@ What I hadn’t realized yet is what a strange group of unlikely allies was coal
 
 ### Up next: [The Proud Boy’s rally in Portland.](https://pavlovschicken.medium.com/proud-boy-rally-alt-right-rally-1610e0b873fd)
 
-![](https://cdn-images-1.medium.com/max/1200/1*iSuCPCti94k001kJ-eyOSw.jpeg)
+![](/media/2020-12-22-medium-114f8a37.jpeg)

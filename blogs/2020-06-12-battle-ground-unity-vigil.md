@@ -14,17 +14,17 @@ They waved their flags, proudly showed off their handguns and assault rifles and
 
 Cars drove by, mostly honking and waving. This time, though, there were an increased number of cars rolling down their window to scream “Fuck you!”. Why the change?
 
-![](https://cdn-images-1.medium.com/max/800/1*uXUPH2NUfbde4xeLGCRm2Q.jpeg)
+![](/media/2020-06-12-medium-291b7c78.jpeg)
 
 ---
 
 Shortly before the event, someone named Mickey Nimaj asked some questions about the event in local Facebook groups in support of the vigil, indicating that she would come. From her Facebook profile and recent statements, she was a local black woman moved here from Houston, complaining about the local rednecks and the homophobes in Texas in an expletive-ridden comment — someone who seemed like they would clearly be in support of a Battle Ground Black Lives Matter protest.
 
-![](https://cdn-images-1.medium.com/max/800/1*3PPz6j9AE531uenMmd_UjQ.png)
+![](/media/2020-06-12-medium-c273f37a.png)
 
 The unfortunately reality of Mickey Nimaj is that she isn’t real. She’s a fake profile, created by the organizer of the event, in attempts to make it seem more legitimate with the support of a person of color. Local PoC had been contacted and invited by this fake profile, with the assumption they’d be more likely to come, vs being invited by a heavily armed white dude.
 
-![](https://cdn-images-1.medium.com/max/800/1*n_gSvh_njSDJFOntxRmTpw.png)
+![](/media/2020-06-12-medium-84b6e45b.png)
 
 ---
 
@@ -38,7 +38,7 @@ Cultural diversity is quite another matter.
 
 The organizer was outspoken about wanting a vigil for everyone — however, the only people who showed up are the people he associates with most — and they are not particularly on the side of Black Lives Matter. I’ll discuss this in another article, but I don’t believe racism is the primary driver — the religion of politics is, and BLM is the enemy of their political religion. You can hear the organizer speak his platform here. It’s primarily focused on second amendment rights, but seems to actively advocate for all. He has also, after this vigil, attended a BLM event in the same location to show solidarity. He is not a member of Patriot Prayer.
 
-![](https://cdn-images-1.medium.com/max/800/1*WWUAKmOmZtuOFs4yV6YVnw.jpeg)
+![](/media/2020-06-12-medium-7f64c76d.jpeg)
 
 I had a conversation with this man flying the Thin Blue Line / Blue Lives Matter flag. He initiated it — not me.
 
@@ -56,4 +56,4 @@ I believe in extending olive branches and having conversations. Not yelling at e
 
 Get out there. Protest. Protest with a group you don’t believe in. Hear their stories. Have conversations with humans. Tell me I’m wrong.
 
-![](https://cdn-images-1.medium.com/max/800/1*SwQKMSrYhtmqZV5J-8BRKg.jpeg)
+![](/media/2020-06-12-medium-536ed603.jpeg)

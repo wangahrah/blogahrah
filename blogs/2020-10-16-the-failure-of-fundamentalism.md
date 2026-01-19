@@ -4,7 +4,7 @@ date: 2020-10-16
 private: false
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/0*CidWc2rd2K5lEptJ)
+![](/media/2020-10-16-medium-3a826121.jpg)
 *Photo by Motoki Tonn on Unsplash*
 
 The term **fundamentalism **evokes within me something of a **Make America Great Again** feeling. It’s not a happy feeling — but the words themselves taken out of context are innocent. There’s nothing inherently wrong with making America great again — though that statement brings with it a steam-powered train full of questions. In a similar fashion, there’s nothing inherently wrong about focusing on fundamentals (and in this context, I’m specifically talking about the Christian religion)— in fact, there’s a lot to be said for it. Returning to the core of a faith whose adherents have gone astray — shouldn’t that be celebrated?
