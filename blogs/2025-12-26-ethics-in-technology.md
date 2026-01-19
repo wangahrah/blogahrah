@@ -4,7 +4,7 @@ date: 2020-01-22
 private: true
 ---
 
-![](https://cdn-images-1.medium.com/max/1200/0*_q0XC_R3KLXczQPF)
+![](/media/2025-12-26-medium-14c59953.jpg)
 *Photo by Valentin Jorel on Unsplash*
 
 Technology simply **is**. It does not come infused with inherent good or evil. It’s a reflection of natural laws, assembled and used for a purposes. We can use a hand-held tool to build a house or to slaughter our neighbor. We can split an atom to generate massive amounts of useful power, or to drop a powerful bomb on our enemy. Both these technological advances can and will be used for applications that will be called both good and evil, and the label will flip depending on perspective. My bombs are good, and used to defend my people. Your bombs are bad, and used to kill my people.

@@ -12,7 +12,7 @@ Put our foot in our mouth. Bit the hand that feeds us. Thrown a stone at a glass
 
 Not too long ago, there weren’t too many humans. Here’s a dramatic AI-generated graph of human (and some ancestors) population growth over time, starting 2 million years ago:
 
-![](https://cdn-images-1.medium.com/max/800/1*sd5rtBP12uYyPl5G0iyLXQ.png)
+![](/media/2025-12-26-medium-c6255d9c.png)
 *Until recently, there were approximately 0 humans (rounding down)*
 
 Again, with rounding, nearly every single person who has ever lived was born yesterday — which really explains quite a bit.
@@ -21,7 +21,7 @@ We figured out agriculture, and, boom, we were off to the races with being able 
 
 Really, it hasn’t, I’m just feeling generically cranky. It’s gotten **way** better for the average human, even considering the gross human injustices we face in modern times. We haven’t quite taken the time in the past 12,000 years (roughly the start of agriculture…it has **not been that long**) to take a step back and introspect as a species, and perhaps now would be a lovely time to do so. There’s a good chance we’re already too late, but on the off chance we’ll make it through, let’s try and get some perspective — and remember, creatures and critters and plans and life evolves cooperatively with their environments. That’s how they survive long-term.
 
-![](https://cdn-images-1.medium.com/max/800/1*5NyOBRQNccvFMdgd_1xPFQ.png)
+![](/media/2025-12-26-medium-824c5d73.png)
 
 Don’t think that we’ve got it figured out. I don’t care who you are or what you believe (and that goes double for myself) — we haven’t even begun to figure it out. We’re a blip on even the human timescale, so it naturally, intuitively — obviously, may I say? is clear that we haven’t evolved for **this**. When I say “this”, I am indeed wildly gesturing around me in all directions.
 
