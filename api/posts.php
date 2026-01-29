@@ -5,8 +5,8 @@ require_once __DIR__ . '/config.php';
 header('Content-Type: application/json');
 
 // GET - List all posts (filter private posts for unauthenticated users)
+// Supports ?slug=X to fetch a single post (including private) by slug
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $posts = [];
     $isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated'];
 
     if (!is_dir(BLOGS_DIR)) {
@@ -14,6 +14,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         exit;
     }
 
+    // Single post fetch by slug — returns the post even if private
+    $requestedSlug = $_GET['slug'] ?? null;
+    if ($requestedSlug !== null) {
+        // Validate slug format to prevent path traversal
+        if (!preg_match('/^[a-zA-Z0-9\-]+$/', $requestedSlug)) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Invalid slug format']);
+            exit;
+        }
+
+        $filepath = BLOGS_DIR . '/' . $requestedSlug . '.md';
+        if (!file_exists($filepath)) {
+            http_response_code(404);
+            echo json_encode(['error' => 'Post not found']);
+            exit;
+        }
+
+        $content = file_get_contents($filepath);
+        $meta = parseFromtmatter($content);
+        $filename = basename($filepath);
+        $isPrivate = isset($meta['private']) && ($meta['private'] === 'true' || $meta['private'] === true);
+
+        $post = [
+            'filename' => $filename,
+            'slug' => pathinfo($filename, PATHINFO_FILENAME),
+            'title' => $meta['title'] ?? 'Untitled',
+            'date' => $meta['date'] ?? substr($filename, 0, 10),
+            'content' => $meta['content'],
+            'private' => $isPrivate
+        ];
+
+        // Tell search engines not to index private posts
+        if ($isPrivate) {
+            header('X-Robots-Tag: noindex, nofollow');
+        }
+
+        echo json_encode($post);
+        exit;
+    }
+
+    // List all posts
+    $posts = [];
     $files = glob(BLOGS_DIR . '/*.md');
 
     foreach ($files as $file) {

@@ -158,6 +158,15 @@
       color: #ff6600;
       margin-left: 10px;
     }
+    .copy-link {
+      font-size: 0.8em;
+      color: #ff6600;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .copy-link:hover {
+      color: #00ff00;
+    }
 
     /* Mobile responsive styles */
     @media screen and (max-width: 768px) {
@@ -244,7 +253,7 @@
         padding-left: 12px;
       }
 
-      .edit-link, .delete-link, .private-indicator {
+      .edit-link, .delete-link, .private-indicator, .copy-link {
         display: block;
         margin-left: 0;
         margin-top: 5px;
@@ -357,7 +366,7 @@
         // Check URL for specific post
         const slug = getSlugFromUrl();
         if (slug) {
-          showPost(slug);
+          await showPost(slug);
         } else {
           showList();
         }
@@ -366,10 +375,10 @@
       }
 
       // Handle back/forward navigation
-      window.addEventListener('popstate', () => {
+      window.addEventListener('popstate', async () => {
         const slug = getSlugFromUrl();
         if (slug) {
-          showPost(slug);
+          await showPost(slug);
         } else {
           showList();
         }
@@ -384,6 +393,10 @@
     function showList() {
       document.getElementById('post-list').style.display = 'block';
       document.getElementById('post-single').classList.remove('active');
+
+      // Remove noindex meta tag when showing the list
+      const robotsMeta = document.querySelector('meta[name="robots"]');
+      if (robotsMeta) robotsMeta.remove();
 
       const container = document.getElementById('posts');
       const empty = document.getElementById('empty');
@@ -408,11 +421,12 @@
         const editLink = isAuthenticated ? `<a href="/write/?edit=${post.slug}" class="edit-link" onclick="event.stopPropagation()">[edit]</a>` : '';
         const deleteLink = isAuthenticated ? `<a href="#" class="delete-link" onclick="event.preventDefault(); event.stopPropagation(); deletePost('${post.slug}', '${escapeHtml(post.title)}')">[delete]</a>` : '';
         const privateIndicator = post.private ? ' <span class="private-indicator">[private]</span>' : '';
+        const copyLink = (post.private && isAuthenticated) ? ` <a href="#" class="copy-link" onclick="event.preventDefault(); event.stopPropagation(); copyPostLink('${post.slug}', this);">[copy link]</a>` : '';
         return `
           <li class="post-item" data-slug="${post.slug}" onclick="navigate('${post.slug}', event)">
             ${thumb ? `<img src="${escapeHtml(thumb)}" alt="" class="post-thumb">` : ''}
             <div class="post-info">
-              <h2><a href="?p=${post.slug}">${escapeHtml(post.title)}</a>${privateIndicator}${editLink}${deleteLink}</h2>
+              <h2><a href="?p=${post.slug}">${escapeHtml(post.title)}</a>${privateIndicator}${copyLink}${editLink}${deleteLink}</h2>
               <div class="date">${post.date}</div>
               <div class="excerpt">${escapeHtml(excerpt)}</div>
             </div>
@@ -421,8 +435,19 @@
       }).join('');
     }
 
-    function showPost(slug) {
-      const post = posts.find(p => p.slug === slug);
+    async function showPost(slug) {
+      let post = posts.find(p => p.slug === slug);
+
+      // If not in local array (e.g. private post via direct link), fetch by slug
+      if (!post) {
+        try {
+          const res = await fetch('/api/posts.php?slug=' + encodeURIComponent(slug));
+          if (res.ok) {
+            post = await res.json();
+          }
+        } catch (e) {}
+      }
+
       if (!post) {
         showList();
         return;
@@ -441,12 +466,25 @@
 
       // Update page title
       document.title = post.title + ' - blogahrah';
+
+      // Add noindex meta tag for private posts, remove for public
+      let robotsMeta = document.querySelector('meta[name="robots"]');
+      if (post.private) {
+        if (!robotsMeta) {
+          robotsMeta = document.createElement('meta');
+          robotsMeta.name = 'robots';
+          document.head.appendChild(robotsMeta);
+        }
+        robotsMeta.content = 'noindex, nofollow';
+      } else if (robotsMeta) {
+        robotsMeta.remove();
+      }
     }
 
-    function navigate(slug, event) {
+    async function navigate(slug, event) {
       event.preventDefault();
       history.pushState({}, '', '?p=' + slug);
-      showPost(slug);
+      await showPost(slug);
       window.scrollTo(0, 0);
     }
 
@@ -495,6 +533,15 @@
       } catch (e) {
         alert('Delete failed: ' + e.message);
       }
+    }
+
+    function copyPostLink(slug, el) {
+      const url = window.location.origin + '/blogahrah/?p=' + slug;
+      navigator.clipboard.writeText(url).then(() => {
+        const original = el.textContent;
+        el.textContent = '[copied!]';
+        setTimeout(() => { el.textContent = original; }, 1500);
+      });
     }
 
     function togglePrivateFilter() {
