@@ -511,6 +511,15 @@
           }
         });
 
+        // Keep cursor away from the bottom edge while typing
+        try {
+          const margin = { top: 0, right: 0, bottom: 200, left: 0 };
+          editor.wwEditor.view.setProps({
+            scrollMargin: margin,
+            scrollThreshold: margin
+          });
+        } catch (e) {}
+
         // Restore draft if exists
         const draft = localStorage.getItem('toastui-draft');
         if (draft) {
