@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>You've Received an Owl!</title>
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #0a0a0f;
+  color: #D4AF37;
+  font-family: Georgia, 'Times New Roman', serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  padding-bottom: 120px;
+}
+
+/* ===== STARS BACKGROUND ===== */
+#stars-container {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle var(--dur) ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* ===== LUMOS OVERLAY ===== */
+#lumos-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(255, 255, 200, 0);
+  pointer-events: none;
+  z-index: 9998;
+  transition: background 0.5s;
+}
+
+#lumos-overlay.flash {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+#lumos-overlay.warm {
+  background: rgba(255, 255, 200, 0.08);
+}
+
+/* ===== FLOATING CANDLES ===== */
+.floating-candle {
+  position: fixed;
+  font-size: 32px;
+  z-index: 9997;
+  pointer-events: none;
+  animation: floatCandle 3s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.floating-candle.visible {
+  opacity: 1;
+}
+
+@keyframes floatCandle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ===== SECTIONS ===== */
+.scene {
+  display: none;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.scene.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== SECTION 1: ARRIVAL ===== */
+#scene-arrival {
+  text-align: center;
+}
+
+/* Owl flight */
+#owl {
+  font-size: 60px;
+  position: fixed;
+  top: 30%;
+  left: -100px;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#owl.flying {
+  animation: owlFly 3s ease-out forwards;
+}
+
+@keyframes owlFly {
+  0% { left: -100px; opacity: 1; transform: rotate(-5deg); }
+  30% { transform: rotate(5deg); }
+  50% { transform: rotate(-3deg); }
+  70% { left: 50%; transform: translateX(-50%) rotate(2deg); opacity: 1; }
+  100% { left: 50%; transform: translateX(-50%) rotate(0deg); opacity: 0; }
+}
+
+/* Terminal typing text */
+#arrival-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  color: #D4AF37;
+  margin-bottom: 40px;
+  min-height: 1.5em;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+/* Envelope */
+#envelope-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+#envelope {
+  width: 220px;
+  height: 150px;
+  background: #8B6914;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(139, 105, 20, 0.4);
+  transition: transform 0.3s;
+}
+
+#envelope:hover {
+  transform: scale(1.05);
+}
+
+/* Envelope flap */
+#envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 110px solid transparent;
+  border-right: 110px solid transparent;
+  border-top: 80px solid #9B7924;
+  transform-origin: top center;
+  transition: transform 1.2s ease-in-out;
+  z-index: 2;
+}
+
+#envelope-flap.open {
+  transform: rotateX(180deg);
+}
+
+/* Wax seal */
+#wax-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  z-index: 3;
+  filter: drop-shadow(0 0 6px rgba(255, 100, 100, 0.5));
+}
+
+#envelope-prompt {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #D4AF37;
+  animation: gentlePulse 2s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* ===== SECTION 2: INVITATION LETTER ===== */
+#scene-letter {
+  padding: 20px;
+}
+
+.parchment {
+  background: linear-gradient(135deg, #F5E6C8, #E8D5A8);
+  border: 3px solid #C4A86B;
+  border-radius: 8px;
+  padding: 40px 30px;
+  max-width: 500px;
+  width: 100%;
+  color: #3B2200;
+  text-align: center;
+  animation: floatParchment 4s ease-in-out infinite;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes floatParchment {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.parchment h1 {
+  font-size: 1.6rem;
+  margin-bottom: 2px;
+  letter-spacing: 2px;
+  color: #3B2200;
+}
+
+.parchment h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+  margin-bottom: 4px;
+  color: #3B2200;
+}
+
+.parchment .subtitle {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #665533;
+  margin-bottom: 24px;
+}
+
+.parchment .greeting {
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+
+.parchment .invite-line {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.parchment .birthday-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #740001;
+  margin: 10px 0 20px 0;
+}
+
+.parchment .details {
+  text-align: left;
+  margin: 0 auto 20px auto;
+  max-width: 340px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.parchment .details strong {
+  color: #3B2200;
+}
+
+.parchment .rsvp-note {
+  margin-top: 16px;
+  font-size: 1rem;
+}
+
+.gold-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #D4AF37, #B8941E);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 48px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.gold-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.gold-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== SECTION 3: SORTING HAT ===== */
+#scene-sorting {
+  padding: 20px;
+  text-align: center;
+}
+
+#sorting-hat-emoji {
+  font-size: 80px;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+  margin-bottom: 20px;
+}
+
+#sorting-hat-emoji.shake {
+  animation: hatShake 0.5s ease-in-out infinite;
+}
+
+@keyframes hatShake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+#hat-speech {
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  color: #D4AF37;
+  max-width: 500px;
+  margin: 0 auto 24px auto;
+  min-height: 2em;
+  font-style: italic;
+}
+
+#quiz-container {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.quiz-question {
+  display: none;
+  text-align: center;
+}
+
+.quiz-question.active {
+  display: block;
+}
+
+.quiz-question h3 {
+  font-size: 1.15rem;
+  color: #D4AF37;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.quiz-option {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  margin-bottom: 10px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  color: #D4AF37;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  cursor: pointer;
+  min-height: 48px;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.quiz-option:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #D4AF37;
+  transform: translateX(4px);
+}
+
+.quiz-option:active {
+  transform: scale(0.98);
+}
+
+/* House reveal */
+#house-reveal {
+  display: none;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+#house-emoji {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+#house-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+#house-motto {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 30px;
+  max-width: 400px;
+}
+
+/* Particle burst */
+.particle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Guest scroll */
+#guest-scroll {
+  margin-top: 30px;
+  max-width: 500px;
+  width: 100%;
+}
+
+#guest-scroll h3 {
+  font-size: 1.2rem;
+  color: #D4AF37;
+  margin-bottom: 16px;
+}
+
+#guest-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.guest-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* ===== SECTION 4: RSVP ===== */
+#scene-rsvp {
+  padding: 20px;
+  text-align: center;
+}
+
+#rsvp-form-container {
+  max-width: 460px;
+  width: 100%;
+}
+
+#scene-rsvp h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #D4AF37;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  color: #D4AF37;
+  margin-bottom: 6px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  color: #D4AF37;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  min-height: 48px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #D4AF37;
+}
+
+/* Attendance toggle */
+.attend-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.attend-btn {
+  padding: 14px 20px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.05);
+  color: #D4AF37;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  cursor: pointer;
+  min-height: 48px;
+  transition: all 0.2s;
+}
+
+.attend-btn.selected {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #D4AF37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.attend-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+}
+
+#rsvp-submit {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#rsvp-error {
+  display: none;
+  color: #ff6b6b;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+/* RSVP success */
+#rsvp-success {
+  display: none;
+  text-align: center;
+}
+
+#flying-owl {
+  font-size: 60px;
+  opacity: 0;
+}
+
+#flying-owl.fly-away {
+  animation: owlFlyAway 2s ease-in forwards;
+}
+
+@keyframes owlFlyAway {
+  0% { opacity: 1; transform: translateY(0) rotate(0); }
+  100% { opacity: 0; transform: translateY(-300px) rotate(-10deg); }
+}
+
+#success-message {
+  font-size: 1.3rem;
+  color: #D4AF37;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#success-message.visible {
+  opacity: 1;
+}
+
+/* ===== SECTION 5: SPELL TERMINAL ===== */
+#spell-terminal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9000;
+  width: 100%;
+}
+
+#spell-terminal-inner {
+  background: rgba(10, 10, 15, 0.97);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 10px 16px 12px 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#spell-terminal .terminal-header {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  color: rgba(212, 175, 55, 0.5);
+  margin-bottom: 6px;
+}
+
+#spell-terminal .terminal-sub {
+  display: none;
+}
+
+#spell-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#spell-input-row .prompt {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1rem;
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+#spell-select {
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(10, 10, 15, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+  color: #D4AF37;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  min-height: 48px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%23D4AF37'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+#spell-select:focus {
+  border-color: #D4AF37;
+}
+
+#spell-select option {
+  background: #0a0a0f;
+  color: #D4AF37;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 8px;
+}
+
+#cast-btn {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #D4AF37, #B8941E);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 48px;
+  transition: transform 0.2s;
+}
+
+#cast-btn:hover {
+  transform: scale(1.05);
+}
+
+#spell-response {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  color: #D4AF37;
+  margin-top: 6px;
+  min-height: 1.2em;
+  white-space: pre-wrap;
+  opacity: 0.85;
+}
+
+/* ===== SPELL EFFECTS ===== */
+
+/* Patronus */
+.patronus {
+  position: fixed;
+  font-size: 60px;
+  z-index: 9999;
+  pointer-events: none;
+  filter: drop-shadow(0 0 20px #4fc3f7) drop-shadow(0 0 40px #4fc3f7);
+  animation: patronusRun 3s ease-out forwards;
+}
+
+@keyframes patronusRun {
+  0% { left: -80px; top: 40%; opacity: 1; }
+  100% { left: 110%; top: 30%; opacity: 0; }
+}
+
+/* Accio cake */
+.accio-cake {
+  position: fixed;
+  font-size: 80px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: accioCake 2s ease-out forwards;
+}
+
+@keyframes accioCake {
+  0% { right: -100px; top: 50%; opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; }
+  100% { right: calc(50% - 40px); top: calc(50% - 40px); opacity: 1; transform: scale(1); }
+}
+
+.accio-cake.fade {
+  animation: cakeFade 1s ease-out forwards;
+}
+
+@keyframes cakeFade {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Alohomora overlay */
+#alohomora-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#alohomora-overlay.visible {
+  display: flex;
+}
+
+#alohomora-text {
+  font-size: 2rem;
+  color: #D4AF37;
+  text-align: center;
+  padding: 20px;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+  animation: alohomoraPulse 2s ease-in-out infinite;
+}
+
+@keyframes alohomoraPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Stupefy */
+body.stupefy-flash {
+  animation: stupefyFlash 0.3s ease-out;
+}
+
+@keyframes stupefyFlash {
+  0% { filter: brightness(3) saturate(200%) hue-rotate(-30deg); }
+  100% { filter: none; }
+}
+
+body.stupefy-gray {
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+/* Riddikulus */
+body.riddikulus * {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
+  color: #ff69b4 !important;
+}
+
+/* Confetti */
+.confetti-piece {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: confettiFall var(--fall-dur) linear forwards;
+}
+
+@keyframes confettiFall {
+  0% { top: -10px; transform: rotate(0deg); opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 110vh; transform: rotate(720deg); opacity: 0; }
+}
+
+/* Levitate effect */
+body.levitate .scene.active,
+body.levitate #spell-terminal {
+  transition: transform 1s ease-in-out;
+  transform: translateY(-30px);
+}
+
+body.levitate-return .scene.active,
+body.levitate-return #spell-terminal {
+  transition: transform 2s ease-in-out;
+  transform: translateY(0);
+}
+
+/* Expelliarmus */
+body.expelliarmus .scene.active,
+body.expelliarmus #spell-terminal-inner {
+  animation: slideOff 1.5s ease-in-out;
+}
+
+@keyframes slideOff {
+  0% { transform: translateX(0); }
+  30% { transform: translateX(110vw); }
+  60% { transform: translateX(110vw); }
+  100% { transform: translateX(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .parchment {
+    padding: 30px 20px;
+  }
+
+  .parchment h1 {
+    font-size: 1.3rem;
+  }
+
+  .parchment .birthday-name {
+    font-size: 1.3rem;
+  }
+
+  #house-name {
+    font-size: 2rem;
+  }
+
+  #alohomora-text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .parchment {
+    padding: 24px 16px;
+  }
+
+  .parchment h1 {
+    font-size: 1.15rem;
+  }
+
+  .parchment .birthday-name {
+    font-size: 1.15rem;
+  }
+
+  #hat-speech {
+    font-size: 1.05rem;
+  }
+
+  #house-name {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
+
+  #house-motto {
+    font-size: 0.95rem;
+  }
+
+  #alohomora-text {
+    font-size: 1.2rem;
+  }
+
+  .quiz-option {
+    font-size: 0.95rem;
+    padding: 12px 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Stars background -->
+<div id="stars-container"></div>
+
+<!-- Lumos overlay -->
+<div id="lumos-overlay"></div>
+
+<!-- Alohomora overlay -->
+<div id="alohomora-overlay" onclick="dismissAlohomora()">
+  <div id="alohomora-text">&#10024; Adira's birthday will be MAGICAL! &#10024;</div>
+</div>
+
+<!-- Owl for arrival -->
+<div id="owl">&#129417;</div>
+
+<!-- ===== SECTION 1: ARRIVAL ===== -->
+<div id="scene-arrival" class="scene active">
+  <div id="arrival-text"></div>
+  <div id="envelope-container" onclick="openEnvelope()">
+    <div id="envelope">
+      <div id="envelope-flap"></div>
+      <div id="wax-seal">&#128174;</div>
+    </div>
+    <div id="envelope-prompt">Tap the envelope to open</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: INVITATION LETTER ===== -->
+<div id="scene-letter" class="scene">
+  <div class="parchment">
+    <h1>HOGWARTS SCHOOL</h1>
+    <h2>of WITCHCRAFT and WIZARDRY</h2>
+    <p class="subtitle">(well, actually Adira's house)</p>
+
+    <p class="greeting">Dear Witch or Wizard,</p>
+
+    <p class="invite-line">You have been cordially invited to celebrate</p>
+    <p class="birthday-name">ADIRA'S 8th BIRTHDAY</p>
+
+    <div class="details">
+      <strong>Date:</strong> Saturday, June 21st<br>
+      <strong>Time:</strong> 2:00 PM - 5:00 PM<br>
+      <strong>Location:</strong> 123 Wizarding Way<br>
+      <strong>Dress Code:</strong> Wizarding robes encouraged (costumes welcome!)
+    </div>
+
+    <p class="invite-line"><strong>Please bring:</strong> Your wand and sense of adventure</p>
+
+    <p class="rsvp-note">RSVP via Owl Post below &#129417;</p>
+
+    <button class="gold-btn" onclick="goToScene('scene-sorting')">Continue to Sorting Hat &#127913;</button>
+  </div>
+</div>
+
+<!-- ===== SECTION 3: SORTING HAT ===== -->
+<div id="scene-sorting" class="scene">
+  <div id="sorting-hat-emoji">&#127913;</div>
+  <div id="hat-speech"></div>
+
+  <div id="quiz-container"></div>
+
+  <div id="house-reveal">
+    <div id="house-emoji"></div>
+    <div id="house-name"></div>
+    <div id="house-motto"></div>
+
+    <div id="guest-scroll">
+      <h3>&#128220; Guest Scroll &#128220;</h3>
+      <div id="guest-list"></div>
+    </div>
+
+    <button class="gold-btn" onclick="goToScene('scene-rsvp')" style="margin-top:24px;">Send Your Owl Post &#129417;</button>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: RSVP ===== -->
+<div id="scene-rsvp" class="scene">
+  <div id="rsvp-form-container">
+    <h2>&#129417; Owl Post Office &#129417;</h2>
+
+    <form id="rsvp-form" onsubmit="submitRSVP(event)">
+      <div class="form-group">
+        <label for="rsvp-name">Your Names (all attending)</label>
+        <input type="text" id="rsvp-name" required placeholder="e.g. Harry, Ron, and Hermione">
+      </div>
+
+      <div class="form-group">
+        <label>Will you be there?</label>
+        <div class="attend-toggle">
+          <button type="button" class="attend-btn selected" onclick="setAttending(true, this)">I solemnly swear I'll be there</button>
+          <button type="button" class="attend-btn" onclick="setAttending(false, this)">Mischief... I cannot make it</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rsvp-allergies">Any allergies or dietary needs?</label>
+        <input type="text" id="rsvp-allergies" placeholder="Optional">
+      </div>
+
+      <input type="hidden" id="rsvp-house" value="">
+
+      <button type="submit" class="gold-btn" id="rsvp-submit">&#129417; Send Owl to RSVP</button>
+      <div id="rsvp-error"></div>
+    </form>
+  </div>
+
+  <div id="rsvp-success">
+    <div id="flying-owl">&#129417;</div>
+    <div id="success-message"></div>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: SPELL TERMINAL (always visible) ===== -->
+<div id="spell-terminal">
+  <div id="spell-terminal-inner">
+    <div class="terminal-header">&gt; MINISTRY OF MAGIC TERMINAL v9.75</div>
+    <div class="terminal-sub">&gt; Select a spell from your spellbook...</div>
+    <div id="spell-input-row">
+      <span class="prompt">&gt;</span>
+      <select id="spell-select">
+        <option value="" disabled selected>-- Choose a spell --</option>
+        <option value="lumos">Lumos &#x1F56F;&#xFE0F;</option>
+        <option value="nox">Nox &#x1F311;</option>
+        <option value="expecto patronum">Expecto Patronum &#x2728;</option>
+        <option value="wingardium leviosa">Wingardium Leviosa &#x1FA84;</option>
+        <option value="accio cake">Accio Cake &#x1F382;</option>
+        <option value="alohomora">Alohomora &#x1F513;</option>
+        <option value="expelliarmus">Expelliarmus &#x26A1;</option>
+        <option value="stupefy">Stupefy &#x2744;&#xFE0F;</option>
+        <option value="riddikulus">Riddikulus &#x1F921;</option>
+        <option value="obliviate">Obliviate &#x1F4AD;</option>
+        <option value="mischief managed">Mischief Managed &#x2728;</option>
+        <option value="i solemnly swear">I Solemnly Swear &#x1F5FA;&#xFE0F;</option>
+        <option value="happy birthday">Happy Birthday &#x1F389;</option>
+        <option value="avada kedavra">Avada Kedavra &#x1F480;</option>
+      </select>
+      <button id="cast-btn" onclick="castSpell()">Cast!</button>
+    </div>
+    <div id="spell-response"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ===== STATE =====
+  var playerName = '';
+  var playerHouse = '';
+  var attending = true;
+  var scores = { gryffindor: 0, ravenclaw: 0, hufflepuff: 0, slytherin: 0 };
+  var currentQuestion = 0;
+  var lumosActive = false;
+  var candleElements = [];
+
+  // ===== HOUSE DATA =====
+  var houses = {
+    gryffindor: { name: 'GRYFFINDOR', emoji: '\uD83E\uDD81', textColor: '#D3A625', bgColor: '#740001', motto: 'Where dwell the brave at heart!' },
+    slytherin:  { name: 'SLYTHERIN',  emoji: '\uD83D\uDC0D', textColor: '#AAAAAA', bgColor: '#1A472A', motto: 'Those cunning folk use any means to achieve their ends!' },
+    ravenclaw:  { name: 'RAVENCLAW',  emoji: '\uD83E\uDD85', textColor: '#946B2D', bgColor: '#0E1A40', motto: 'Wit beyond measure is a treasure!' },
+    hufflepuff: { name: 'HUFFLEPUFF', emoji: '\uD83E\uDDA1', textColor: '#FFD800', bgColor: '#000000', motto: 'Those patient Hufflepuffs are true and unafraid of toil!' }
+  };
+
+  // ===== QUIZ DATA =====
+  var questions = [
+    {
+      text: 'You find a mysterious door. Do you...',
+      options: [
+        { text: 'Kick it open and charge through!', house: 'gryffindor' },
+        { text: 'Examine the runes carved around the frame', house: 'ravenclaw' },
+        { text: 'Knock politely and wait', house: 'hufflepuff' },
+        { text: 'Check for traps and hidden mechanisms', house: 'slytherin' }
+      ]
+    },
+    {
+      text: 'Your favorite magical creature?',
+      options: [
+        { text: 'Dragon \uD83D\uDC09', house: 'gryffindor' },
+        { text: 'Phoenix \uD83E\uDD85', house: 'ravenclaw' },
+        { text: 'Niffler (the cute fluffy treasure hunter!)', house: 'hufflepuff' },
+        { text: 'Snake \uD83D\uDC0D', house: 'slytherin' }
+      ]
+    },
+    {
+      text: 'At Hogwarts, you\'d be best at...',
+      options: [
+        { text: 'Defense Against the Dark Arts \u26A1', house: 'gryffindor' },
+        { text: 'Charms \u2728', house: 'ravenclaw' },
+        { text: 'Herbology \uD83C\uDF3F', house: 'hufflepuff' },
+        { text: 'Potions \uD83E\uDDEA', house: 'slytherin' }
+      ]
+    },
+    {
+      text: 'The most important quality is...',
+      options: [
+        { text: 'Courage \uD83D\uDD25', house: 'gryffindor' },
+        { text: 'Wisdom \uD83D\uDCDA', house: 'ravenclaw' },
+        { text: 'Loyalty \uD83D\uDC9B', house: 'hufflepuff' },
+        { text: 'Ambition \uD83D\uDC51', house: 'slytherin' }
+      ]
+    }
+  ];
+
+  // ===== UTILITY: Shuffle array =====
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  // ===== UTILITY: Type text =====
+  function typeText(el, text, speed, callback) {
+    el.textContent = '';
+    var i = 0;
+    var interval = setInterval(function() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(interval);
+        if (callback) callback();
+      }
+    }, speed || 40);
+  }
+
+  // ===== CREATE STARS =====
+  function createStars() {
+    var container = document.getElementById('stars-container');
+    for (var i = 0; i < 80; i++) {
+      var star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.setProperty('--dur', (1.5 + Math.random() * 3) + 's');
+      star.style.animationDelay = (Math.random() * 3) + 's';
+      var size = 1 + Math.random() * 2;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      container.appendChild(star);
+    }
+  }
+
+  // ===== SCENE MANAGEMENT =====
+  window.goToScene = function(sceneId) {
+    var scenes = document.querySelectorAll('.scene');
+    for (var i = 0; i < scenes.length; i++) {
+      scenes[i].classList.remove('active');
+    }
+    var target = document.getElementById(sceneId);
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (sceneId === 'scene-sorting') {
+      startSorting();
+    }
+    if (sceneId === 'scene-rsvp') {
+      setupRSVP();
+    }
+  };
+
+  // ===== SECTION 1: ARRIVAL SEQUENCE =====
+  function startArrival() {
+    createStars();
+
+    // Owl flies across
+    var owl = document.getElementById('owl');
+    owl.classList.add('flying');
+
+    // After owl finishes (3.2s), start typing
+    setTimeout(function() {
+      var arrivalText = document.getElementById('arrival-text');
+      typeText(arrivalText, '> INTERCEPTED OWL POST... DECRYPTING MAGICAL CONTENTS...', 35, function() {
+        // After typing finishes, show envelope
+        setTimeout(function() {
+          var envContainer = document.getElementById('envelope-container');
+          envContainer.style.display = 'flex';
+        }, 600);
+      });
+    }, 3200);
+  }
+
+  // ===== OPEN ENVELOPE =====
+  window.openEnvelope = function() {
+    var flap = document.getElementById('envelope-flap');
+    if (flap.classList.contains('open')) return;
+    flap.classList.add('open');
+
+    setTimeout(function() {
+      goToScene('scene-letter');
+    }, 1200);
+  };
+
+  // ===== SECTION 3: SORTING HAT =====
+  function startSorting() {
+    var hatSpeech = document.getElementById('hat-speech');
+    var quizContainer = document.getElementById('quiz-container');
+    var houseReveal = document.getElementById('house-reveal');
+
+    // Reset
+    scores = { gryffindor: 0, ravenclaw: 0, hufflepuff: 0, slytherin: 0 };
+    currentQuestion = 0;
+    quizContainer.innerHTML = '';
+    quizContainer.style.display = 'block';
+    houseReveal.style.display = 'none';
+    document.getElementById('sorting-hat-emoji').classList.remove('shake');
+
+    typeText(hatSpeech, 'Hmm, difficult. Very difficult. Let me ask you a few questions...', 40, function() {
+      setTimeout(function() {
+        buildQuiz();
+        showQuestion(0);
+      }, 800);
+    });
+  }
+
+  function buildQuiz() {
+    var quizContainer = document.getElementById('quiz-container');
+    quizContainer.innerHTML = '';
+
+    for (var q = 0; q < questions.length; q++) {
+      var qDiv = document.createElement('div');
+      qDiv.className = 'quiz-question';
+      qDiv.id = 'question-' + q;
+
+      var h3 = document.createElement('h3');
+      h3.textContent = questions[q].text;
+      qDiv.appendChild(h3);
+
+      var shuffled = shuffle(questions[q].options);
+      for (var o = 0; o < shuffled.length; o++) {
+        var btn = document.createElement('button');
+        btn.className = 'quiz-option';
+        btn.textContent = shuffled[o].text;
+        btn.setAttribute('data-house', shuffled[o].house);
+        btn.setAttribute('data-question', q);
+        btn.addEventListener('click', handleAnswer);
+        qDiv.appendChild(btn);
+      }
+
+      quizContainer.appendChild(qDiv);
+    }
+  }
+
+  function showQuestion(idx) {
+    var allQ = document.querySelectorAll('.quiz-question');
+    for (var i = 0; i < allQ.length; i++) {
+      allQ[i].classList.remove('active');
+    }
+    var target = document.getElementById('question-' + idx);
+    if (target) {
+      target.classList.add('active');
+    }
+  }
+
+  function handleAnswer(e) {
+    var house = e.currentTarget.getAttribute('data-house');
+    var qIdx = parseInt(e.currentTarget.getAttribute('data-question'), 10);
+
+    scores[house]++;
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+      showQuestion(currentQuestion);
+    } else {
+      // Deliberation
+      var allQ = document.querySelectorAll('.quiz-question');
+      for (var i = 0; i < allQ.length; i++) {
+        allQ[i].classList.remove('active');
+      }
+
+      document.getElementById('sorting-hat-emoji').classList.add('shake');
+      var hatSpeech = document.getElementById('hat-speech');
+      typeText(hatSpeech, 'I see... yes... I know just where to put you...', 50, function() {
+        setTimeout(function() {
+          revealHouse();
+        }, 2500);
+      });
+    }
+  }
+
+  function revealHouse() {
+    document.getElementById('sorting-hat-emoji').classList.remove('shake');
+
+    // Find winner
+    var maxScore = 0;
+    var winners = [];
+    for (var h in scores) {
+      if (scores[h] > maxScore) {
+        maxScore = scores[h];
+        winners = [h];
+      } else if (scores[h] === maxScore) {
+        winners.push(h);
+      }
+    }
+    // Tie-break randomly
+    var winner = winners[Math.floor(Math.random() * winners.length)];
+    playerHouse = winner;
+
+    var houseData = houses[winner];
+
+    // Hide quiz, show reveal
+    document.getElementById('quiz-container').style.display = 'none';
+    document.getElementById('hat-speech').textContent = '';
+    var reveal = document.getElementById('house-reveal');
+    reveal.style.display = 'block';
+    reveal.style.background = houseData.bgColor;
+    reveal.style.borderRadius = '12px';
+    reveal.style.padding = '30px 20px';
+
+    document.getElementById('house-emoji').textContent = houseData.emoji;
+    var nameEl = document.getElementById('house-name');
+    nameEl.textContent = houseData.name;
+    nameEl.style.color = houseData.textColor;
+
+    var mottoEl = document.getElementById('house-motto');
+    mottoEl.textContent = houseData.motto;
+    mottoEl.style.color = houseData.textColor;
+
+    // Set hidden RSVP field
+    document.getElementById('rsvp-house').value = winner;
+
+    // Particle burst
+    createParticleBurst(houseData.textColor, houseData.bgColor);
+
+    // Fetch guest scroll
+    fetchGuests();
+  }
+
+  function createParticleBurst(color1, color2) {
+    var centerX = window.innerWidth / 2;
+    var centerY = window.innerHeight / 2;
+
+    for (var i = 0; i < 30; i++) {
+      var p = document.createElement('div');
+      p.className = 'particle';
+      p.style.background = (i % 2 === 0) ? color1 : color2;
+      p.style.left = centerX + 'px';
+      p.style.top = centerY + 'px';
+
+      var angle = (Math.PI * 2 / 30) * i;
+      var dist = 100 + Math.random() * 200;
+      var dx = Math.cos(angle) * dist;
+      var dy = Math.sin(angle) * dist;
+      var dur = 0.8 + Math.random() * 0.5;
+      var size = 6 + Math.random() * 8;
+
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.transition = 'all ' + dur + 's ease-out';
+
+      document.body.appendChild(p);
+
+      // Force reflow
+      p.offsetHeight;
+
+      p.style.left = (centerX + dx) + 'px';
+      p.style.top = (centerY + dy) + 'px';
+      p.style.opacity = '0';
+      p.style.transform = 'scale(0.2)';
+
+      (function(el) {
+        setTimeout(function() {
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }, 1500);
+      })(p);
+    }
+  }
+
+  function fetchGuests() {
+    var guestList = document.getElementById('guest-list');
+    guestList.innerHTML = '';
+
+    fetch('/api/birthday.php?action=guests')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data && data.length) {
+          for (var i = 0; i < data.length; i++) {
+            var g = data[i];
+            var badge = document.createElement('span');
+            badge.className = 'guest-badge';
+            var h = houses[g.house] || houses.gryffindor;
+            badge.style.background = h.bgColor;
+            badge.style.color = h.textColor;
+            badge.style.border = '1px solid ' + h.textColor;
+            badge.textContent = h.emoji + ' ' + g.name;
+            guestList.appendChild(badge);
+          }
+        } else {
+          guestList.innerHTML = '<em style="color:#D4AF37;font-size:0.9rem;">Be the first to be sorted!</em>';
+        }
+      })
+      .catch(function() {
+        guestList.innerHTML = '<em style="color:#D4AF37;font-size:0.9rem;">The guest scroll is being delivered by owl...</em>';
+      });
+  }
+
+  // ===== SECTION 4: RSVP =====
+  function setupRSVP() {
+    if (playerName) {
+      document.getElementById('rsvp-name').value = playerName;
+    }
+    document.getElementById('rsvp-form-container').style.display = 'block';
+    document.getElementById('rsvp-success').style.display = 'none';
+  }
+
+  window.setAttending = function(val, btn) {
+    attending = val;
+    var buttons = btn.parentNode.querySelectorAll('.attend-btn');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove('selected');
+    }
+    btn.classList.add('selected');
+  };
+
+  window.submitRSVP = function(e) {
+    e.preventDefault();
+
+    var name = document.getElementById('rsvp-name').value.trim();
+    var allergies = document.getElementById('rsvp-allergies').value.trim();
+    var house = document.getElementById('rsvp-house').value || playerHouse || '';
+    var errorEl = document.getElementById('rsvp-error');
+
+    if (!name) {
+      errorEl.textContent = 'Please enter your name(s)!';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    errorEl.style.display = 'none';
+    playerName = name;
+
+    var data = {
+      name: name,
+      attending: attending,
+      allergies: allergies,
+      phone: '',
+      house: house
+    };
+
+    fetch('/api/birthday.php?action=rsvp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(r) {
+      if (!r.ok) throw new Error('Request failed');
+      return r.json();
+    })
+    .then(function() {
+      showRSVPSuccess(name);
+    })
+    .catch(function() {
+      errorEl.textContent = 'Owl delivery failed! Please try again.';
+      errorEl.style.display = 'block';
+    });
+  };
+
+  function showRSVPSuccess(name) {
+    document.getElementById('rsvp-form-container').style.display = 'none';
+    var successDiv = document.getElementById('rsvp-success');
+    successDiv.style.display = 'block';
+
+    var owl = document.getElementById('flying-owl');
+    owl.classList.add('fly-away');
+
+    setTimeout(function() {
+      var msg = document.getElementById('success-message');
+      msg.innerHTML = 'Your owl is on its way! See you at the party, ' + escapeHTML(name) + '! \u2728';
+      msg.classList.add('visible');
+    }, 1500);
+  }
+
+  function escapeHTML(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // ===== SECTION 5: SPELLS =====
+  window.castSpell = function() {
+    var select = document.getElementById('spell-select');
+    var spell = select.value.trim().toLowerCase();
+    select.selectedIndex = 0;
+    var resp = document.getElementById('spell-response');
+
+    if (!spell) return;
+
+    switch (spell) {
+      case 'lumos':
+        spellLumos();
+        resp.textContent = '> \uD83D\uDD6F\uFE0F Lumos! Let there be light!';
+        break;
+      case 'nox':
+        spellNox();
+        resp.textContent = '> Nox. Darkness falls...';
+        break;
+      case 'expecto patronum':
+        spellPatronus();
+        resp.textContent = '> EXPECTO PATRONUM! A glowing figure emerges!';
+        break;
+      case 'wingardium leviosa':
+        spellLevitate();
+        resp.textContent = '> It\'s leviOsa, not levioSA!';
+        break;
+      case 'accio cake':
+        spellAccioCake();
+        resp.textContent = '> Accio Cake! \uD83C\uDF82';
+        break;
+      case 'alohomora':
+        spellAlohomora();
+        resp.textContent = '> Alohomora! A hidden message reveals itself...';
+        break;
+      case 'expelliarmus':
+        spellExpelliarmus();
+        resp.textContent = '> EXPELLIARMUS!';
+        break;
+      case 'stupefy':
+        spellStupefy();
+        resp.textContent = '> STUPEFY! Everything freezes...';
+        break;
+      case 'riddikulus':
+        spellRiddikulus();
+        resp.textContent = '> Riddikulus! Everything looks silly!';
+        break;
+      case 'avada kedavra':
+        resp.textContent = '> \uD83D\uDEA8 BANNED BY THE MINISTRY OF MAGIC! Nice try, dark wizard. \uD83D\uDEA8';
+        break;
+      case 'obliviate':
+        resp.textContent = '> You forget why you came here... oh wait, it\'s ADIRA\'S BIRTHDAY! \uD83C\uDF82';
+        break;
+      case 'mischief managed':
+        spellConfetti();
+        resp.textContent = '> Mischief managed! \u2728';
+        break;
+      case 'i solemnly swear':
+        typeText(resp, '> ...that I am up to no good', 50);
+        break;
+      case 'happy birthday':
+        spellConfetti();
+        spellAccioCake();
+        resp.textContent = '> \uD83C\uDF89 HAPPY BIRTHDAY ADIRA! \uD83C\uDF89';
+        break;
+      default:
+        resp.textContent = '> That spell is not in your spellbook yet. Keep studying! \uD83D\uDCDA';
+    }
+  };
+
+  // Spell: Lumos
+  function spellLumos() {
+    if (lumosActive) return;
+    lumosActive = true;
+    var overlay = document.getElementById('lumos-overlay');
+    overlay.classList.add('flash');
+    setTimeout(function() {
+      overlay.classList.remove('flash');
+      overlay.classList.add('warm');
+    }, 300);
+
+    // Create floating candles
+    for (var i = 0; i < 12; i++) {
+      var candle = document.createElement('div');
+      candle.className = 'floating-candle';
+      candle.textContent = '\uD83D\uDD6F\uFE0F';
+      candle.style.left = (5 + Math.random() * 85) + '%';
+      candle.style.top = (5 + Math.random() * 60) + '%';
+      candle.style.animationDelay = (Math.random() * 2) + 's';
+      candle.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+      document.body.appendChild(candle);
+      candleElements.push(candle);
+      // Slight delay for appearance
+      (function(c) {
+        setTimeout(function() { c.classList.add('visible'); }, i * 80);
+      })(candle);
+    }
+  }
+
+  // Spell: Nox
+  function spellNox() {
+    lumosActive = false;
+    var overlay = document.getElementById('lumos-overlay');
+    overlay.classList.remove('flash', 'warm');
+
+    for (var i = 0; i < candleElements.length; i++) {
+      candleElements[i].classList.remove('visible');
+      (function(c) {
+        setTimeout(function() {
+          if (c.parentNode) c.parentNode.removeChild(c);
+        }, 600);
+      })(candleElements[i]);
+    }
+    candleElements = [];
+  }
+
+  // Spell: Expecto Patronum
+  function spellPatronus() {
+    var animals = ['\uD83E\uDD8C', '\uD83D\uDC3A', '\uD83E\uDD8A', '\uD83E\uDD85', '\uD83D\uDC34', '\uD83E\uDD99'];
+    var animal = animals[Math.floor(Math.random() * animals.length)];
+    var p = document.createElement('div');
+    p.className = 'patronus';
+    p.textContent = animal;
+    document.body.appendChild(p);
+    setTimeout(function() {
+      if (p.parentNode) p.parentNode.removeChild(p);
+    }, 3500);
+  }
+
+  // Spell: Wingardium Leviosa
+  function spellLevitate() {
+    document.body.classList.add('levitate');
+    setTimeout(function() {
+      document.body.classList.remove('levitate');
+      document.body.classList.add('levitate-return');
+      setTimeout(function() {
+        document.body.classList.remove('levitate-return');
+      }, 2000);
+    }, 1000);
+  }
+
+  // Spell: Accio Cake
+  function spellAccioCake() {
+    var cake = document.createElement('div');
+    cake.className = 'accio-cake';
+    cake.textContent = '\uD83C\uDF82';
+    document.body.appendChild(cake);
+    setTimeout(function() {
+      cake.classList.add('fade');
+      setTimeout(function() {
+        if (cake.parentNode) cake.parentNode.removeChild(cake);
+      }, 1000);
+    }, 2500);
+  }
+
+  // Spell: Alohomora
+  function spellAlohomora() {
+    var overlay = document.getElementById('alohomora-overlay');
+    overlay.classList.add('visible');
+    setTimeout(function() {
+      dismissAlohomora();
+    }, 4000);
+  }
+
+  window.dismissAlohomora = function() {
+    document.getElementById('alohomora-overlay').classList.remove('visible');
+  };
+
+  // Spell: Expelliarmus
+  function spellExpelliarmus() {
+    document.body.classList.add('expelliarmus');
+    setTimeout(function() {
+      document.body.classList.remove('expelliarmus');
+    }, 1600);
+  }
+
+  // Spell: Stupefy
+  function spellStupefy() {
+    document.body.classList.add('stupefy-flash');
+    setTimeout(function() {
+      document.body.classList.remove('stupefy-flash');
+      document.body.classList.add('stupefy-gray');
+      setTimeout(function() {
+        document.body.classList.remove('stupefy-gray');
+      }, 2000);
+    }, 300);
+  }
+
+  // Spell: Riddikulus
+  function spellRiddikulus() {
+    document.body.classList.add('riddikulus');
+    setTimeout(function() {
+      document.body.classList.remove('riddikulus');
+    }, 3000);
+  }
+
+  // Spell: Confetti
+  function spellConfetti() {
+    var colors = ['#D4AF37', '#740001', '#1A472A', '#0E1A40', '#FFD800', '#ff69b4', '#ff6b6b', '#4fc3f7'];
+    for (var i = 0; i < 50; i++) {
+      var piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      piece.style.left = Math.random() * 100 + '%';
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.setProperty('--fall-dur', (2 + Math.random() * 2) + 's');
+      piece.style.animationDelay = (Math.random() * 1) + 's';
+      piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      var size = 6 + Math.random() * 8;
+      piece.style.width = size + 'px';
+      piece.style.height = size + 'px';
+      document.body.appendChild(piece);
+      (function(el) {
+        setTimeout(function() {
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }, 5000);
+      })(piece);
+    }
+  }
+
+  // Cast on select change for instant feedback
+  document.getElementById('spell-select').addEventListener('change', function() {
+    castSpell();
+  });
+
+  // ===== INIT =====
+  startArrival();
+
+})();
+</script>
+</body>
+</html>

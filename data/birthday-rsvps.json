@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Harry, Ron, and Hermione",
+        "attending": true,
+        "allergies": "Ron is allergic to spiders",
+        "phone": "",
+        "house": "gryffindor",
+        "timestamp": "2026-03-27T12:00:00Z"
+    },
+    {
+        "name": "Draco and Goyle",
+        "attending": false,
+        "allergies": "",
+        "phone": "",
+        "house": "slytherin",
+        "timestamp": "2026-03-27T13:00:00Z"
+    }
+]

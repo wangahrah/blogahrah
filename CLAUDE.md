@@ -29,9 +29,15 @@ This is a personal blog/portfolio with a terminal-themed interface. It uses vani
 ### Backend API (`/api/`)
 
 - `auth.php` - Session-based authentication (POST login, GET status, DELETE logout)
-- `posts.php` - Blog CRUD (GET list, POST create, PUT update) - supports private posts visible only when authenticated
+- `posts.php` - Blog CRUD (GET list, GET single via `?slug=X`, POST create, PUT update, DELETE) - private posts are excluded from listing for unauthenticated users but accessible by direct slug lookup
 - `upload.php` - Media upload with MIME validation (images/videos, 50MB max)
 - `config.php` - Password hash, paths, allowed MIME types
+
+### Other Backend
+
+- `feed.php` - RSS 2.0 feed (public posts only, 5 most recent), uses Parsedown for Markdown→HTML
+- `/tools/wp-import.php` - WordPress XML import script
+- `/tools/medium-import.php` - Medium export import script
 
 ### Data Storage
 
@@ -51,7 +57,7 @@ Uploaded media goes to `/media/`.
 
 ## Key Patterns
 
-- No npm/composer - external libraries loaded via CDN (unpkg.com for frontend libs, uicdn.toast.com for editor)
+- No npm/composer - external libraries loaded via CDN (unpkg.com for frontend libs, uicdn.toast.com for editor); Parsedown (`/lib/`) is the only vendored PHP library
 - File-based persistence, no database
 - Session-based auth with CSRF token protection (via `X-CSRF-Token` header)
 - Password hashing uses bcrypt via `password_hash()`/`password_verify()`
