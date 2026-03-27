@@ -916,10 +916,10 @@ body.expelliarmus #spell-terminal-inner {
     <p class="birthday-name">ADIRA'S 8th BIRTHDAY</p>
 
     <div class="details">
-      <strong>Date:</strong> Saturday, June 21st<br>
+      <strong>Date:</strong> Sunday, April 26th<br>
       <strong>Time:</strong> 2:00 PM - 5:00 PM<br>
-      <strong>Location:</strong> 123 Wizarding Way<br>
-      <strong>Dress Code:</strong> Wizarding robes encouraged (costumes welcome!)
+      <strong>Location:</strong> <a href="https://maps.google.com/?q=350+Morsetown+Road,+West+Milford,+NJ" target="_blank" style="color:#740001;text-decoration:underline;">350 Morsetown Road, West Milford</a><br>
+      <strong>Dress Code:</strong> Wizarding robes encouraged (all costumes welcomed!)
     </div>
 
     <p class="invite-line"><strong>Please bring:</strong> Your wand and sense of adventure</p>
@@ -958,8 +958,8 @@ body.expelliarmus #spell-terminal-inner {
 
     <form id="rsvp-form" onsubmit="submitRSVP(event)">
       <div class="form-group">
-        <label for="rsvp-name">Your Names (all attending)</label>
-        <input type="text" id="rsvp-name" required placeholder="e.g. Harry, Ron, and Hermione">
+        <label for="rsvp-name">Your Name</label>
+        <input type="text" id="rsvp-name" required placeholder="Enter your wizarding name">
       </div>
 
       <div class="form-group">
@@ -1401,7 +1401,7 @@ body.expelliarmus #spell-terminal-inner {
     var errorEl = document.getElementById('rsvp-error');
 
     if (!name) {
-      errorEl.textContent = 'Please enter your name(s)!';
+      errorEl.textContent = 'Please enter your name!';
       errorEl.style.display = 'block';
       return;
     }
